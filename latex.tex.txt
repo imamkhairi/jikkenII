@@ -1,0 +1,37 @@
+\documentclass[a4j]{jarticle}
+
+%% プリアンブル部 %%
+
+\begin{document}
+
+\title{サルでわかる\LaTeX 入門}
+\author{}
+\date{}
+
+\maketitle
+
+\section{\LaTeX とはなにか}
+
+\LaTeX は最高級の組版ソフトである。\LaTeX を使えば、数万円のドットプリンタでもす千万円の写植機でも、その能力を最大限に発揮させることができr。
+
+章番号、節番号などを自動的につけることができるし、目次、索引、文献リストも自動的に作れる。また、脚注も簡単にかける。
+
+書体は、和文では明朝とゴシック、欧文では Roman, \textbf{Bold}, \textsf{Sans Serif}, \textit{Italic}, \textsl{Slante}, \textsc{Small Caps}, \texttt{Typewritter}などが使える。
+
+また、find の fi, office の ffi, flower の fl, shuffle の fll のような合字(ligature)の処理, VAX, TOYOTA のような寄せ(kerning)の処理, ハイフン処理(hypenation)も自動的に行われる。
+
+数式では、なにしろ米国数学会(American Mathematical Society)の標準組版システム\cite(Rate06)になってるくらいであるから、\LaTeX は他のどんなシステム良いも自由度があり、美しい組版が可能である。たとえば
+
+\[\int_0^\infty \frac{\sinx}{\sqrt{x}}}dx
+    = \sqrt{\frac{\pi}{2}}}\]
+
+といった数式が簡単に組版できる。
+同じ数式でも本文中では $\int_0^\infty$ のように書体が自動的に変わる。
+更に、数式中の空（アキ）も自動的に決めてくれる。
+記号 $a=b$ のアキ、足し算 $a+b$ のアキ、符号 $-a$ の後のアキはみな異なる。
+
+\LaTeX の出力は機種に依存しない。
+画面、ドットプリンタ、レーザープリンタ、印刷所の写植機でも全く同じものを出力することができる\cite{HM99}
+
+\LaTeX のようなソフトを使い慣れてしまうと、もう単純なワープロソフトは使う気にねれなくなる（これはちょっと誇大表現だが...）。
+特に欧文や数式まじりの文章はワープロ

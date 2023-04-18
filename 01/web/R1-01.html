@@ -1,0 +1,135 @@
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>R1-01</title>
+</head>
+
+<body vlink="#000000" text="#ffffff" link="#000000" background="R1-01_files/blrenga.gif">
+
+<center>
+<hr>
+<h2> 1.　基本操作 </h2>
+<hr>
+</center>
+<br>
+<center><table width="600" cellpadding="15" border="0"><tbody><tr><td>
+
+<font size="4" color="#00fff0">1. LaTeXソースの入力</font><br>
+<ol>
+<li>エディタは好みのもので．文字コードは UTF-8，TEX編集モードを使用．
+</li><li>与えられたプリントの内容を入力し，<font color="#ffcc00"> latex01.tex </font>として保存．<br>
+（全角半角，大文字小文字の違いに注意して入力すること）
+</li></ol>
+
+<br>
+
+<font size="4" color="#00fff0">2. LaTeXのコンパイル</font><br>
+<ol>
+<li>コンパイルコマンド<font color="#ffcc00"> platex latex01 </font>でコンパイルする．
+</li><li>もう一度<font color="#ffcc00"> platex latex01 </font>でコンパイルする．
+</li><li>コンパイル終了後<font color="#ffcc00"> latex01.dvi </font>が作成される．
+</li><li>dvi ⇒ pdf 変換には，<font color="#ffcc00"> dvipdfmx latex01 </font>を実行する．
+</li><li>メニューから印刷を指定すると処理実験室のプリンタに出力される．
+</li></ol>
+
+<p>
+注： platex コマンドは２度実行することを忘れないこと！<br>
+注： もちろん，USBメモリ等に保存してデータを持ち帰れば，どこでも印刷できる．　
+</p>
+
+<p>
+　ソースファイル *.tex をコンパイルすると，<font color="#ffcc00">*.dvi, *.aux, *.log</font> などが生成される．
+</p>
+
+<p>
+　<font color="#ffcc00">*.dvi</font> : どのような出力デバイスにも対応可能なレイアウト情報を含む．<br>
+　<font color="#ffcc00">*.aux</font> : 目次や参考文献等を作成する情報を含む．<br>
+　<font color="#ffcc00">*.log</font> : コンパイル時のログやエラー情報を含む．
+</p>
+
+<font size="4" color="#00fff0">3. 空白と改行</font><br>
+<ol>
+<li>文中に複数のスペースを連続挿入しても，本文は１個分の空白しか空かない．<br>
+</li><li>１行以上の空行挿入で本文は１行だけ改行される．（次段落は字下げされる．<font color="#ffcc00">\noindent </font>で字下げ否定．）<br>
+</li><li>行末に<font color="#ffcc00"> \\ </font>付加で本文は強制改行される．（次段落は字下げされない．）<br>
+</li></ol>
+
+
+<font size="4" color="#00fff0">4. 文書クラスの指定</font><br>
+<ol>
+<!--<LI>文書クラスを<FONT COLOR="#ffcc00"> jreport </FONT>にする．-->
+<li>文書クラスを<font color="#ffcc00"> jbook </font>にする．
+</li><li>文書クラスを<font color="#ffcc00"> tarticle </font>にする．
+</li><li>文書クラスを<font color="#ffcc00"> jarticle </font>戻して，ドキュメントオプションに<font color="#ffcc00"> twocolumn </font>を追加する．
+</li></ol>
+
+<font size="4" color="#00fff0">5. スタイルファイル</font><br>
+<ol>
+<li>ドキュメントの概観の情報を記述したスタイルファイルを使うことで，指定された仕様に統一させることが可能．<br>
+</li><li>スタイルファイルは大学や学会など組織ごとに用意されている場合が多い．
+</li><li>個人でもある程度勉強すれば自在なデザインのスタイルファイル作成が可能．<br>
+</li><li>スタイルファイルは<font color="#ffcc00"> ****.sty </font>や<font color="#ffcc00"> ****.cls </font>の形式で提供され，これらをソースファイルと同じディレクトリに置いて，コンパイルする．<br>
+</li></ol>
+
+<font size="4" color="#00fff0">6. 文字の大きさの指定（全体的）</font><br>
+<ol>
+<li>文字の大きさを<font color="#ffcc00"> 11pt </font>にする．
+</li><li>文字の大きさを<font color="#ffcc00"> 12pt </font>にする．
+</li></ol>
+
+<font size="4" color="#00fff0">7. 文字の大きさの指定（部分的）</font><br>
+<ul>
+<li>{\Huge 文字列 }
+</li><li>\huge
+</li><li>\LARGE
+</li><li>\Large
+</li><li>\large
+</li><li>\normalsize
+</li><li>\small
+</li><li>\footnotesize
+</li><li>\scriptsize
+</li><li>\tiny
+</li></ul>
+
+<font size="4" color="#00fff0">8. 日付，著者，所属，脚注</font><br>
+<ol>
+<li><font color="#ffcc00">\author{ } </font>で著者を記述．<br>
+</li><li><font color="#ffcc00">\date{ } </font>で作成日（\todayや\西暦\todayも使える）を記述．<br>
+</li><li><font color="#ffcc00">\thanks{所属先} </font>で所属先を記述．<br>
+</li><li><font color="#ffcc00">\footnote{内容} </font>で脚注内容を記述．
+</li></ol>
+
+
+<font size="4" color="#00fff0">9. thebibliography環境</font><br>
+<ol>
+<li>各文献に固有の名前をつける．<font color="#ffcc00"> \bibitem{name} </font>
+</li><li>文献参照箇所で<font color="#ffcc00"> \cite{name} </font>で参照させる（<font color="#ffcc00"> ~ </font>を付けるとそこで改行しない）．
+</li><li>platex コマンドは必ず続けて２度施行する．
+</li><li>aux ファイルについて．
+</li></ol>
+
+<font size="4" color="#00fff0">10. コメントアウト</font><br>
+<ol>
+<li>文頭に<font color="#ffcc00"> % </font>を付加でその行をアウトできる．<br>
+</li><li><font color="#ffcc00"> \if0 </font>と<font color="#ffcc00"> \fi </font>ではさまれた全ての行をアウトできる．<br>
+</li></ol>
+
+<p>
+<a href="https://www.kushiro-ct.ac.jp/jjackpot/jikken/latex/latex01.tex"><font color="ffff00"> ヘルプファイル(latex01.tex) </font></a>
+</p>
+
+
+<br>
+<center>
+<hr>
+<a href="https://www.kushiro-ct.ac.jp/jjackpot/jikken/latex/latex.htm"><img src="R1-01_files/return.gif"></a>
+<a href="https://www.kushiro-ct.ac.jp/jjackpot/jikken/latex/r1-02.htm"><img src="R1-01_files/right.gif"></a><br>
+<hr><br>
+Copyright (C) 2000 J.LEE Co.,LTD All rights reserved.<br>
+<p></p>
+</center></td></tr></tbody></table>
+
+
+
+
+
+</center></body></html>

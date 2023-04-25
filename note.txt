@@ -1,2 +1,22 @@
 romaji sama japanese gk usah dikasih spasi
 titik dan koma yang biasa aja (全角)
+
+bibliography otomatis
+
+\if0
+yang dalam ini akan tidak dicompile
+\if
+
+begin(itemize)
+end(itemize)
+
+- enumerate: kalau mau jadi angka
+
+- description
+/item[] -> harus dalam kurung siku
+
+環境 artinya harus ada begin{} end{}
+
+begin{itembox}[l]{Knuthについて} -> untuk ada judul di itembox nya [l] -> left alignment (kalau gk ada otomatis center)
+
+\setlength{\itemsep}{-3pt} -> untuk atur jarak antar \item

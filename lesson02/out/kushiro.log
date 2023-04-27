@@ -1,12 +1,12 @@
-This is e-pTeX, Version 3.141592653-p4.1.0-230214-2.6 (utf8.sjis) (TeX Live 2023) (preloaded format=platex 2023.4.20)  27 APR 2023 23:54
+This is e-pTeX, Version 3.141592653-p4.1.0-230214-2.6 (utf8.sjis) (TeX Live 2023) (preloaded format=platex 2023.4.20)  28 APR 2023 00:17
 entering extended mode
- restricted \write18 enabled.
+ \write18 enabled.
+ file:line:error style messages enabled.
  %&-line parsing enabled.
-**kushiro.tex
-(./kushiro.tex
+**d:/Kosen/jikkenII/lesson02/kushiro.tex
+(d:/Kosen/jikkenII/lesson02/kushiro.tex
 pLaTeX2e <2023-02-14>+1 (based on LaTeX2e <2022-11-01> patch level 1)
-L3 programming layer <2023-03-30>
-(c:/texlive/2023/texmf-dist/tex/platex/base/jarticle.cls
+L3 programming layer <2023-03-30> (c:/texlive/2023/texmf-dist/tex/platex/base/jarticle.cls
 Document Class: jarticle 2020/09/30 v1.8f Standard pLaTeX class
 \c@@paper=\count184
 (c:/texlive/2023/texmf-dist/tex/platex/base/jsize10.clo
@@ -29,10 +29,8 @@ LaTeX Font Info:    Overwriting symbol font `mincho' in version `bold'
 \@lnumwidth=\dimen157
 \bibindent=\dimen158
 \heisei=\count193
-)
-(c:/texlive/2023/texmf-dist/tex/latex/ascmac/ascmac.sty
+) (c:/texlive/2023/texmf-dist/tex/latex/ascmac/ascmac.sty
 Package: ascmac 2020/01/15 v2.1 ascmac wrapper (community edition) 
-
 (c:/texlive/2023/texmf-dist/tex/latex/ascmac/tascmac.sty
 Package: tascmac 2020/01/15 v2.1 ascmac package (community edition) 
 \@savetbaselineshift=\dimen159
@@ -52,8 +50,7 @@ Package: tascmac 2020/01/15 v2.1 ascmac package (community edition)
 \@@bwsp=\box76
 \@bcal=\count194
 \shaderule=\dimen164
-))
-(c:/texlive/2023/texmf-dist/tex/latex/l3backend/l3backend-dvips.def
+)) (c:/texlive/2023/texmf-dist/tex/latex/l3backend/l3backend-dvips.def
 File: l3backend-dvips.def 2023-03-30 L3 backend support: dvips
 \l__pdf_internal_box=\box77
 \g__pdf_backend_object_int=\count195
@@ -62,8 +59,7 @@ File: l3backend-dvips.def 2023-03-30 L3 backend support: dvips
 \g__pdf_backend_annotation_int=\count196
 \g__pdf_backend_link_int=\count197
 \g__pdf_backend_link_sf_int=\count198
-)
-(./kushiro.aux)
+) (out/kushiro.aux)
 \openout1 = `kushiro.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 4.
@@ -95,87 +91,29 @@ LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <14.4> not available
 LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <14.4> not available
 (Font)              Font shape `JY1/gt/m/n' tried instead on input line 13.
 LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <10> not available
-(Font)              Font shape `JT1/gt/m/n' tried instead on input line 25.
+(Font)              Font shape `JT1/gt/m/n' tried instead on input line 33.
 LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <10> not available
-(Font)              Font shape `JY1/gt/m/n' tried instead on input line 25.
+(Font)              Font shape `JY1/gt/m/n' tried instead on input line 33.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 59.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 59.
+
+Overfull \hbox (23.08353pt too wide) in paragraph at lines 68--69
+[]\JY1/mc/m/n/10 釧路の観光 \OT1/cmr/m/n/10 HP,http://kankou.city.kushiro.hokkaido.jp 
+ []
+
+[1
 
 
-LaTeX Warning: Citation `bib1' on page 1 undefined on input line 25.
-
-
-LaTeX Warning: Citation `bib2' on page 1 undefined on input line 34.
-
-
-LaTeX Warning: Citation `bib2' on page 1 undefined on input line 37.
-
-
-LaTeX Warning: Citation `bib2' on page 1 undefined on input line 40.
-
-
-! LaTeX Error: Something's wrong--perhaps a missing \item.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.45     \item 北
-                 海道教育大学釧路校
-? 
-
-! LaTeX Error: Something's wrong--perhaps a missing \item.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.45     \item 北
-                 海道教育大学釧路校
-? 
-
-! LaTeX Error: Something's wrong--perhaps a missing \item.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.45     \item 北
-                 海道教育大学釧路校
-? 
-
-! LaTeX Error: Something's wrong--perhaps a missing \item.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.46     \item 釧
-                 路公立大学
-? 
-
-! LaTeX Error: Something's wrong--perhaps a missing \item.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.46     \item 釧
-                 路公立大学
-? 
-! Emergency stop.
- ...                                              
-                                                  
-l.46     \item 釧
-                 路公立大学
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
- 
+] (out/kushiro.aux) ) 
 Here is how much of TeX's memory you used:
- 632 strings out of 478133
- 11261 string characters out of 5841535
- 1845481 words of memory out of 5000000
- 21035 multiletter control sequences out of 15000+600000
+ 640 strings out of 478133
+ 11288 string characters out of 5841535
+ 1858481 words of memory out of 5000000
+ 21039 multiletter control sequences out of 15000+600000
  522474 words of font info for 72 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
- 40i,8n,48p,261b,255s stack positions out of 10000i,1000n,20000p,200000b,200000s
-No pages of output.
+ 40i,8n,48p,279b,253s stack positions out of 10000i,1000n,20000p,200000b,200000s
+
+Output written on out/kushiro.dvi (1 page, 4264 bytes).

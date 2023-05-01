@@ -1,0 +1,13 @@
+PWD /mnt/home/p214071/jikkenII/lesson03
+INPUT /usr/local/texlive/2019/texmf.cnf
+INPUT /usr/local/texlive/2019/texmf-dist/web2c/texmf.cnf
+INPUT /usr/local/texlive/2019/texmf-var/web2c/pdftex/pdflatex.fmt
+INPUT /mnt/home/p214071/jikkenII/lesson03/test.tex
+OUTPUT /mnt/home/p214071/jikkenII/lesson03/test.log
+INPUT /usr/local/texlive/2019/texmf-dist/tex/platex/base/jarticle.cls
+INPUT /usr/local/texlive/2019/texmf-dist/tex/platex/base/jarticle.cls
+INPUT /mnt/home/p214071/jikkenII/lesson03/test.aux
+INPUT /mnt/home/p214071/jikkenII/lesson03/test.aux
+OUTPUT /mnt/home/p214071/jikkenII/lesson03/test.aux
+OUTPUT /mnt/home/p214071/jikkenII/lesson03/test.pdf
+INPUT /mnt/home/p214071/jikkenII/lesson03/test.aux

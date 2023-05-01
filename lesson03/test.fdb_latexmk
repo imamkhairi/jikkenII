@@ -1,0 +1,16 @@
+# Fdb version 3
+["pdflatex"] 1682905975 "/mnt/home/p214071/jikkenII/lesson03/test.tex" "/mnt/home/p214071/jikkenII/lesson03/test.pdf" "test" 1682905975
+  "/mnt/home/p214071/jikkenII/lesson03/test.aux" 1682905970 8 a94a2480d3289e625eea47cd1b285758 ""
+  "/mnt/home/p214071/jikkenII/lesson03/test.tex" 1682905970 368 02328d46c16e0ddca5083ec3647f3fc2 ""
+  "/usr/local/texlive/2019/texmf-dist/tex/platex/base/jarticle.cls" 1673427351 25841 a03027cb058ac48ee1498d1a12bbdae4 ""
+  "/usr/local/texlive/2019/texmf-dist/web2c/texmf.cnf" 1553552136 35430 ca24fb44b873d21ac4c63d01600decd4 ""
+  "/usr/local/texlive/2019/texmf-var/web2c/pdftex/pdflatex.fmt" 1673423881 4258184 3c95ed9fe23c65fca60a27cb14951106 ""
+  "/usr/local/texlive/2019/texmf.cnf" 1673423864 455 5b996dcaa0eb4ef14a83b026bc0a008c ""
+  "test.aux" 0 -1 0 "pdflatex"
+  "test.tex" 1682905970 368 02328d46c16e0ddca5083ec3647f3fc2 ""
+  (generated)
+  "/mnt/home/p214071/jikkenII/lesson03/test.pdf"
+  "test.aux"
+  "test.pdf"
+  "/mnt/home/p214071/jikkenII/lesson03/test.log"
+  "test.log"

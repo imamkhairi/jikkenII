@@ -1,0 +1,99 @@
+This is e-pTeX, Version 3.14159265-p3.8.2-190131-2.6 (utf8.euc) (TeX Live 2019) (preloaded format=platex 2023.1.11)  1 MAY 2023 11:50
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**tab.tex
+(./tab.tex
+pLaTeX2e <2019-04-06> (based on LaTeX2e <2018-12-01>)
+(/usr/local/texlive/2019/texmf-dist/tex/platex/base/jarticle.cls
+Document Class: jarticle 2019/04/02 v1.8b Standard pLaTeX class
+\c@@paper=\count83
+(/usr/local/texlive/2019/texmf-dist/tex/platex/base/jsize10.clo
+File: jsize10.clo 2019/04/02 v1.8b Standard pLaTeX file (size option)
+)
+\c@part=\count84
+\c@section=\count85
+\c@subsection=\count86
+\c@subsubsection=\count87
+\c@paragraph=\count88
+\c@subparagraph=\count89
+\c@figure=\count90
+\c@table=\count91
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\symmincho=\mathgroup4
+LaTeX Font Info:    Overwriting symbol font `mincho' in version `bold'
+(Font)                  JY1/mc/m/n --> JY1/gt/m/n on input line 614.
+\toclineskip=\dimen118
+\@lnumwidth=\dimen119
+\bibindent=\dimen120
+\heisei=\count92
+)
+(/usr/local/texlive/2019/texmf-dist/tex/latex/booktabs/booktabs.sty
+Package: booktabs 2016/04/27 v1.618033 publication quality tables
+\heavyrulewidth=\dimen121
+\lightrulewidth=\dimen122
+\cmidrulewidth=\dimen123
+\belowrulesep=\dimen124
+\belowbottomsep=\dimen125
+\aboverulesep=\dimen126
+\abovetopsep=\dimen127
+\cmidrulesep=\dimen128
+\cmidrulekern=\dimen129
+\defaultaddspace=\dimen130
+\@cmidla=\count93
+\@cmidlb=\count94
+\@aboverulesep=\dimen131
+\@belowrulesep=\dimen132
+\@thisruleclass=\count95
+\@lastruleclass=\count96
+\@thisrulewidth=\dimen133
+) (./tab.aux)
+\openout1 = `tab.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for JY1/mc/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for JT1/mc/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 6.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 6.
+
+
+LaTeX Font Warning: Font shape `JT1/gt/m/it' undefined
+(Font)              using `JT1/gt/m/n' instead on input line 7.
+
+
+LaTeX Font Warning: Font shape `JY1/gt/m/it' undefined
+(Font)              using `JY1/gt/m/n' instead on input line 7.
+
+[1
+
+] (./tab.aux)
+
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 327 strings out of 493230
+ 3551 string characters out of 6144486
+ 74437 words of memory out of 5000000
+ 4393 multiletter control sequences out of 15000+600000
+ 7857 words of font info for 32 fonts, out of 8000000 for 9000
+ 929 hyphenation exceptions out of 8191
+ 22i,8n,20p,172b,241s stack positions out of 5000i,500n,10000p,200000b,80000s
+
+Output written on tab.dvi (1 page, 2240 bytes).

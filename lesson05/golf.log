@@ -1,4 +1,4 @@
-This is e-pTeX, Version 3.14159265-p3.8.2-190131-2.6 (utf8.euc) (TeX Live 2019) (preloaded format=platex 2023.1.11)  8 MAY 2023 12:04
+This is e-pTeX, Version 3.14159265-p3.8.2-190131-2.6 (utf8.euc) (TeX Live 2019) (preloaded format=platex 2023.1.11)  9 MAY 2023 10:28
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -53,80 +53,103 @@ File: dvipdfmx.def 2017/06/24 v5.0g Graphics/color driver for dvipdfmx
 \Gin@req@height=\dimen121
 \Gin@req@width=\dimen122
 )
+(/usr/local/texlive/2019/texmf-dist/tex/latex/caption/caption.sty
+Package: caption 2018/10/06 v3.3-154 Customizing captions (AR)
+
+(/usr/local/texlive/2019/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2018/09/12 v1.8c caption3 kernel (AR)
+Package caption3 Info: TeX engine: e-TeX on input line 64.
+\captionmargin=\dimen123
+\captionmargin@=\dimen124
+\captionwidth=\dimen125
+\caption@tempdima=\dimen126
+\caption@indent=\dimen127
+\caption@parindent=\dimen128
+\caption@hangindent=\dimen129
+Package caption Info: Unknown document class (or package),
+(caption)             standard defaults will be used.
+)
+
+Package caption Warning: Unsupported document class (or package) detected,
+(caption)                usage of the caption package is not recommended.
+See the caption package documentation for explanation.
+
+Package caption Info: \@makecaption = \long macro:#1#2->\vskip \abovecaptionski
+p \iftdir \sbox \@tempboxa {#1\hskip 1zw#2}\else \sbox \@tempboxa {#1: #2}\fi \
+ifdim \wd \@tempboxa >\hsize \iftdir #1\hskip 1zw#2\relax \par \else #1: #2\rel
+ax \par \fi \else \global \@minipagefalse \hb@xt@ \hsize {\hfil \box \@tempboxa
+ \hfil }\fi \vskip \belowcaptionskip .
+\c@caption@flags=\count93
+\c@ContinuedFloat=\count94
+) (/usr/local/texlive/2019/texmf-dist/tex/latex/caption/subcaption.sty
+Package: subcaption 2018/05/01 v1.1-162 Sub-captions (AR)
+\c@subfigure=\count95
+\c@subtable=\count96
+)
 (./golf.aux)
 \openout1 = `golf.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 6.
-LaTeX Font Info:    ... okay on input line 6.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 6.
-LaTeX Font Info:    ... okay on input line 6.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 6.
-LaTeX Font Info:    ... okay on input line 6.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 6.
-LaTeX Font Info:    ... okay on input line 6.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 6.
-LaTeX Font Info:    ... okay on input line 6.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 6.
-LaTeX Font Info:    ... okay on input line 6.
-LaTeX Font Info:    Checking defaults for JY1/mc/m/n on input line 6.
-LaTeX Font Info:    ... okay on input line 6.
-LaTeX Font Info:    Checking defaults for JT1/mc/m/n on input line 6.
-LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for JY1/mc/m/n on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for JT1/mc/m/n on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: End \AtBeginDocument code.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 12.
+(Font)              <12> on input line 13.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 12.
+(Font)              <8> on input line 13.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 12.
+(Font)              <6> on input line 13.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 13.
 LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <14.4> not available
-(Font)              Font shape `JT1/gt/m/n' tried instead on input line 14.
+(Font)              Font shape `JT1/gt/m/n' tried instead on input line 15.
 LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <14.4> not available
-(Font)              Font shape `JY1/gt/m/n' tried instead on input line 14.
+(Font)              Font shape `JY1/gt/m/n' tried instead on input line 15.
 LaTeX Font Info:    Try loading font information for OMS+cmr on input line 19.
  (/usr/local/texlive/2019/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 19.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 37.
 LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <10> not available
-(Font)              Font shape `JT1/gt/m/n' tried instead on input line 23.
+(Font)              Font shape `JT1/gt/m/n' tried instead on input line 95.
 LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <10> not available
-(Font)              Font shape `JY1/gt/m/n' tried instead on input line 23.
+(Font)              Font shape `JY1/gt/m/n' tried instead on input line 95.
 
-
-LaTeX Warning: Citation `bib1' on page 1 undefined on input line 23.
-
-
-LaTeX Warning: Citation `bib1' on page 1 undefined on input line 25.
-
-
-LaTeX Warning: Citation `bib2' on page 1 undefined on input line 30.
-
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 36.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 36.
 [1
 
 
 ]
-
-LaTeX Warning: Citation `bib2' on page 2 undefined on input line 108.
-
 File: tiger.jpg Graphic file (type bmp)
 <tiger.jpg>
-[2] (./golf.aux)
-
-LaTeX Warning: There were undefined references.
-
- ) 
+File: matuyama.jpg Graphic file (type bmp)
+<matuyama.jpg>
+File: furue.jpg Graphic file (type bmp)
+<furue.jpg>
+ [2] (./golf.aux) ) 
 Here is how much of TeX's memory you used:
- 697 strings out of 493230
- 8535 string characters out of 6144486
- 81075 words of memory out of 5000000
- 4728 multiletter control sequences out of 15000+600000
- 13396 words of font info for 52 fonts, out of 8000000 for 9000
+ 1890 strings out of 493230
+ 29812 string characters out of 6144486
+ 112133 words of memory out of 5000000
+ 5905 multiletter control sequences out of 15000+600000
+ 14347 words of font info for 56 fonts, out of 8000000 for 9000
  929 hyphenation exceptions out of 8191
- 25i,8n,25p,385b,304s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 36i,10n,39p,385b,535s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on golf.dvi (2 pages, 10772 bytes).
+Output written on golf.dvi (2 pages, 13012 bytes).

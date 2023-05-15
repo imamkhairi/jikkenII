@@ -20,3 +20,9 @@ end(itemize)
 begin{itembox}[l]{Knuthについて} -> untuk ada judul di itembox nya [l] -> left alignment (kalau gk ada otomatis center)
 
 \setlength{\itemsep}{-3pt} -> untuk atur jarak antar \item
+
+
+
+lesson 2 presenter3 
+
+課題提出：レッスン5で作成したゴルフの資料(pdf)は， "golf_23**.pdf" (**は自分の現在の出席番号)と名前を付けること． レッスン6で作成した資料(pdf)には， "2300**.pdf"という名前を付けること． これら２つの資料を，メール添付で "honma@kushiro-ct.ac.jp" に送ること． 締め切りは 5/19（金）17：00 厳守． 

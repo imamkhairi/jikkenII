@@ -1,11 +1,11 @@
-PWD d:/Kosen/jikkenII/lesson06
+PWD d:/Kosen/jikkenII/lesson05
 INPUT c:/texlive/2023/texmf.cnf
 INPUT c:/texlive/2023/texmf-dist/web2c/texmf.cnf
 INPUT c:/texlive/2023/texmf.cnf
 INPUT c:/texlive/2023/texmf-dist/web2c/texmf.cnf
 INPUT c:/texlive/2023/texmf-var/web2c/eptex/platex.fmt
-INPUT d:/Kosen/jikkenII/lesson06/queen.tex
-OUTPUT out/queen.log
+INPUT d:/Kosen/jikkenII/lesson05/golf.tex
+OUTPUT out/golf.log
 INPUT c:/texlive/2023/texmf-dist/tex/platex/base/jarticle.cls
 INPUT c:/texlive/2023/texmf-dist/tex/platex/base/jarticle.cls
 INPUT c:/texlive/2023/texmf-dist/tex/platex/base/jarticle.cls
@@ -75,17 +75,6 @@ INPUT c:/texlive/2023/texmf-dist/tex/latex/graphics-def/dvipdfmx.def
 INPUT c:/texlive/2023/texmf-dist/tex/latex/graphics-def/dvipdfmx.def
 INPUT c:/texlive/2023/texmf-dist/tex/latex/graphics-def/dvipdfmx.def
 INPUT c:/texlive/2023/texmf-dist/tex/latex/graphics-def/dvipdfmx.def
-INPUT c:/texlive/2023/texmf-dist/tex/latex/caption/subcaption.sty
-INPUT c:/texlive/2023/texmf-dist/tex/latex/caption/subcaption.sty
-INPUT c:/texlive/2023/texmf-dist/tex/latex/caption/subcaption.sty
-INPUT c:/texlive/2023/texmf-dist/tex/latex/caption/subcaption.sty
-INPUT c:/texlive/2023/texmf-dist/tex/latex/caption/subcaption.sty
-INPUT c:/texlive/2023/texmf-dist/tex/latex/caption/subcaption.sty
-INPUT c:/texlive/2023/texmf-dist/tex/latex/caption/subcaption.sty
-INPUT c:/texlive/2023/texmf-dist/tex/latex/caption/subcaption.sty
-INPUT c:/texlive/2023/texmf-dist/tex/latex/caption/subcaption.sty
-INPUT c:/texlive/2023/texmf-dist/tex/latex/caption/subcaption.sty
-INPUT c:/texlive/2023/texmf-dist/tex/latex/caption/subcaption.sty
 INPUT c:/texlive/2023/texmf-dist/tex/latex/caption/caption.sty
 INPUT c:/texlive/2023/texmf-dist/tex/latex/caption/caption.sty
 INPUT c:/texlive/2023/texmf-dist/tex/latex/caption/caption.sty
@@ -109,6 +98,17 @@ INPUT c:/texlive/2023/texmf-dist/tex/latex/caption/caption3.sty
 INPUT c:/texlive/2023/texmf-dist/tex/latex/caption/caption3.sty
 INPUT c:/texlive/2023/texmf-dist/tex/latex/caption/caption3.sty
 INPUT c:/texlive/2023/texmf-dist/tex/latex/graphics/keyval.sty
+INPUT c:/texlive/2023/texmf-dist/tex/latex/caption/subcaption.sty
+INPUT c:/texlive/2023/texmf-dist/tex/latex/caption/subcaption.sty
+INPUT c:/texlive/2023/texmf-dist/tex/latex/caption/subcaption.sty
+INPUT c:/texlive/2023/texmf-dist/tex/latex/caption/subcaption.sty
+INPUT c:/texlive/2023/texmf-dist/tex/latex/caption/subcaption.sty
+INPUT c:/texlive/2023/texmf-dist/tex/latex/caption/subcaption.sty
+INPUT c:/texlive/2023/texmf-dist/tex/latex/caption/subcaption.sty
+INPUT c:/texlive/2023/texmf-dist/tex/latex/caption/subcaption.sty
+INPUT c:/texlive/2023/texmf-dist/tex/latex/caption/subcaption.sty
+INPUT c:/texlive/2023/texmf-dist/tex/latex/caption/subcaption.sty
+INPUT c:/texlive/2023/texmf-dist/tex/latex/caption/subcaption.sty
 INPUT c:/texlive/2023/texmf-dist/tex/latex/caption/caption.sty
 INPUT c:/texlive/2023/texmf-dist/tex/latex/l3backend/l3backend-dvips.def
 INPUT c:/texlive/2023/texmf-dist/tex/latex/l3backend/l3backend-dvips.def
@@ -121,10 +121,10 @@ INPUT c:/texlive/2023/texmf-dist/tex/latex/l3backend/l3backend-dvips.def
 INPUT c:/texlive/2023/texmf-dist/tex/latex/l3backend/l3backend-dvips.def
 INPUT c:/texlive/2023/texmf-dist/tex/latex/l3backend/l3backend-dvips.def
 INPUT c:/texlive/2023/texmf-dist/tex/latex/l3backend/l3backend-dvips.def
-INPUT out/queen.aux
-INPUT out/queen.aux
-INPUT out/queen.aux
-OUTPUT out/queen.aux
+INPUT out/golf.aux
+INPUT out/golf.aux
+INPUT out/golf.aux
+OUTPUT out/golf.aux
 INPUT c:/texlive/2023/texmf-dist/fonts/tfm/ptex-fonts/standard/tmin10.tfm
 INPUT c:/texlive/2023/texmf-dist/fonts/tfm/ptex-fonts/standard/min10.tfm
 INPUT c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmr17.tfm
@@ -147,38 +147,21 @@ INPUT c:/texlive/2023/texmf-dist/fonts/tfm/ptex-fonts/standard/tgoth10.tfm
 INPUT c:/texlive/2023/texmf-dist/fonts/tfm/ptex-fonts/standard/goth10.tfm
 INPUT c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
 INPUT c:/texlive/2023/texmf-dist/fonts/tfm/jknappen/ec/tcrm1000.tfm
-INPUT ./Freddie.jpg
-INPUT ./Freddie.jpg
-INPUT Freddie.jpg
-INPUT extractbb -B cropbox -O Freddie.jpg
+INPUT c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm
+OUTPUT out/golf.dvi
+INPUT ./tiger.jpg
+INPUT ./tiger.jpg
+INPUT tiger.jpg
+INPUT extractbb -B cropbox -O tiger.jpg
+INPUT ./matuyama.jpg
+INPUT ./matuyama.jpg
+INPUT matuyama.jpg
+INPUT extractbb -B cropbox -O matuyama.jpg
 INPUT c:/texlive/2023/texmf-dist/fonts/tfm/ptex-fonts/standard/tmin9.tfm
 INPUT c:/texlive/2023/texmf-dist/fonts/tfm/ptex-fonts/standard/min9.tfm
 INPUT c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmr9.tfm
-INPUT ./Brian.jpg
-INPUT ./Brian.jpg
-INPUT Brian.jpg
-INPUT extractbb -B cropbox -O Brian.jpg
-INPUT ./Roger.jpg
-INPUT ./Roger.jpg
-INPUT Roger.jpg
-INPUT extractbb -B cropbox -O Roger.jpg
-INPUT ./John.jpg
-INPUT ./John.jpg
-INPUT John.jpg
-INPUT extractbb -B cropbox -O John.jpg
-INPUT ./Queen.jpg
-INPUT ./Queen.jpg
-INPUT Queen.jpg
-INPUT extractbb -B cropbox -O Queen.jpg
-OUTPUT out/queen.dvi
-INPUT c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm
-INPUT ./Bohemian.jpg
-INPUT ./Bohemian.jpg
-INPUT Bohemian.jpg
-INPUT extractbb -B cropbox -O Bohemian.jpg
-INPUT c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
-INPUT ./queen_adam_lambert.jpg
-INPUT ./queen_adam_lambert.jpg
-INPUT queen_adam_lambert.jpg
-INPUT extractbb -B cropbox -O queen_adam_lambert.jpg
-INPUT out/queen.aux
+INPUT ./furue.jpg
+INPUT ./furue.jpg
+INPUT furue.jpg
+INPUT extractbb -B cropbox -O furue.jpg
+INPUT out/golf.aux

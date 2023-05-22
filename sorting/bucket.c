@@ -1,14 +1,25 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 #include <time.h>
+
+void processTime(clock_t t) {
+    double time = ((double)t)/CLOCKS_PER_SEC;
+    printf("%.3lf ms\n", time*1000); //kali 1000 biar jadi ms
+}
 
 void bucketSort(FILE *in, int *p) {
     int x;
+    clock_t t;
+    
     rewind(in);
+
+    t = clock();
     while (fscanf(in, "%d", &x) != EOF) {
         p[x]++;
     }
+    t = clock() - t;
+
+    processTime(t);
 }
 
 int main(int argc, char *argv[]) {
@@ -30,13 +41,7 @@ int main(int argc, char *argv[]) {
 
     int *p = calloc(max, sizeof(int));
 
-    clock_t t;
-    t = clock();
     bucketSort(ptr, p);
-    t = clock() - t;
-
-    double time = ((double)t)/CLOCKS_PER_SEC /1000; 
-    printf("%.5le\n", time);
 
     out = fopen("bucket.dat", "w");
 

@@ -1,16 +1,10 @@
 # Fdb version 4
-["dvipdf"] 1684393552 "out/queen.dvi" "out/queen.pdf" "out/queen" 1684393552 0
-  "out/queen.dvi" 1684393552 16792 2427aa95e24ab53dd02b738524a769f6 "latex"
+["dvipdf"] 1684393143 "out/golf.dvi" "out/golf.pdf" "out/golf" 1684393143 0
+  "out/golf.dvi" 1684393143 13100 9ff221e92484ef6de49fcd6176c9f84d "latex"
   (generated)
-  "out/queen.pdf"
+  "out/golf.pdf"
   (rewritten before read)
-["latex"] 1684393551 "d:/Kosen/jikkenII/lesson06/queen.tex" "out/queen.dvi" "queen" 1684393552 0
-  "Bohemian.jpg" 1684254132 106201 06bb5575e9b07f18cf7ac5256f5e27bf ""
-  "Brian.jpg" 1684154911 575903 a776ac1260b397d678f7e4b0ea9eaaad ""
-  "Freddie.jpg" 1684154860 434449 db63826f0392f99956f02fe334ca0c1e ""
-  "John.jpg" 1684156570 74800 7ce8f624f46155136c1872a27de61d5d ""
-  "Queen.jpg" 1684152713 26650 8675ac613e60d9e25fe8e7c4973ebc8d ""
-  "Roger.jpg" 1684156587 253197 c8e6331df04e4b9d211b5cd04b7866ab ""
+["latex"] 1684393143 "d:/Kosen/jikkenII/lesson05/golf.tex" "out/golf.dvi" "golf" 1684393143 0
   "c:/texlive/2023/texmf-dist/fonts/tfm/jknappen/ec/tcrm1000.tfm" 1681961456 1536 e07581a4bb3136ece9eeb4c3ffab8233 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/ptex-fonts/standard/goth10.tfm" 1681961816 1196 5981e79c37b2cfd27b3612a6783cd4b6 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/ptex-fonts/standard/min10.tfm" 1681961816 1196 1be730212205a270378fba11a44765dc ""
@@ -49,12 +43,14 @@
   "c:/texlive/2023/texmf-dist/web2c/texmf.cnf" 1681961287 40967 d940221f8762fd5848760382d97d1226 ""
   "c:/texlive/2023/texmf-var/web2c/eptex/platex.fmt" 1681961971 6629889 70f158ae024333dc07ffd134950c6645 ""
   "c:/texlive/2023/texmf.cnf" 1681961945 713 614551405fc44b98efbf516466e3c909 ""
-  "d:/Kosen/jikkenII/lesson06/queen.tex" 1684393551 11722 13af6bf26723940fcb079643636ec9b7 ""
-  "out/queen.aux" 1684393552 2911 5d6a276c1a4f9ff2cf39164d736d258a "latex"
-  "queen.tex" 1684393551 11722 13af6bf26723940fcb079643636ec9b7 ""
-  "queen_adam_lambert.jpg" 1684155817 41170 d2a46b0dbe13aae09e3b1401627576a2 ""
+  "d:/Kosen/jikkenII/lesson05/golf.tex" 1684393143 9031 2596c0cee83a6449314493516891f85c ""
+  "furue.jpg" 1684127344 82714 60f4f4a88b479230a29f04d4abd84c3d ""
+  "golf.tex" 1684393143 9031 2596c0cee83a6449314493516891f85c ""
+  "matuyama.jpg" 1684127344 12795 87272120be41f75eda38eec1ed9966ab ""
+  "out/golf.aux" 1684393143 1424 def48bb4896c23ed52ef730517878e6a "latex"
+  "tiger.jpg" 1684127344 75396 38709af587074d60e915d0626921e71d ""
   (generated)
-  "out/queen.aux"
-  "out/queen.dvi"
-  "out/queen.log"
+  "out/golf.aux"
+  "out/golf.dvi"
+  "out/golf.log"
   (rewritten before read)

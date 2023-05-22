@@ -1,10 +1,10 @@
-This is e-pTeX, Version 3.141592653-p4.1.0-230214-2.6 (utf8.sjis) (TeX Live 2023) (preloaded format=platex 2023.4.20)  18 MAY 2023 16:05
+This is e-pTeX, Version 3.141592653-p4.1.0-230214-2.6 (utf8.sjis) (TeX Live 2023) (preloaded format=platex 2023.4.20)  18 MAY 2023 15:59
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**d:/Kosen/jikkenII/lesson06/queen.tex
-(d:/Kosen/jikkenII/lesson06/queen.tex
+**d:/Kosen/jikkenII/lesson05/golf.tex
+(d:/Kosen/jikkenII/lesson05/golf.tex
 pLaTeX2e <2023-02-14>+1 (based on LaTeX2e <2022-11-01> patch level 1)
 L3 programming layer <2023-03-30> (c:/texlive/2023/texmf-dist/tex/platex/base/jarticle.cls
 Document Class: jarticle 2020/09/30 v1.8f Standard pLaTeX class
@@ -47,9 +47,7 @@ File: dvipdfmx.def 2022/09/22 v5.0m Graphics/color driver for dvipdfmx
 ))
 \Gin@req@height=\dimen159
 \Gin@req@width=\dimen160
-) (c:/texlive/2023/texmf-dist/tex/latex/caption/subcaption.sty
-Package: subcaption 2023/02/19 v1.6 Sub-captions (AR)
-(c:/texlive/2023/texmf-dist/tex/latex/caption/caption.sty
+) (c:/texlive/2023/texmf-dist/tex/latex/caption/caption.sty
 Package: caption 2023/03/12 v3.6j Customizing captions (AR)
 (c:/texlive/2023/texmf-dist/tex/latex/caption/caption3.sty
 Package: caption3 2023/03/12 v2.4 caption3 kernel (AR)
@@ -72,7 +70,8 @@ See the caption package documentation for explanation.
 
 \c@caption@flags=\count194
 \c@continuedfloat=\count195
-)
+) (c:/texlive/2023/texmf-dist/tex/latex/caption/subcaption.sty
+Package: subcaption 2023/02/19 v1.6 Sub-captions (AR)
 Package caption Info: New subtype `subfigure' on input line 239.
 \c@subfigure=\count196
 Package caption Info: New subtype `subtable' on input line 239.
@@ -86,27 +85,27 @@ File: l3backend-dvips.def 2023-03-30 L3 backend support: dvips
 \g__pdf_backend_annotation_int=\count199
 \g__pdf_backend_link_int=\count266
 \g__pdf_backend_link_sf_int=\count267
-) (out/queen.aux)
-\openout1 = `queen.aux'.
+) (out/golf.aux)
+\openout1 = `golf.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Checking defaults for JY1/mc/m/n on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Checking defaults for JT1/mc/m/n on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for JY1/mc/m/n on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for JT1/mc/m/n on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
 LaTeX Font Info:    External font `cmex10' loaded for size
@@ -121,68 +120,30 @@ LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <14.4> not available
 (Font)              Font shape `JT1/gt/m/n' tried instead on input line 15.
 LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <14.4> not available
 (Font)              Font shape `JY1/gt/m/n' tried instead on input line 15.
-File: Freddie.jpg Graphic file (type bmp)
-<Freddie.jpg>
-File: Brian.jpg Graphic file (type bmp)
-<Brian.jpg>
-File: Roger.jpg Graphic file (type bmp)
-<Roger.jpg>
-File: John.jpg Graphic file (type bmp)
-<John.jpg>
-File: Queen.jpg Graphic file (type bmp)
-<Queen.jpg>
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 37.
+LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <10> not available
+(Font)              Font shape `JT1/gt/m/n' tried instead on input line 95.
+LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <10> not available
+(Font)              Font shape `JY1/gt/m/n' tried instead on input line 95.
 [1
 
 
 ]
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 91.
-
-Overfull \hbox (6.10545pt too wide) in paragraph at lines 91--103
- [][][] 
- []
-
-LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <10> not available
-(Font)              Font shape `JT1/gt/m/n' tried instead on input line 111.
-LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <10> not available
-(Font)              Font shape `JY1/gt/m/n' tried instead on input line 111.
-File: Bohemian.jpg Graphic file (type bmp)
-<Bohemian.jpg>
-
-Underfull \hbox (badness 1596) in paragraph at lines 136--136
-[]\JY1/gt/m/n/14.4 クイ ーンに関するドキ ュ メンタ
- []
-
-LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <12> not available
-(Font)              Font shape `JT1/gt/m/n' tried instead on input line 142.
-LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <12> not available
-(Font)              Font shape `JY1/gt/m/n' tried instead on input line 142.
-[2]
-File: queen_adam_lambert.jpg Graphic file (type bmp)
-<queen_adam_lambert.jpg>
-
-Overfull \hbox (21.31715pt too wide) in paragraph at lines 211--212
-[]\OT1/cmr/m/n/10 https://www.noted.co.nz/culture/movies/bohemian-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 211--212
-\OT1/cmr/m/n/10 rhapsody-kiwi-anthony-mccarten-wrote-queen-
- []
-
-
-Overfull \hbox (32.81726pt too wide) in paragraph at lines 213--214
-[]\OT1/cmr/m/n/10 https://www.informationisbeautiful.net/visualizations/
- []
-
-[3] (out/queen.aux) ) 
+File: tiger.jpg Graphic file (type bmp)
+<tiger.jpg>
+File: matuyama.jpg Graphic file (type bmp)
+<matuyama.jpg>
+File: furue.jpg Graphic file (type bmp)
+<furue.jpg>
+[2] (out/golf.aux) ) 
 Here is how much of TeX's memory you used:
- 2515 strings out of 478133
- 45834 string characters out of 5841535
- 1858481 words of memory out of 5000000
- 22873 multiletter control sequences out of 15000+600000
- 523636 words of font info for 76 fonts, out of 8000000 for 9000
+ 2480 strings out of 478133
+ 45200 string characters out of 5841535
+ 1869481 words of memory out of 5000000
+ 22847 multiletter control sequences out of 15000+600000
+ 523329 words of font info for 75 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
- 67i,11n,77p,489b,584s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 55i,11n,63p,431b,580s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on out/queen.dvi (3 pages, 16792 bytes).
+Output written on out/golf.dvi (2 pages, 13100 bytes).

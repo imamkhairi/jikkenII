@@ -16,6 +16,12 @@ int  countLines(FILE *in) {
     return count;
 }
 
+void swap(int *a, int *b) {
+    int tmp = *a;
+    *a = *b;
+    *b = tmp;
+}
+
 void store_array(FILE *in, int *p) {
     int x;
     int i = 0;
@@ -33,25 +39,39 @@ void processTime(clock_t t) {
     printf("%.3lf ms\n", time*1000); //kali 1000 biar jadi ms
 }
 
-// ini bisa dicoba bikin yang kalau store semua dulu baru sort
-void insertionSort(FILE *in, int lines, int *p) {
+// ini masih belum jalan
+void optimezedBucket(int n, int *p) {
     clock_t t;
-    int key;
-    int i = 0;
+    int k = 0;
+    
+    t = clock();
+    while (k < n - 1) {
+        int last = n -1;
+        for(int j = n - 1; j > k; j--) {
+            if(p[j-1] > p[j]) {
+                swap(&p[j-1], &p[j]);
+                last = j;
+            }
+            k = last;
+        }
+    }
 
+    t = clock() - t;
+    processTime(t);
+}
+
+void bucketSort(int lines, int *p) {
+    clock_t t;
+    
     t = clock();
 
-    while (fscanf(in, "%d", &key) != EOF) {
-        p[i] = key;
-        int j = i - 1;
-        while(j >= 0 && p[j] > key) {
-            p[j+1] = p[j];
-            j--;
+    for (int i = 0; i < lines; i++) {
+        for(int j = lines - 1; j > i; j--) {
+            if(p[j-1] > p[j])
+                swap(&p[j-1], &p[j]);
         }
-        p[j+1] = key;
-        i ++;
     }
-    
+
     t = clock() - t;
     processTime(t);
 }
@@ -71,11 +91,22 @@ int main(int argc, char **argv) {
     int lines = countLines(in);
 
     int *p = malloc(lines * sizeof(int));
+    store_array(in, p);
 
-    insertionSort(in, lines, p);
 
+    // Sorting 
+    // for (int i = 0; i < lines; i++) {
+    //     for(int j = lines - 1; j > i; j--) {
+    //         if(p[j-1] > p[j])
+    //             swap(&p[j-1], &p[j]);
+    //     }
+    // }
+
+    // bucketSort(lines, p);
+    optimezedBucket(lines, p);
+    
     // output
-    out = fopen("insert.dat", "w");
+    out = fopen("bubble.dat", "w");
 
     for (int i = 0; i < lines; i++) {
         fprintf(out, "%d\n", p[i]);
@@ -84,6 +115,7 @@ int main(int argc, char **argv) {
     free(p);
     fclose(in);
     fclose(out);
+
     
     return 0;
 }

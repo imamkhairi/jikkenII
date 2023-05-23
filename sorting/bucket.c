@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <time.h>
 
+// gimana kalau - number
 void processTime(clock_t t) {
     double time = ((double)t)/CLOCKS_PER_SEC;
     printf("%.3lf ms\n", time*1000); //kali 1000 biar jadi ms

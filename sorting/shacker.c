@@ -16,12 +16,6 @@ int  countLines(FILE *in) {
     return count;
 }
 
-void swap(int *a, int *b) {
-    int tmp = *a;
-    *a = *b;
-    *b = tmp;
-}
-
 void store_array(FILE *in, int *p) {
     int x;
     int i = 0;
@@ -32,60 +26,43 @@ void store_array(FILE *in, int *p) {
     }
 }
 
+void swap(int *a, int *b) {
+    int tmp = *a;
+    *a = *b;
+    *b = tmp;
+}
+
 void processTime(clock_t t) {
     double time = ((double)t)/CLOCKS_PER_SEC;
     printf("%.3lf ms\n", time*1000); //kali 1000 biar jadi ms
 }
 
-void bucket1(int lines, int *p) {
-    int k = 0;
+void shacker(const int lines, int *p) {
+    int right = lines - 1;
+    int left = 0;
+
     clock_t t;
     
     t = clock();
-    while(k < lines - 1) {
-        int last = lines - 1;
-        for(int j = lines - 1; j > k; j--) {
+    while(left != right) {
+        int i;
+        int j;
+        int last;
+
+        for(i = left; i < right; i++) {
+            if(p[i] > p[i+1]) {
+                swap(&p[i], &p[i+1]);
+                last = i;
+            }
+        }
+        right = last;
+        for(int j = right; j > left; j--) {
             if(p[j-1] > p[j]) {
                 swap(&p[j-1], &p[j]);
                 last = j;
             }
         }
-        k = last;
-    }
-
-    t = clock() - t;
-    processTime(t);
-}
-
-void bucket(int lines, int  *p) {
-    clock_t t;
-    
-    t = clock();
-    for (int i = 0; i < lines; i++) {
-        int exc = 0;
-        for(int j = lines - 1; j > i; j--) {
-            if(p[j-1] > p[j]) {
-                swap(&p[j-1], &p[j]);
-                exc ++;
-            }
-        }
-        if(exc == 0) break;
-    }
-
-    t = clock() - t;
-    processTime(t);
-}
-
-void bubbleSort(int lines, int *p) {
-    clock_t t;
-    
-    t = clock();
-
-    for (int i = 0; i < lines; i++) {
-        for(int j = lines - 1; j > i; j--) {
-            if(p[j-1] > p[j])
-                swap(&p[j-1], &p[j]);
-        }
+        left = last;
     }
 
     t = clock() - t;
@@ -106,19 +83,15 @@ int main(int argc, char **argv) {
         return 2;
     } 
 
-
     int lines = countLines(in);
 
     int *p = malloc(lines * sizeof(int));
     store_array(in, p);
 
-    // ini pilih satu
-    // bucket(lines, p);
-    // bucket1(lines, p);
-    bubbleSort(lines, p);
-    
-    // output
-    out = fopen("bubble.dat", "w");
+    shacker(lines, p);
+
+    //output
+    out = fopen("shacker.dat", "w");
 
     for (int i = 0; i < lines; i++) {
         fprintf(out, "%d\n", p[i]);
@@ -128,6 +101,5 @@ int main(int argc, char **argv) {
     fclose(in);
     fclose(out);
 
-    
     return 0;
 }

@@ -34,10 +34,10 @@ void store_array(FILE *in, int *p) {
 
 void processTime(clock_t t) {
     double time = ((double)t)/CLOCKS_PER_SEC;
-    printf("%.3lf ms\n", time*1000); //kali 1000 biar jadi ms
+    printf("%.3lf ms\n", time*1000); 
 }
 
-void bucket1(int lines, int *p) {
+void bubble(int lines, int *p) {
     int k = 0;
     clock_t t;
     
@@ -57,7 +57,7 @@ void bucket1(int lines, int *p) {
     processTime(t);
 }
 
-void bucket(int lines, int  *p) {
+void bubble2(int lines, int  *p) {
     clock_t t;
     
     t = clock();
@@ -92,42 +92,54 @@ void bubbleSort(int lines, int *p) {
     processTime(t);
 }
 
-int main(int argc, char **argv) {
+void setFileName(char *dst, int index) {
+    sprintf(dst, "data%d.dat", index);
+}
+
+void setOutFileName(char *dst, int index){
+    sprintf(dst, "bubble%d.dat", index);
+}
+
+void startSorting(int n) {
     FILE *in;
     FILE *out;
 
-    if (argc == 2) {
-        if((in = fopen(argv[1], "r")) == NULL) {
+    for (int i = 1; i <= n; i++) {
+        char *filename = malloc(10);
+        char *outname = malloc(10);
+
+        printf("%d  | ", i);
+
+        setFileName(filename, i);
+
+        if((in = fopen(filename, "r")) == NULL)
             printf("input file name error\n");
-            return 1; //kalau mau tambahin return2 ini
+
+        int lines = countLines(in);
+
+        int *p = malloc(lines * sizeof(int));
+        store_array(in, p);
+
+        bubble(lines, p);
+
+        setOutFileName(outname, i);
+
+        out = fopen(outname, "w");
+
+        for (int i = 0; i < lines; i++) {
+            fprintf(out, "%d\n", p[i]);
         }
-    } else {
-        printf("No file name stated \n");
-        return 2;
-    } 
-
-
-    int lines = countLines(in);
-
-    int *p = malloc(lines * sizeof(int));
-    store_array(in, p);
-
-    // ini pilih satu
-    // bucket(lines, p);
-    // bucket1(lines, p);
-    bubbleSort(lines, p);
-    
-    // output
-    out = fopen("bubble.dat", "w");
-
-    for (int i = 0; i < lines; i++) {
-        fprintf(out, "%d\n", p[i]);
+        
+        free(p);
+        free(filename);
+        free(outname);
     }
 
-    free(p);
     fclose(in);
     fclose(out);
+}
 
-    
+int main(void) {
+    startSorting(8);
     return 0;
 }

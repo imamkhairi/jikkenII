@@ -3,23 +3,16 @@
 #include <string.h>
 #include <time.h>
 
-char *setFileName(int index) {
-    char result[10];
-    char prefix[4] = "data";
-    char suffix[4] = ".dat";
-
-    sprintf(result, "data%d.dat", 2);
-    
-    char *p = result;
-    return p;
+void setFileName(char *dst, int index) {
+    sprintf(dst, "data%d.dat", index);
 }
 
 void processTime(clock_t t) {
     double time = ((double)t)/CLOCKS_PER_SEC;
-    printf("%.3lf ms\n", time*1000); //kali 1000 biar jadi ms
+    printf("%.3lf ms\n", time*1000); 
 }
 
-void bucketSort(FILE *in, int *p, int offset) {
+void bucketSort(FILE *in, int *p, int *sort, int offset, int n) {
     int x;
     clock_t t;
     
@@ -31,48 +24,114 @@ void bucketSort(FILE *in, int *p, int offset) {
     }
     t = clock() - t;
 
+    int s = 0;
+
+    for (int i = 0; i <= n; i++) { 
+        if (p[i] > 0)
+            for (int j = 0; j < p[i]; j++) {
+                sort[s] = i + offset;
+                s++;
+            }
+    }
+
     processTime(t);
 }
 
-int main(int argc, char *argv[]) {
+int  countLines(FILE *in) {
+    char c;
+    int count = 0;
 
-    FILE *ptr;
+    do {
+        c = fgetc(in);
+        if(c == '\n') count++;
+    } while (c != EOF);
+
+    rewind(in);
+
+    return count;
+}
+
+void startSorting(int n) {
+    FILE *in;
     FILE *out;
-    int max = 0;
-    int min = 0;
+    
     int x;
+    char *filename = malloc(10);
 
-    if (argc == 2) {
-        if((ptr = fopen(argv[1], "r"))== NULL)
+        int max = 0;
+        int min = 0;
+
+        printf("%d ", 1);
+        
+        setFileName(filename, 3);
+
+        if((in = fopen(filename, "r"))== NULL)
             printf("input file name wrong\n");
-    } else 
-        printf("No file name stated\n");
 
-    // start sorting 
-    while(fscanf(ptr, "%d", &x) != EOF) {
-        max = (max < x) ? x : max;
-        min = (min > x) ? x : min;
-    }
+        while(fscanf(in, "%d", &x) != EOF) {
+            max = (max < x) ? x : max;
+            min = (min > x) ? x : min;
+        }
 
-    int *p = calloc((max-min), sizeof(int));
+        rewind(in);
+        int lines = countLines(in);
+        // printf("lines %d\n", lines);
 
-    // bucketSort(ptr, p, min);
+        int *p = calloc((max-min), sizeof(int));
+        int *s = malloc((lines) * sizeof(int));
+        int l = 0;
 
-    char *name = setFileName(2);
-    printf("%s", name);
-    
+        bucketSort(in, p, s, min, (max-min));
 
-    out = fopen("bucket.dat", "w");
+        out = fopen("bucket.dat", "w");
 
-    for (int i = 0; i <= (max-min); i++) { 
-        if (p[i] > 0)
-            for (int j = 0; j < p[i]; j++) 
-                fprintf(out, "%d\n", i+min);
-    }
+        for (int i = 0; i < lines; i++) {
+            fprintf(out, "%d\n", s[i]);
+        }
+        
+        free(p);
 
-    free(p);
-    fclose(ptr);
+    // for (int i = 1; i <= n; i++) {
+    //     int max = 0;
+    //     int min = 0;
+
+    //     printf("%d ", i);
+        
+    //     setFileName(filename, i);
+
+    //     if((in = fopen(filename, "r"))== NULL)
+    //         printf("input file name wrong\n");
+
+    //     while(fscanf(in, "%d", &x) != EOF) {
+    //         max = (max < x) ? x : max;
+    //         min = (min > x) ? x : min;
+    //     }
+
+    //     int lines = countLines(in);
+
+    //     int *p = calloc((max-min), sizeof(int));
+    //     int *sort = calloc((lines), sizeof(int));
+
+    //     bucketSort(in, p, min);
+
+    //     // out = fopen("bucket.dat", "w");
+
+    //     // for (int i = 0; i <= (max-min); i++) { 
+    //     //     if (p[i] > 0)
+    //     //         for (int j = 0; j < p[i]; j++) 
+    //     //             fprintf(out, "%d\n", i+min);
+    //     // }
+        
+    //     free(p);
+    // }
+
+
+    free(filename);
+    fclose(in);
     fclose(out);
-    
+}
+
+int main() {
+    startSorting(8);
     return 0;
 }

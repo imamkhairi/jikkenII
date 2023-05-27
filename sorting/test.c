@@ -5,12 +5,8 @@
 
 char *set(int index) {
     char result[10];
-    char prefix[4] = "data";
-    char suffix[4] = ".dat";
 
-    // itoa(index, buff, 10);
-    // itoa(index, buff, 10);
-    sprintf(result, "data%d.dat", 2);
+    sprintf(result, "data%d.dat", index);
     
     char *p = result;
     return p;

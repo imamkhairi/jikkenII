@@ -61,9 +61,9 @@ void startSorting(int n) {
     
 
     for (int i = 1; i <= n; i++) {
-    int x;
-    char *filename = malloc(10);
-    char *outname = malloc(10);
+        int x;
+        char *filename = malloc(10);
+        char *outname = malloc(10);
 
         int max = 0;
         int min = 0;

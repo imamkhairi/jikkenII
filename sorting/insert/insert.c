@@ -56,34 +56,52 @@ void insertionSort(FILE *in, int lines, int *p) {
     processTime(t);
 }
 
-int main(int argc, char **argv) {
+void setFileName(char *dst, int index) {
+    sprintf(dst, "data%d.dat", index);
+}
+
+void setOutFileName(char *dst, int index){
+    sprintf(dst, "insert%d.dat", index);
+}
+
+void startSorting(int n) {
     FILE *in;
     FILE *out;
 
-    if (argc == 2) {
-        if((in = fopen(argv[1], "r")) == NULL) {
+    for (int i = 1; i <= n; i++) {
+        char *filename = malloc(10);
+        char *outname = malloc(10);
+
+        printf("%d  | ", i);
+
+        setFileName(filename, i);
+
+        if((in = fopen(filename, "r")) == NULL)
             printf("input file name error\n");
-            return 1; //kalau mau tambahin return2 ini
+
+        int lines = countLines(in);
+        int *p = malloc(lines * sizeof(int));
+
+        insertionSort(in, lines, p);
+
+        setOutFileName(outname, i);
+
+        out = fopen(outname, "w");
+
+        for (int i = 0; i < lines; i++) {
+            fprintf(out, "%d\n", p[i]);
         }
-    } else 
-        printf("No file name stated \n");
 
-    int lines = countLines(in);
-
-    int *p = malloc(lines * sizeof(int));
-
-    insertionSort(in, lines, p);
-
-    // output
-    out = fopen("insert.dat", "w");
-
-    for (int i = 0; i < lines; i++) {
-        fprintf(out, "%d\n", p[i]);
+        free(p);
+        free(filename);
+        free(outname);
     }
 
-    free(p);
     fclose(in);
     fclose(out);
-    
+}
+
+int main(void) {
+    startSorting(8);
     return 0;
 }

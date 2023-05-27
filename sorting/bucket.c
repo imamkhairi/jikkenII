@@ -7,6 +7,10 @@ void setFileName(char *dst, int index) {
     sprintf(dst, "data%d.dat", index);
 }
 
+void setOutFileName(char *dst, int index){
+    sprintf(dst, "bucket%d.dat", index);
+}
+
 void processTime(clock_t t) {
     double time = ((double)t)/CLOCKS_PER_SEC;
     printf("%.3lf ms\n", time*1000); 
@@ -57,6 +61,7 @@ void startSorting(int n) {
     
     int x;
     char *filename = malloc(10);
+    char *outname = malloc(10);
 
         int max = 0;
         int min = 0;
@@ -83,7 +88,10 @@ void startSorting(int n) {
 
         bucketSort(in, p, s, min, (max-min));
 
-        out = fopen("bucket.dat", "w");
+        setOutFileName(outname, 3);
+
+
+        out = fopen(outname, "w");
 
         for (int i = 0; i < lines; i++) {
             fprintf(out, "%d\n", s[i]);

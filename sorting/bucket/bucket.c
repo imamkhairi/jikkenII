@@ -59,6 +59,8 @@ void startSorting(int n) {
     FILE *in;
     FILE *out;
     
+
+    for (int i = 1; i <= n; i++) {
     int x;
     char *filename = malloc(10);
     char *outname = malloc(10);
@@ -66,9 +68,9 @@ void startSorting(int n) {
         int max = 0;
         int min = 0;
 
-        printf("%d ", 1);
+        printf("%d  | ", i);
         
-        setFileName(filename, 3);
+        setFileName(filename, i);
 
         if((in = fopen(filename, "r"))== NULL)
             printf("input file name wrong\n");
@@ -80,7 +82,6 @@ void startSorting(int n) {
 
         rewind(in);
         int lines = countLines(in);
-        // printf("lines %d\n", lines);
 
         int *p = calloc((max-min), sizeof(int));
         int *s = malloc((lines) * sizeof(int));
@@ -88,7 +89,7 @@ void startSorting(int n) {
 
         bucketSort(in, p, s, min, (max-min));
 
-        setOutFileName(outname, 3);
+        setOutFileName(outname, i);
 
 
         out = fopen(outname, "w");
@@ -98,43 +99,11 @@ void startSorting(int n) {
         }
         
         free(p);
+        free(s);
+        free(filename);
+        free(outname);
+    }
 
-    // for (int i = 1; i <= n; i++) {
-    //     int max = 0;
-    //     int min = 0;
-
-    //     printf("%d ", i);
-        
-    //     setFileName(filename, i);
-
-    //     if((in = fopen(filename, "r"))== NULL)
-    //         printf("input file name wrong\n");
-
-    //     while(fscanf(in, "%d", &x) != EOF) {
-    //         max = (max < x) ? x : max;
-    //         min = (min > x) ? x : min;
-    //     }
-
-    //     int lines = countLines(in);
-
-    //     int *p = calloc((max-min), sizeof(int));
-    //     int *sort = calloc((lines), sizeof(int));
-
-    //     bucketSort(in, p, min);
-
-    //     // out = fopen("bucket.dat", "w");
-
-    //     // for (int i = 0; i <= (max-min); i++) { 
-    //     //     if (p[i] > 0)
-    //     //         for (int j = 0; j < p[i]; j++) 
-    //     //             fprintf(out, "%d\n", i+min);
-    //     // }
-        
-    //     free(p);
-    // }
-
-
-    free(filename);
     fclose(in);
     fclose(out);
 }

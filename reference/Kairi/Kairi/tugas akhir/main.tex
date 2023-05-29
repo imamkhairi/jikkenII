@@ -1,0 +1,514 @@
+\documentclass[a4j, titlepage]{jarticle}
+
+%% プリアンブル部 %%
+\usepackage[table]{xcolor}
+\usepackage{xurl}
+\usepackage{ascmac}
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{listings}
+\usepackage{comment}
+\usepackage{fancybox,ascmac}
+\usepackage[most]{tcolorbox}
+\usepackage{xcolor}
+
+\definecolor{mGreen}{rgb}{0,0.6,0}
+\definecolor{mGray}{rgb}{0.5,0.5,0.5}
+\definecolor{mPurple}{rgb}{0.58,0,0.82}
+\definecolor{backgroundColour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{CStyle}{
+    backgroundcolor=\color{backgroundColour},   
+    commentstyle=\color{mGreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{mGray},
+    stringstyle=\color{mPurple},
+    basicstyle=\footnotesize,
+    frame=TB,
+    xleftmargin=\parindent,
+    breakatwhitespace=false,        
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2,
+    language=C
+}
+
+\title{情報工学実験II\\最後の実験}
+\author{ライモン ウィジャヤ}
+\date{2021-08-20}
+\begin{document}
+\maketitle
+\tableofcontents
+\clearpage
+
+
+\section{概要}
+ネットワークグラフ(Network chart)により, データセットからシートまでの接続ノードとエッジによるネットワークを描画できる. ネットワークグラフには,情報の流れ, コンポーネントの相互作用, ネットワーク内のコンポーネントの配置場所が示される\cite{gaiyou}.
+ネットワークグラフでは, 広範な概要や詳細な部分が表現される. ノードはシステムのコンポーネントを表し, エッジはコンポーネントからコンポーネントへの情報の動きを示す. ネットワークノードは, 最も頻繁に相互作用する相手のノードに接続される. このビジュアライゼーションでは, さまざまなスタイル, 色,　サイズ, 画像を使用してネットワークの異なるレベルを表現する\cite{gaiyou}.
+
+\section{Deep First Search}
+Deep First Searchまたは深さ優先探索とは木やグラフを探索するためのアルゴリズムである. アルゴリズムは根から(グラフの場合はどのノードを根にするか決定する)始まり, バックトラックするまで可能な限り探索を行う.「縦型探索」とも呼ばれる\cite{dfs:setsumei}. 図\ref{pic:dfsirasuto}は深さ優先探索のイラストレーションである. 今回の実験は再帰を使わなく, スタックを用い, 深さ優先探索を実行する.
+
+\begin{figure}[tbh]
+    \centering \includegraphics[height=5.0cm, keepaspectratio]{Depthfirst.png}
+    \caption{DFSのイラストレーション}
+    \label{pic:dfsirasuto}
+\end{figure}
+
+\subsection{スタック}
+スタックはデータストラクチャーの一つで, 箱(配列で作れる)にものを積み上げるようなデータストラクチャーである. 図\ref{pic:stackirasuto}はスタックのイラストレーションである. スタックにはある重要な操作がある. 図\ref{pic:stackirasuto}に書いてあるように, pushとpopである. pushとはデータを配列に入れる操作である. コードリスト\ref{dfs:code}の35‐37行はpushのコードである. popは配列に後尾にあるデータを取り出す操作である. コードリスト\ref{dfs:code}の39‐42行はpopのコードである.
+
+この実験では, スタックはどの関数がアクセスできるように, スタック配列はグローバル変数にする. コードリスト\ref{dfs:code}の9行はスタックの配列である. 
+
+\begin{figure}[tbh]
+    \centering \includegraphics[height=5.0cm, keepaspectratio]{stack.png}
+    \caption{スタックのイラストレーション}
+    \label{pic:stackirasuto}
+\end{figure}
+\pagebreak
+
+\subsection{コードリスト}
+Listing\ref{dfs:code}は実験で作ったコードである. 深さ優先探索の動作は49-72行である. 
+まずは1を根とし(コードでは0から始まる), 戻らないようにknown配列に1とし, 1と一番目の繋がってるノードを探す. 
+まだ行ったことがなくノードが見つかったら(行59), そのノードに訪ね, この操作繰り返す. 
+行き先がもうなかったら, スタックからpopし(行65‐68), 前回訪ねたノードに戻り, 次のノードに訪ねる. 
+スタックが空っぽになったら, 操作終了.   
+\begin{lstlisting}[
+    style=CStyle, 
+    caption=dfs.cコードリスト,
+    captionpos=t,
+    label=dfs:code]
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+#include"data100.h"
+#include"data500.h"
+#include"data1000.h"
+#define N 1000
+
+int stack[N];
+int known[N];
+int top = -1;
+
+void push(int value);
+int pop();
+int stackempty();
+void dfs(int node[][N]);
+
+int main(void)
+{
+    int a[N][N];
+    int (*p)[N];
+    int i;
+    p = a;
+
+    for(i = 0; i < N; i++){
+        Input1000d(*(p+i), i);
+    }
+    for(i = 0; i < N; i++){
+        known[i] = 0;
+    }
+    dfs(a);
+    return 0;
+}
+
+void push(int value){
+    stack[++top] = value;
+}
+
+int pop(){
+    int ver=stack[top--];
+    return ver;
+}
+
+int stackempty(){
+    if(top==-1) return 1;
+    else return 0;
+}
+
+void dfs(int node[][N])
+{
+    int i = 0;
+    int j;
+    int num = 1;
+
+    while(1){
+        push(i);
+        known[i] = 1;
+        for(j = 0; j < N; j++){
+            if(node[i][j] == 1 && known[j] == 0){
+                printf("%d. %d -> %d\n", num, i+1, j+1);
+                i = j;
+                num++;
+                break;
+            }
+            if(j >= N-1){
+                i = pop();
+                j = 0;
+                if(stackempty() == 1) return;
+            }
+        }
+    }
+}
+\end{lstlisting}
+
+\section{Breadth First Search}
+Breadth First Searchまたは幅優先探索とはグラフ理論において木構造やグラフの探索に用いられるアルゴリズム. アルゴリズムは根ノードで始まり隣接した全てのノードを探索する. それからこれらの最も近いノードのそれぞれに対して同様のことを繰り返して探索対象ノードをみつける.「横型探索」とも言われる\cite{bfs:setsumei}.
+
+幅優先探索は解を探すために, グラフの全てのノードを網羅的に展開・検査する. 最良優先探索とは異なり, ノード探索にヒューリスティクスを使わずに, グラフ全体を目的のノードがみつかるまで, 目的のノードに接近しているかどうかなどは考慮せず探索する\cite{bfs:setsumei}. 図\ref{pic:habairasuto}は幅優先探索のイラストレーションである. 今回の実験は再帰を使わなく, キューを用い, 幅優先探索を実行する.
+
+\begin{figure}[tbh]
+    \centering \includegraphics[height=5.0cm, keepaspectratio]{Breadthfirst.png}
+    \caption{幅優先探索のイラストレーション}
+    \label{pic:habairasuto}
+\end{figure}
+\pagebreak
+\subsection{キューモデル}
+キューあるいは待ち行列は, コンピュータにおける基本的なデータ構造の一つ. データを先入れ先出しのリスト構造で保持するものである. キューからデータを取り出すときには, 先に入れられたデータから順に取り出される. キューにデータを入れることをエンキュー, 取り出すことをデキューという\cite{kyu}. 図\ref{pic:queueirasuto}はキューのイラストレーションである. 
+
+\begin{figure}[tbh]
+    \centering \includegraphics[height=5.0cm, keepaspectratio]{queue.png}
+    \caption{キューのイラストレーション}
+    \label{pic:queueirasuto}
+\end{figure}
+
+\subsection{コードリスト}
+Listing\ref{bfs:code}は実験で作ったコードである. 幅優先探索の動作は50-72行である. 
+まずは1を根とし(コードでは0から始まる), 戻らないようにknown配列に1とし, 1をエンキューする. 
+エンキューした番号と繋がったノードは順番でエンキューする(59‐63行).
+繋がったノードはもうなかったら, 1をデキュー次の番号同じ動作を行う(66-69行).
+キューに空っぽになかったら, 終了.
+\begin{lstlisting}[
+    style=CStyle, 
+    caption=bfs.cコードリスト,
+    captionpos=t,
+    label=bfs:code]
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+#include"data100.h"
+#include"data500.h"
+#include"data1000.h"
+#define N 1000
+
+int queue[N];
+int known[N];
+int item = -1;
+
+void bfs(int node[][N]);
+
+int main(void)
+{
+    int a[N][N];
+    int (*p)[N];
+    int i;
+    p = a;
+    for(i = 0; i < N; i++){
+        Input1000s(*(p+i), i);
+    }
+    for(i = 0; i < N; i++){
+        known[i] = 0;
+        queue[i] = 0;
+    }
+    bfs(a);
+    return 0;
+}
+
+void enqueue(int value){
+    queue[++item] = value;
+}
+
+int dequeue(){
+    int ver = queue[0];
+    for(int i = 0; i < N; i++){
+        queue[i] = queue[i+1];
+    }
+    item--;
+    return ver;
+}
+
+int queueisempty(){
+    if(item == -1) return 1;
+    else return 0;
+}
+
+void bfs(int node[][N]){
+    int i, j;
+    int num = 0;
+    i = 0;
+    enqueue(i);
+    known[i] = 1;
+    
+    while(1){
+        for(j = 0; j < N; j++){
+            if(node[i][j] == 1 && known[j] == 0){
+                enqueue(j);
+                known[j] = 1;
+                printf("%d. %d -> %d\n", num+1, i+1, j+1);
+                num+=1;
+            }
+        }
+        if(j >= N-1){
+            i = dequeue();
+            j = 0;
+            if(queueisempty() == 1) return;
+        }
+    }
+}
+\end{lstlisting}
+\section{最大クリーク問題}
+最大クリーク問題は, グラフ理論において, グラフ中のクリーク(任意の二頂点間に枝があるような頂点集合)の中で最大のものを見つける問題. NP困難であることが知られている. 図\ref{pic:kurikuirasuto}はその問題の例で，最大クリークは3である. 
+
+\begin{figure}[tbh]
+    \centering \includegraphics[height=5.0cm, keepaspectratio]{kuriku.png}
+    \caption{例:最大クリークは3}
+    \label{pic:kurikuirasuto}
+\end{figure}
+
+\subsection{動作}
+この問題を解くのに, 全体のエッジをファイルに保存し, 解析する. 動作は以下のように行われている.  
+まずは配列aと配列bを用意する. 配列aはグラフを保存する. 配列bは番号ごとのエッジの数を保存する. $b[n][0]$はnの番号にどれくらいエッジがあるを保存する. $b[n][1]$は他のノードから見るエッジの数を保存する. これ全部make\_all\_set関数で行われている(5-51行). bの中身は「no\_start\_another.csv」と「no\_all.csv」に見られる. no\_all.csvの中身はそのb[n][0]とb[n][1]の足した数である.
+
+次はdegreeを探す. degreeというのはn番に用いるエッジの数ということである. 一番少ないエッジを持っているノードを削除する．(53－73行)．全体エッジのリストの更新．この動作に, 削除する操作が行われている．見つけた最小値ｎ番がファイルに全体エッジのファイルに見つけたら,単にconitnueすることだ(75‐103行)．更新した後, b配列をまた初期化する(105-122行)．
+
+最後に残った番号が同じエッジを持っていなければ, また動作を繰り返す．逆に同じ場合は, 動作終了である(174-179行).
+\pagebreak
+\subsection{実行結果}
+今回の実験は4っつデータを解析する. Vertex(頂点)の数が30、50、70、100というデータを解析する. その結果は表\ref{table:kuriku}に載せてある. 
+
+\begin{table}[bth]
+    \label{table:kuriku}
+    \caption{実験結果}
+    \begin{center}
+    \begin{tabular}{|l|c|l|}
+    \hline
+    vertexの数 & 最大クリーク & 結果 \\ \hline
+     30 &  7 &  1 15 18 24 25 26 28 \\ \hline
+     50 &  9 &  3 5 10 20 28 35 42 46 47 \\ \hline
+     70 &  8 &  9 25 26 39 43 47 60 61 \\ \hline
+    100 & 12 & 12 18 21 33 39 49 51 58 70 86 89 94 \\ \hline
+\end{tabular}
+\end{center}
+\end{table}
+
+\subsection{コードリスト}
+Listing\ref{kuriku}は実験で使っているコードリストである.
+\begin{lstlisting}[
+    style=CStyle, 
+    caption=clique.cコードリスト,
+    captionpos=t,
+    label=kuriku]
+#include<stdio.h>
+#include"data30.h"
+#define N 100
+
+void make_all_set(int a[][N], int b[][2]){
+    FILE *fp; 
+    fp = fopen("all_vertices.csv", "w");
+    int known[N] ;
+    int i, j;
+    for(i = 0; i < N; i++){
+        known[i] = 0;
+    }
+
+    for(i = 0 ; i < N; i++){
+        for (j = 0; j < N; j++){
+            if(a[i][j] == 1 && (known[i] == 0 && known[j] == 0)){
+                fprintf(fp, "%d %d\n", i, j);
+            }
+        }
+        known[i] = 1;
+    }
+    fclose(fp);
+    
+    int num1, num2;
+    puts("B配列の初期化する");
+    for(i = 0; i < N; i++){
+        for(j = 0; j < 2; j++){
+            b[i][j] = 0;
+        }
+    }
+    
+    puts("B配列にデータを入れる");
+    fp = fopen("all_vertices.csv", "r");
+    while(fscanf(fp, "%d %d", &num1, &num2) != EOF){
+        b[num1][0] += 1;
+        b[num2][1] += 1;
+    }
+    fclose(fp);
+
+    fp = fopen("no_start_another.csv", "w");
+    for(i = 0; i < N; i++){
+        fprintf(fp, "%2d %2d %2d\n", i , b[i][0], b[i][1]);
+    }
+    fclose(fp);
+
+    fp = fopen("no_all.csv", "w");
+    for(i = 0; i < N; i++){
+        fprintf(fp, "%2d %2d\n", i , b[i][0]+b[i][1]);
+    }
+    fclose(fp);
+}
+
+int find_the_smalldegree(int b[][2]){
+    int min_no;
+    int min_no_num;
+    int i = 0;
+
+    /*一番小さい探す*/
+    for(i = 0; i < N; i++){
+        if(b[i][0] + b[i][1] == 0) continue;
+        min_no = b[i][0] + b[i][1];
+        min_no_num = i;
+    }
+
+    for(i=0; i < N; i++){
+        if((b[i][1] + b[i][0]) < min_no && ((b[i][1] + b[i][0]) != 0)){
+            min_no = b[i][1] + b[i][0];
+            min_no_num  = i;
+        }
+    }
+    printf("%d番が一番少ない持っている = %d\n", min_no_num, min_no);
+    return min_no_num;
+}
+
+void make_new_set(int min)
+{   
+    int num1, num2;
+    FILE *fp1;
+    FILE *fptmp;
+
+    fptmp = fopen("all_vertices_temp.csv" , "w");
+    fp1 = fopen("all_vertices.csv", "r");
+
+    puts("tempファイルにコーピする");
+    while(fscanf(fp1, "%d %d", &num1, &num2) != EOF){
+        fprintf(fptmp, "%2d %2d\n", num1, num2);
+    }
+
+    fclose(fptmp);
+    fclose(fp1);
+
+    /*tempファイルからメインファイルにB配列の結果
+    を用い,コーピする*/
+    fptmp = fopen("all_vertices_temp.csv" , "r");
+    fp1 = fopen("all_vertices.csv", "w");
+    puts("コーピする");
+    while(fscanf(fptmp, "%d %d", &num1, &num2) != EOF){
+        if(num1 == min || num2 == min) continue; 
+        fprintf(fp1, "%2d %2d\n", num1, num2);
+    }
+    fclose(fptmp);
+    fclose(fp1);
+}
+
+void make_new_barray(int b[][2])
+{
+    FILE *fp;
+    int num1, num2; 
+    int i, j;
+
+    puts("B配列を初期化と更新する");
+    for(i = 0; i < N; i++){
+        for(j = 0; j < 2; j++){
+            b[i][j] = 0;
+        }
+    }
+    fp = fopen("all_vertices.csv", "r");
+    while(fscanf(fp, "%d %d", &num1, &num2) != EOF){
+        b[num1][0] += 1;
+        b[num2][1] += 1;
+    }
+    fclose(fp);
+}
+
+int check(int b[][2]){
+
+    FILE *fp;
+    int i;
+    fp = fopen("no_start_another.csv", "w");
+    for(i = 0; i < N; i++){
+        fprintf(fp, "%2d %2d %2d\n", i , b[i][0], b[i][1]);
+    }
+    fclose(fp);
+
+    fp = fopen("no_all.csv", "w");
+    for(i = 0; i < N; i++){
+        fprintf(fp, "%2d %2d\n", i , b[i][0]+b[i][1]);
+    }
+    fclose(fp);
+
+    int diff = 0;
+    int res;
+    int flag = 0;
+    for(i = 0; i < N-1; i++){
+        if(b[i][0]+b[i][1] == 0) continue;
+        if(flag == 0) {
+            res = b[i][0]+b[i][1];
+            flag = 1; continue;
+        } else {
+            if(res != (b[i][0]+b[i][1])){
+                diff = 1;
+                return diff;
+            }
+        }
+    }
+    return diff;
+}
+
+int main(void)
+{
+    int a[N][N]; 
+    int b[N][2];
+    int (*p)[N];
+    int i;
+    p = a;
+
+    for(i = 0; i < N; i++){
+        Input100(*(p+i), i);
+    }
+
+    make_all_set(a,b);
+
+    int min, diff = 0;
+    while(1){
+        min = find_the_smalldegree(b);
+        make_new_set(min);
+        make_new_barray(b);
+        diff = check(b);
+        if(diff == 0) break;
+    }
+    printf("結果\n");
+    int kn = 0;
+    for(i = 0; i < N; i++){
+        if(b[i][0] + b[i][1] != 0){
+            kn+=1; 
+            printf("%d ", i);
+        }
+    }
+    printf("\n");
+    printf("最大クリークは[%d]\n", kn);
+    return 0;
+}
+\end{lstlisting}
+
+
+\begin{thebibliography}{99}
+\bibitem{gaiyou}
+\url{https://help.qlik.com/ja-JP/sense/May2021/Subsystems/Hub/Content/Sense_Hub/Visualizations/VisualizationBundle/network-diagram.htm}
+\bibitem{dfs:setsumei}
+\url{https://ja.wikipedia.org/wiki/%E6%B7%B1%E3%81%95%E5%84%AA%E5%85%88%E6%8E%A2%E7%B4%A2}
+\bibitem{bfs:setsumei}
+\url{https://ja.wikipedia.org/wiki/%E5%B9%85%E5%84%AA%E5%85%88%E6%8E%A2%E7%B4%A2}
+\bibitem{kyu}
+\url{https://ja.wikipedia.org/wiki/キュー}
+
+\end{thebibliography} 
+
+\end{document}
+

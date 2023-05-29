@@ -1,0 +1,15 @@
+insertion
+The elapsed time is 5.934736 seconds 
+
+bubble
+The elapsed time is 31.548570 seconds 
+
+shaker
+The elapsed time is 22.275070 seconds 
+
+quick 
+The elapsed time is 0.016183 seconds 
+
+tree
+The elapsed time is 0.030574 seconds 
+

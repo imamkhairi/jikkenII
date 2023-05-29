@@ -1,0 +1,67 @@
+bucket
+The elapsed time is 0.001469 seconds 
+The elapsed time is 0.001426 seconds 
+The elapsed time is 0.001416 seconds 
+The elapsed time is 0.001860 seconds 
+The elapsed time is 0.001329 seconds 
+The elapsed time is 0.001570 seconds 
+The elapsed time is 0.001461 seconds 
+The elapsed time is 0.001365 seconds
+------------------------------------
+
+insertion
+The elapsed time is 6.195723 seconds 
+The elapsed time is 5.953471 seconds 
+The elapsed time is 6.228491 seconds 
+The elapsed time is 11.770820 seconds 
+The elapsed time is 0.000301 seconds 
+The elapsed time is 5.894446 seconds 
+The elapsed time is 5.879243 seconds 
+The elapsed time is 5.902590 seconds 
+The elapsed time is 6.052372 seconds 
+
+bubble
+The elapsed time is 31.475248 seconds 
+The elapsed time is 31.517974 seconds 
+The elapsed time is 31.606288 seconds 
+The elapsed time is 23.128586 seconds 
+The elapsed time is 0.000286 seconds 
+The elapsed time is 14.251310 seconds 
+The elapsed time is 28.155037 seconds 
+The elapsed time is 32.724326 seconds 
+The elapsed time is 32.081906 seconds 
+
+shaker
+The elapsed time is 22.469326 seconds 
+The elapsed time is 22.451016 seconds 
+The elapsed time is 22.441433 seconds 
+The elapsed time is 24.927661 seconds 
+The elapsed time is 0.000220 seconds 
+The elapsed time is 14.305375 seconds 
+The elapsed time is 20.380264 seconds 
+The elapsed time is 22.474776 seconds 
+The elapsed time is 22.360319 seconds 
+
+quick
+The elapsed time is 0.017998 seconds 
+The elapsed time is 0.017542 seconds 
+The elapsed time is 0.019266 seconds 
+The elapsed time is 10.331764 seconds 
+The elapsed time is 10.501092 seconds 
+The elapsed time is 7.482299 seconds 
+The elapsed time is 0.015524 seconds 
+The elapsed time is 0.016642 seconds 
+The elapsed time is 0.016530 seconds 
+
+
+tree
+The elapsed time is 0.031832 seconds 
+The elapsed time is 0.030210 seconds 
+The elapsed time is 0.030231 seconds 
+The elapsed time is 28.761872 seconds 
+The elapsed time is 14.407157 seconds 
+The elapsed time is 13.976113 seconds 
+The elapsed time is 0.030836 seconds 
+The elapsed time is 0.033441 seconds 
+The elapsed time is 0.030596 seconds 
+

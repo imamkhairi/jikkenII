@@ -39,9 +39,7 @@ void processTime(clock_t t) {
 
 void bubble(int lines, int *p) {
     int k = 0;
-    clock_t t;
     
-    t = clock();
     while(k < lines - 1) {
         int last = lines - 1;
         for(int j = lines - 1; j > k; j--) {
@@ -52,9 +50,6 @@ void bubble(int lines, int *p) {
         }
         k = last;
     }
-
-    t = clock() - t;
-    processTime(t);
 }
 
 void bubble2(int lines, int  *p) {
@@ -120,7 +115,13 @@ void startSorting(int n) {
         int *p = malloc(lines * sizeof(int));
         store_array(in, p);
 
+        clock_t t;
+        t = clock();
+
         bubble(lines, p);
+
+        t = clock() - t;
+        processTime(t);
 
         setOutFileName(outname, i);
 

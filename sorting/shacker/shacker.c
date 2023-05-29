@@ -41,9 +41,6 @@ void shacker(const int lines, int *p) {
     int right = lines - 1;
     int left = 0;
 
-    clock_t t;
-    
-    t = clock();
     while(left != right) {
         int i;
         int j;
@@ -65,8 +62,7 @@ void shacker(const int lines, int *p) {
         left = last;
     }
 
-    t = clock() - t;
-    processTime(t);
+    
 }
 
 void setFileName(char *dst, int index) {
@@ -95,8 +91,12 @@ void startSorting(int n) {
         int lines = countLines(in);
         int *p = malloc(lines * sizeof(int));
         store_array(in, p);
-
+  
+        clock_t t;
+        t = clock();
         shacker(lines, p);
+        t = clock() - t;
+        processTime(t);
 
         setOutFileName(outname, i);
 

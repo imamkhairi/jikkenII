@@ -35,11 +35,8 @@ void processTime(clock_t t) {
 
 // ini bisa dicoba bikin yang kalau store semua dulu baru sort
 void insertionSort(FILE *in, int lines, int *p) {
-    clock_t t;
     int key;
     int i = 0;
-
-    t = clock();
 
     while (fscanf(in, "%d", &key) != EOF) {
         p[i] = key;
@@ -51,9 +48,6 @@ void insertionSort(FILE *in, int lines, int *p) {
         p[j+1] = key;
         i ++;
     }
-    
-    t = clock() - t;
-    processTime(t);
 }
 
 void setFileName(char *dst, int index) {
@@ -82,7 +76,11 @@ void startSorting(int n) {
         int lines = countLines(in);
         int *p = malloc(lines * sizeof(int));
 
+        clock_t t;
+        t = clock();
         insertionSort(in, lines, p);
+        t = clock() - t;
+        processTime(t);
 
         setOutFileName(outname, i);
 

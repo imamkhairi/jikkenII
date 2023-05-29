@@ -18,15 +18,13 @@ void processTime(clock_t t) {
 
 void bucketSort(FILE *in, int *p, int *sort, int offset, int n) {
     int x;
-    clock_t t;
     
     rewind(in);
 
-    t = clock();
     while (fscanf(in, "%d", &x) != EOF) {
         p[x-offset]++;
     }
-    t = clock() - t;
+    
 
     int s = 0;
 
@@ -37,8 +35,6 @@ void bucketSort(FILE *in, int *p, int *sort, int offset, int n) {
                 s++;
             }
     }
-
-    processTime(t);
 }
 
 int  countLines(FILE *in) {
@@ -85,9 +81,13 @@ void startSorting(int n) {
 
         int *p = calloc((max-min), sizeof(int));
         int *s = malloc((lines) * sizeof(int));
-        int l = 0;
+        // int l = 0;
 
+        clock_t t;
+        t = clock();
         bucketSort(in, p, s, min, (max-min));
+        t = clock() - t;
+        processTime(t);
 
         setOutFileName(outname, i);
 

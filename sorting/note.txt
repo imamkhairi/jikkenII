@@ -1,0 +1,1 @@
+ntar tambahin bitonic sort

@@ -1,13 +1,84 @@
-\documentclass[a4j]{jreport}
+\documentclass[a4j, titlepage]{jarticle}
+
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{subcaption}
+\usepackage{caption}
+
+\title{情報工学実験II\\ソーティングプログラム}
+\author{イマム カイリ ルビス}
+\date{\today}
 
 \begin{document}
 
-\title{ソーティングプログラム}
-\author{イマムカイリルビス}
-\date{\today}
-
 \maketitle
 
-\chapter{課題1バケットソート}
-\section{test}
+\tableofcontents
+\clearpage
+
+\section{概要}
+% apa itu sorting dan kegunaannya (singgung ke sorting yang bagus gimana, apa yang mempengaruhi kecepatan sorting)
+% apa itu time complexity
+% sorting itu dilakukan dengan mengikuti sebuah algoritma (kali ini ditulis dengan C)
+
+% A sorting algorithm is an algorithm that puts elements of a list into an order. The most frequently used orders are numerical order and lexicographical order, and either ascending or descending. Efficient sorting is important for optimizing the efficiency of other algorithms (such as search and merge algorithms) that require input data to be in sorted lists. Sorting is also often useful for canonicalizing data and for producing human-readable output.
+ソートアルゴリズムとは，データの要素をある順序に並べるアルゴリズムである．最も頻繁に使用される順序は，数値順と辞書順で、昇順または降順のどちらかである．効率的なソートは，入力データがソートされたデータであることを必要とする他のアルゴリズム（検索やマージアルゴリズムなど）の効率を最適化するために重要である．また，人間が読みやすい出力を作成したりする際にもよく使われる．
+%https://en.wikipedia.org/wiki/Sorting_algorithm
+
+% Time complexity is the computational complexity that describes the amount of computer time it takes to run an algorithm.  time complexity is commonly expressed using big O notation, ...
+アルゴリズムを実行するのにかかるコンピュタの時間を\textbf{時間計算量}(\textit{time complexity})と呼ばれる．時間計算量は，一般的に\textit{big O notation}(オーダー)という書き方で記す．例えば，\textit{O}($n$)，\textit{O}($n \log n$)，\textit{O}($2^n$)，など．
+
+% 時間の複雑さは、アルゴリズムを実行するのにかかるコンピュータの時間量を表す計算の複雑さです。時間の複雑さは、一般的にビッグO記法を用いて表現されます...
+
+% We can consider that the efficient algorithms is the most quick algorithm to solve the provided task. Therefore this experiment will compare several sorting algorithms to sort data in numerical order to find what algorithms is most efficient to a certain type of numerical data.
+効率的なアルゴリズムとは，与えられた課題を最も早く解決するアルゴリズムであると考えることができる．そこで，この実験では，データを数値順に並べるいくつかのソートアルゴリズムを比較し，ある種の数値データに対して、どのアルゴリズムが最も効率的かを調べる．
+
+% In this experiment all of the algorithms will be written on C language. The data that will be sorted has different characteristic as shown in table 1
+この実験では，すべてのアルゴリズムがC言語で記述されます．ショーティング対象データは、表(\ref{table_data})に示すように，異なる特性を持っている．
+
+\begin{table}[tbh]
+    \label{table_data}
+    \caption{ソーティング対象データ}
+    \begin{center}
+        \begin{tabular}{lc}
+            \hline
+            ダーた & 特徴 \\ \hline\hline
+            ダーた 1-3 & 乱数\\ 
+            ダーた 4 &  昇順\\ 
+            ダーた 5 &  降順\\ 
+            ダーた 6 &  バイトニック\\ 
+            ダーた 7 &  ジグザグ\\ 
+            でーた 8 & ランダムマイナス\\ \hline
+        \end{tabular}
+    \end{center}
+\end{table}
+
+% bucket sort
+\section{バケットソート}
+% what is bucket sort?
+Bucket Sort is a sorting algorithm that divides the unsorted array elements into several groups called buckets. Each bucket is then sorted by using any of the suitable sorting algorithms or recursively applying the same bucket algorithm.
+This time we choose to take the data input and stored it in other array based on their value as the array index. So that, we dont have to count how many are the data is, but instead we have to know what is the maximum value of the data. 
+
+\subsection{プログラム}
+CODE
+%masukkan code di sini
+
+\subsection{動作}
+To make this algorithm also works for negative number, we have to know what is the max and min value of the data. So that we can set the size of bucket array will be (max - min). 
+% ini jadi itemize
+mainly the process of this bucket sort program is:
+set the bucket array to the size of max-min
+set the output array to the size of ammount of data
+iterate all the data
+store data at index (x-min) bucket array
+store the data to output array as index + min
+
+\subsection{timecomplexity}
+% berapa time complexity
+% hasilnya jadikan table
+
+% cara kerjanya yang diubah untuk store ke sebuah array dimana elements array itu artinya berapa banyak data yang bernilai elemen tersebut
+
+
+
+
 \end{document}

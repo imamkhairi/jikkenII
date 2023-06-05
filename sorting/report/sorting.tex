@@ -16,10 +16,6 @@
 \clearpage
 
 \section{概要}
-% apa itu sorting dan kegunaannya (singgung ke sorting yang bagus gimana, apa yang mempengaruhi kecepatan sorting)
-% apa itu time complexity
-% sorting itu dilakukan dengan mengikuti sebuah algoritma (kali ini ditulis dengan C)
-
 % A sorting algorithm is an algorithm that puts elements of a list into an order. The most frequently used orders are numerical order and lexicographical order, and either ascending or descending. Efficient sorting is important for optimizing the efficiency of other algorithms (such as search and merge algorithms) that require input data to be in sorted lists. Sorting is also often useful for canonicalizing data and for producing human-readable output.
 ソートアルゴリズムとは，データの要素をある順序に並べるアルゴリズムである．最も頻繁に使用される順序は，数値順と辞書順で、昇順または降順のどちらかである．効率的なソートは，入力データがソートされたデータであることを必要とする他のアルゴリズム（検索やマージアルゴリズムなど）の効率を最適化するために重要である．また，人間が読みやすい出力を作成したりする際にもよく使われる．
 %https://en.wikipedia.org/wiki/Sorting_algorithm
@@ -52,21 +48,25 @@
     \end{center}
 \end{table}
 
+spek pc
+
 % bucket sort
 \section{バケットソート}
 % what is bucket sort?
-Bucket Sort is a sorting algorithm that divides the unsorted array elements into several groups called buckets. Each bucket is then sorted by using any of the suitable sorting algorithms or recursively applying the same bucket algorithm.
-This time we choose to take the data input and stored it in other array based on their value as the array index. So that, we dont have to count how many are the data is, but instead we have to know what is the maximum value of the data. 
+% Bucket Sort is a sorting algorithm that divides the unsorted array elements into several groups called buckets. Each bucket is then sorted by using any of the suitable sorting algorithms or recursively applying the same bucket algorithm.
+% This time we choose to take the data input and stored it in other array based on their value as the array index. So that, we dont have to count how many are the data is, but instead we have to know what is the maximum value of the data. 
+バケットソートは、ソートされていない配列要素をバケットと呼ばれるいくつかのグループに分割するソートアルゴリズムです。各バケットは、適切なソートアルゴリズムを使用するか、同じバケットアルゴリズムを再帰的に適用することによってソートされます。
+今回は、入力されたデータを、その値を配列のインデックスとして、他の配列に格納することにします。そのため、データの個数を数える必要はなく、データの最大値を知ることができます。
 
 \subsection{プログラム}
 CODE
 %masukkan code di sini
 
 \subsection{動作}
-To make this algorithm also works for negative number, we have to know what is the max and min value of the data. So that we can set the size of bucket array will be (max - min). 
+To make this algorithm also works for negative number, we have to know what is the max and min value of the data. So that we can set the size of bucket array will be (max - min) + 1 ?. 
 % ini jadi itemize
 mainly the process of this bucket sort program is:
-set the bucket array to the size of max-min
+set the bucket array to the size of max-min (+1)
 set the output array to the size of ammount of data
 iterate all the data
 store data at index (x-min) bucket array
@@ -77,6 +77,8 @@ store the data to output array as index + min
 % hasilnya jadikan table
 
 % cara kerjanya yang diubah untuk store ke sebuah array dimana elements array itu artinya berapa banyak data yang bernilai elemen tersebut
+
+\subsection{kesimpulan}
 
 
 

@@ -1,4 +1,4 @@
-This is e-pTeX, Version 3.14159265-p3.8.2-190131-2.6 (utf8.euc) (TeX Live 2019) (preloaded format=platex 2023.1.11)  30 MAY 2023 10:31
+This is e-pTeX, Version 3.14159265-p3.8.2-190131-2.6 (utf8.euc) (TeX Live 2019) (preloaded format=platex 2023.1.11)  5 JUN 2023 11:56
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -133,18 +133,18 @@ LaTeX Font Info:    External font `cmex10' loaded for size
  [1]
 
 LaTeX Font Warning: Font shape `JT1/mc/m/it' undefined
-(Font)              using `JT1/mc/m/n' instead on input line 28.
+(Font)              using `JT1/mc/m/n' instead on input line 24.
 
 
 LaTeX Font Warning: Font shape `JY1/mc/m/it' undefined
-(Font)              using `JY1/mc/m/n' instead on input line 28.
+(Font)              using `JY1/mc/m/n' instead on input line 24.
 
 
-Package caption Warning: \label without proper reference on input line 39.
+Package caption Warning: \label without proper reference on input line 35.
 See the caption package documentation for explanation.
 
 
-LaTeX Warning: Reference `table_data' on page 2 undefined on input line 36.
+LaTeX Warning: Reference `table_data' on page 2 undefined on input line 32.
 
 LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <12> not available
 (Font)              Font shape `JT1/gt/m/n' tried instead on input line 61.
@@ -169,4 +169,4 @@ Here is how much of TeX's memory you used:
  929 hyphenation exceptions out of 8191
  42i,7n,40p,470b,312s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on sorting.dvi (4 pages, 6396 bytes).
+Output written on sorting.dvi (4 pages, 6692 bytes).

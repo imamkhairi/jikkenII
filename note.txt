@@ -25,11 +25,28 @@ begin{itembox}[l]{Knuthについて} -> untuk ada judul di itembox nya [l] -> le
 
 lesson 2 presenter3 
 
+kalau ada perbaikan itu tetap dihitung yang basicnya (perbandingan)
+
+jumlah data tambah lagi lah
+
+ppt siapin kira2 ditanyain apa
+ppt mokuji
+index graphs itu buat orang ngerti
+subtitle tetap kasih title
+
+data di grahp itu mean dr beberapa kali execute
+
+mana paling cocok utk tiap jenis data
+apa beda dr tiap sort
+
+insertionSort dr depan ke belakang aja?
+
+
+report tulis kansou presenter sama yg nanya
+
+present 10 min
+
+
+
+
 課題提出：レッスン5で作成したゴルフの資料(pdf)は， "golf_23**.pdf" (**は自分の現在の出席番号)と名前を付けること． レッスン6で作成した資料(pdf)には， "2300**.pdf"という名前を付けること． これら２つの資料を，メール添付で "honma@kushiro-ct.ac.jp" に送ること． 締め切りは 5/19（金）17：00 厳守． 
-
-
-    これまでで得た知識を活用してオリジナルの資料をLATEXで作成してみよ．
-    前課題のゴルフドキュメントの様に何かを紹介する資料にすること．スポーツ，学術，漫画，絵画，音楽など何でもOK．
-    枚数は 2 カラムレイアウトで 3 ページ．
-    表，図（写真），数式，参考文献を必ず使用すること．
-    オリジナリティを意識した作品にすること． 

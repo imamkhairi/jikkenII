@@ -13,4 +13,4 @@
 \contentsline {subsection}{\numberline {3.1}プログラム}{6}{}%
 \contentsline {subsection}{\numberline {3.2}動作}{8}{}%
 \contentsline {subsection}{\numberline {3.3}時間計算量}{8}{}%
-\contentsline {section}{\numberline {4}バブルソート}{8}{}%
+\contentsline {section}{\numberline {4}バブルソート}{9}{}%

@@ -1,10 +1,10 @@
 # Fdb version 4
-["dvipdf"] 1686411574 "out/sorting.dvi" "out/sorting.pdf" "out/sorting" 1686411574 0
-  "out/sorting.dvi" 1686411574 92796 7d137abca6dd580374f3cbce2677e889 "latex"
+["dvipdf"] 1686427693 "out/sorting.dvi" "out/sorting.pdf" "out/sorting" 1686427693 0
+  "out/sorting.dvi" 1686427693 93660 3f191bd0914e07956d49ff2ba2e3d6f4 "latex"
   (generated)
   "out/sorting.pdf"
   (rewritten before read)
-["latex"] 1686411574 "d:/Kosen/jikkenII/sorting/report/sorting.tex" "out/sorting.dvi" "sorting" 1686411574 0
+["latex"] 1686427692 "d:/Kosen/jikkenII/sorting/report/sorting.tex" "out/sorting.dvi" "sorting" 1686427693 0
   "c:/texlive/2023/texmf-dist/fonts/tfm/jknappen/ec/tcrm1000.tfm" 1681961456 1536 e07581a4bb3136ece9eeb4c3ffab8233 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/ptex-fonts/standard/goth10.tfm" 1681961816 1196 5981e79c37b2cfd27b3612a6783cd4b6 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/ptex-fonts/standard/min10.tfm" 1681961816 1196 1be730212205a270378fba11a44765dc ""
@@ -45,10 +45,10 @@
   "c:/texlive/2023/texmf.cnf" 1681961945 713 614551405fc44b98efbf516466e3c909 ""
   "d:/Kosen/jikkenII/sorting/bucket/bucket.c" 1686398890 2210 d88bec97c7c399f7c30c43c0434270f7 ""
   "d:/Kosen/jikkenII/sorting/insert/insert.c" 1686410207 1880 6734b3d3beb45023cbb842835d4547fd ""
-  "d:/Kosen/jikkenII/sorting/report/sorting.tex" 1686411573 11525 2a8a053c5a51bce90869780eb28407b3 ""
-  "out/sorting.aux" 1686411574 2628 2ddb6fb54e3fdc8b6d5b74c774bd8431 "latex"
-  "out/sorting.toc" 1686411574 1052 4f729a2ee7a0b1d1952ae35d223189ce "latex"
-  "sorting.tex" 1686411573 11525 2a8a053c5a51bce90869780eb28407b3 ""
+  "d:/Kosen/jikkenII/sorting/report/sorting.tex" 1686427692 12048 d954cb7330f2cf43f3a675de45c70c2c ""
+  "out/sorting.aux" 1686427693 2629 626fbf7bccb5b7c0472bfb58f03365a7 "latex"
+  "out/sorting.toc" 1686427693 1052 32ee8b7a7856321b0cc8a2f30b407f92 "latex"
+  "sorting.tex" 1686427692 12048 d954cb7330f2cf43f3a675de45c70c2c ""
   (generated)
   "out/sorting.aux"
   "out/sorting.dvi"

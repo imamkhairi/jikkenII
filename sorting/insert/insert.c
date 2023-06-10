@@ -28,7 +28,8 @@ void store_array(FILE *in, int *p) {
 
 void processTime(clock_t t) {
     double time = ((double)t)/CLOCKS_PER_SEC;
-    printf("%.3lf ms\n", time*1000);
+    // printf("%.3lf ms\n", time*1000);
+    printf("%.3lf\n", time*1000);
 }
 
 void insertionSort(FILE *in, int lines, int *p) {
@@ -63,7 +64,7 @@ void startSorting(int n) {
         char *filename = malloc(10);
         char *outname = malloc(10);
 
-        printf("%d  ,", i);
+        // printf("%d, ", i);
 
         setFileName(filename, i);
 

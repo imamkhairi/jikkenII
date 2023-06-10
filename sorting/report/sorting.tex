@@ -94,7 +94,7 @@
         \subsection{動作}
             このアルゴリズムを動けるためには，$(max - min + 1)$ の大きさの配列を用意する必要がある，この理由は後述する．
             
-            バケツソートのプログラムの主な流れは，以下の通りである：
+            バケットソートのプログラムの主な流れは，以下の通りである：
             \begin{enumerate}
                 \item バケット配列に $(max - min + 1)$ の大きさを設定する．
                 \item 出力配列に入力データの大きさを設定する．
@@ -112,16 +112,22 @@
                 \caption{計算時間 (バケットソート)}
                 \label{tab:bucket}
                 \begin{center}
-                    \begin{tabular}{|l|cccccccc|}
+                    \begin{tabular}{lcccc}
                         \hline
-                        データ & data1 & data2 &data3 &data4 &data5 &data6 &data7 &data8\\ \hline
-                        計算時間(ms) & 7.2712 & 7.2169 & 7.1648 & 6.3128 & 6.1445 & 5.9061 & 7.0154 & 8.6275\\ \hline
+                        \textbf{データ} & data1 & data2 &data3 &data4\\ \hline
+                        \textbf{計算時間(ms)} & 7.2712 & 7.2169 & 7.1648 & 6.3128 \\\hline
+                        \\ \hline
+                        \textbf{データ} &data5 &data6 &data7 &data8\\ \hline
+                        \textbf{計算時間(ms)} & 6.1445 & 5.9061 & 7.0154 & 8.6275\\ \hline
                     \end{tabular}
                 \end{center}
             \end{table}
 
+        % \subsection{考察}
+        %     from the execution result we can conclude that bucket sort run well for any type of data. The difference is only about 1 ms which too fast to even recognized.
+
         \subsection{問題点}
-            入力データをバケット配列の添字に変換するだけでは，マイナスの値に対応できなくなる．マイナスの配列添字はそもそもないからだ．そこで，バケット配列の大きさが$(max - min + 1)$に設定しいないといけない．入力データがすべて同じ数である場合，$ x - x = 0$ となり，大きさ0の配列はデータを格納できないため、このような場合に $+ 1$ が不可欠．
+            入力データをバケット配列の添字に変換するだけでは，マイナスの値に対応できなくなる．マイナスの配列添字はそもそもないからだ．そこで，バケット配列の大きさが$(max - min + 1)$に設定しいないといけない．入力データがすべて同じ数である場合，$ x - x = 0 $ となり，大きさ0の配列はデータを格納できないため、このような場合に $+ 1$ が不可欠．
             \begin{table}[t]
                 \caption{改善結果}
                 \label{tab:bucket_problem}
@@ -139,16 +145,53 @@
     
     \section{挿入ソート}
         挿入ソートは，トランプを並べ替えるのと同じような仕組みです．配列は事実上，ソートされた部分とソートされていない部分に分けられます．ソートされていない部分から値が選ばれ，ソートされた部分の正しい位置に配置される．
+
+        今回は，全部の入力データをソートするでなく，入力データを１個ずつ取ってからソートする．
     
         \subsection{プログラム}
             以下は挿入ソートのプログラムである．
             \lstinputlisting[language=c]{D:/Kosen/jikkenII/sorting/insert/insert.c}
 
+        \subsection{動作}
+            挿入ソートは比較によりソーティングを行うアルゴリズムである．配列に格納されるデータは，１個前の要素から最初の要素までに比較し、適切の位置に置くこと．しかし，適切の位置に置くという関数がないため，以下の通りである：
+            
+            \begin{enumerate}
+                \item 入力データ $x$ がn番目の要素に入力する．
+                \item $(n-1)$ 番目から０番目の要素までに比較する．
+                \item 左隣の要素が着目している要素より大きければ，着目している要素の位置に代入する．
+                \item 全部ソートされるまで繰り返す．
+                \item ソート完了．
+            \end{enumerate}
+        
+        \subsection{時間計算量}
+            挿入ソートの計算量は場合によって分れる．
+            \begin{itemize}
+                % \item 
+                \item 最悪の計算量：$O(N^2)$
+                \item 平均的な計算量：$O(N^2)$
+                \item 最良の計算量：$O(N)$
+            \end{itemize}
 
+            各データに対してバケットソートの実行時間は表（\ref{tab:insertion}）のように表す．ここで表す結果は10回の実行結果の平均値である.
 
-       
-
-
-
+            \begin{table}[tbh]
+                \caption{計算時間 (バケットソート)}
+                \label{tab:insertion}
+                \begin{center}
+                    \begin{tabular}{lcccc}
+                        \hline
+                        \textbf{データ} & data1 & data2 &data3 &data4 \\ \hline
+                        \textbf{計算時間(ms)} & 3568.585 & 3566.8257 & 3569.5971 & 5.7314\\ \hline
+                        \\ \hline
+                        \textbf{データ} & data5 &data6 &data7 &data8\\ \hline
+                        \textbf{計算時間(ms)} &7068.0738 & 3536.4216 & 3554.4499 & 3535.3692\\ \hline
+                    \end{tabular}
+                \end{center}
+            \end{table}
+        
+        % \subsection{考察}
+            % Insertion Sort manage to detect wether a data is sorted or not. The type of data that takes longest time to execute is bitonic data. This can see as the bitonic data takes 3.5 s more time than other data.
+    
+    \section{バブルソート}
 
 \end{document}

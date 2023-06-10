@@ -1,84 +1,152 @@
 \documentclass[a4j, titlepage]{jarticle}
 
 \usepackage[dvipdfmx]{graphicx}
-\usepackage{subcaption}
-\usepackage{caption}
+\usepackage{fancybox}
+\usepackage{listings}
+\usepackage{xcolor}
 
 \title{情報工学実験II\\ソーティングプログラム}
 \author{イマム カイリ ルビス}
 \date{\today}
 
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstset{style=mystyle}
+
 \begin{document}
 
-\maketitle
+    \maketitle
 
-\tableofcontents
-\clearpage
+    \tableofcontents
+    \clearpage
 
-\section{概要}
-% A sorting algorithm is an algorithm that puts elements of a list into an order. The most frequently used orders are numerical order and lexicographical order, and either ascending or descending. Efficient sorting is important for optimizing the efficiency of other algorithms (such as search and merge algorithms) that require input data to be in sorted lists. Sorting is also often useful for canonicalizing data and for producing human-readable output.
-ソートアルゴリズムとは，データの要素をある順序に並べるアルゴリズムである．最も頻繁に使用される順序は，数値順と辞書順で、昇順または降順のどちらかである．効率的なソートは，入力データがソートされたデータであることを必要とする他のアルゴリズム（検索やマージアルゴリズムなど）の効率を最適化するために重要である．また，人間が読みやすい出力を作成したりする際にもよく使われる．
-%https://en.wikipedia.org/wiki/Sorting_algorithm
+    \section{概要}
+        \subsection{ソートアルゴリズムとは}
+            ソートアルゴリズムとは，データの要素をある順序に並べるアルゴリズムである．最も頻繁に使用される順序は，数値順と辞書順で、昇順または降順のどちらかである．効率的なソートは，入力データがソートされたデータであることを必要とする他のアルゴリズム（検索やマージアルゴリズムなど）の効率を最適化するために重要である．また，人間が読みやすい出力を作成したりする際にもよく使われる．
+            %https://en.wikipedia.org/wiki/Sorting_algorithm
+        
+        \subsection{計算量}
+            アルゴリズムを実行するのにかかるコンピュタの時間を\textbf{時間計算量}(\textit{time complexity})と呼ばれる．時間計算量は，一般的に\textit{big O notation}(オーダー)という書き方で記す．例えば，\textit{O}($n$)，\textit{O}($n \log n$)，\textit{O}($2^n$)，など．
 
-% Time complexity is the computational complexity that describes the amount of computer time it takes to run an algorithm.  time complexity is commonly expressed using big O notation, ...
-アルゴリズムを実行するのにかかるコンピュタの時間を\textbf{時間計算量}(\textit{time complexity})と呼ばれる．時間計算量は，一般的に\textit{big O notation}(オーダー)という書き方で記す．例えば，\textit{O}($n$)，\textit{O}($n \log n$)，\textit{O}($2^n$)，など．
+        \subsection{効率的なアルゴリズム}
+            効率的なアルゴリズムとは，与えられた課題を最も早く解決するアルゴリズムであると考えることができる．そこで，この実験では，データを数値順に並べるいくつかのソートアルゴリズムを比較し，ある種の数値データに対して、どのアルゴリズムが最も効率的かを調べる．本実験では各プログラムの実行時間は，ソート関数が呼び出される前後のシステム時間差を clock() 関数でカウントされる．
 
-% 時間の複雑さは、アルゴリズムを実行するのにかかるコンピュータの時間量を表す計算の複雑さです。時間の複雑さは、一般的にビッグO記法を用いて表現されます...
+        \subsection{実行環境}
+            本実験で使用される実行環境：
+            \begin{itemize}
+                \item プロセッサ：AMD Ryzen 5 5600X
+                \item メモリー：16.0 GB
+                \item OS：Windows 11 Pro
+                \item コンパイラ：gcc
+            \end{itemize}
+        
+        \subsection{対象データ}
+            この実験では，すべてのアルゴリズムがC言語で記述されます．ショーティング対象データは、表(\ref{tab:data})に示すように，異なる特性を持っている．
+            \begin{table}[tbh]
+                \caption{ソーティング対象データ}
+                \label{tab:data}
+                \begin{center}
+                    \begin{tabular}{lc}
+                        \hline
+                        ダーた & 特徴 \\ \hline\hline
+                        ダーた 1-3 & 乱数\\ 
+                        ダーた 4 &  昇順\\ 
+                        ダーた 5 &  降順\\ 
+                        ダーた 6 &  バイトニック\\ 
+                        ダーた 7 &  ジグザグ\\ 
+                        でーた 8 & ランダムマイナス\\ \hline
+                    \end{tabular}
+                \end{center}
+            \end{table}
 
-% We can consider that the efficient algorithms is the most quick algorithm to solve the provided task. Therefore this experiment will compare several sorting algorithms to sort data in numerical order to find what algorithms is most efficient to a certain type of numerical data.
-効率的なアルゴリズムとは，与えられた課題を最も早く解決するアルゴリズムであると考えることができる．そこで，この実験では，データを数値順に並べるいくつかのソートアルゴリズムを比較し，ある種の数値データに対して、どのアルゴリズムが最も効率的かを調べる．
+    % bucket sort
+    \section{バケットソート}
+        バケットソートは、ソートされていない配列要素をバケットと呼ばれるいくつかのグループに分割するソートアルゴリズムです．各バケットは，適切なソートアルゴリズムを使用するか，同じバケットアルゴリズムを再帰的に適用することによってソートされます．
 
-% In this experiment all of the algorithms will be written on C language. The data that will be sorted has different characteristic as shown in table 1
-この実験では，すべてのアルゴリズムがC言語で記述されます．ショーティング対象データは、表(\ref{table_data})に示すように，異なる特性を持っている．
+        今回は，入力されたデータの値を配列の添字として，他の配列に格納することにします．そのため，データの個数を数える必要はなく，データの最小値と最大値を知ることが必要．
 
-\begin{table}[tbh]
-    \label{table_data}
-    \caption{ソーティング対象データ}
-    \begin{center}
-        \begin{tabular}{lc}
-            \hline
-            ダーた & 特徴 \\ \hline\hline
-            ダーた 1-3 & 乱数\\ 
-            ダーた 4 &  昇順\\ 
-            ダーた 5 &  降順\\ 
-            ダーた 6 &  バイトニック\\ 
-            ダーた 7 &  ジグザグ\\ 
-            でーた 8 & ランダムマイナス\\ \hline
-        \end{tabular}
-    \end{center}
-\end{table}
+        \subsection{プログラム}
+            以下はバケットソートのプログラムである．
+            \lstinputlisting[language=c]{D:/Kosen/jikkenII/sorting/bucket/bucket.c}
 
-spek pc
+        \subsection{動作}
+            このアルゴリズムを動けるためには，$(max - min + 1)$ の大きさの配列を用意する必要がある，この理由は後述する．
+            
+            バケツソートのプログラムの主な流れは，以下の通りである：
+            \begin{enumerate}
+                \item バケット配列に $(max - min + 1)$ の大きさを設定する．
+                \item 出力配列に入力データの大きさを設定する．
+                \item 各入力データ$x$はバケット配列の添字 $(x - min)$ 値を $+1$ 増やす．
+                \item バケット配列から出力配列に元の値変更し、格納する．
+                \item ソート完了．
+            \end{enumerate}
 
-% bucket sort
-\section{バケットソート}
-% what is bucket sort?
-% Bucket Sort is a sorting algorithm that divides the unsorted array elements into several groups called buckets. Each bucket is then sorted by using any of the suitable sorting algorithms or recursively applying the same bucket algorithm.
-% This time we choose to take the data input and stored it in other array based on their value as the array index. So that, we dont have to count how many are the data is, but instead we have to know what is the maximum value of the data. 
-バケットソートは、ソートされていない配列要素をバケットと呼ばれるいくつかのグループに分割するソートアルゴリズムです。各バケットは、適切なソートアルゴリズムを使用するか、同じバケットアルゴリズムを再帰的に適用することによってソートされます。
-今回は、入力されたデータを、その値を配列のインデックスとして、他の配列に格納することにします。そのため、データの個数を数える必要はなく、データの最大値を知ることができます。
+        \subsection{時間計算量}
+            バケットソートの時間的複雑さは $O(n + k)$ であり，ここでnは要素数，kはバケット配列の大きさである．
 
-\subsection{プログラム}
-CODE
-%masukkan code di sini
+            各データに対してバケットソートの実行時間は表（\ref{tab:bucket}）のように表す．ここで表す結果は10回の実行結果の平均値である.
 
-\subsection{動作}
-To make this algorithm also works for negative number, we have to know what is the max and min value of the data. So that we can set the size of bucket array will be (max - min) + 1 ?. 
-% ini jadi itemize
-mainly the process of this bucket sort program is:
-set the bucket array to the size of max-min (+1)
-set the output array to the size of ammount of data
-iterate all the data
-store data at index (x-min) bucket array
-store the data to output array as index + min
+            \begin{table}[tbh]
+                \caption{計算時間 (バケットソート)}
+                \label{tab:bucket}
+                \begin{center}
+                    \begin{tabular}{|l|cccccccc|}
+                        \hline
+                        データ & data1 & data2 &data3 &data4 &data5 &data6 &data7 &data8\\ \hline
+                        計算時間(ms) & 7.2712 & 7.2169 & 7.1648 & 6.3128 & 6.1445 & 5.9061 & 7.0154 & 8.6275\\ \hline
+                    \end{tabular}
+                \end{center}
+            \end{table}
 
-\subsection{timecomplexity}
-% berapa time complexity
-% hasilnya jadikan table
+        \subsection{問題点}
+            入力データをバケット配列の添字に変換するだけでは，マイナスの値に対応できなくなる．マイナスの配列添字はそもそもないからだ．そこで，バケット配列の大きさが$(max - min + 1)$に設定しいないといけない．入力データがすべて同じ数である場合，$ x - x = 0$ となり，大きさ0の配列はデータを格納できないため、このような場合に $+ 1$ が不可欠．
+            \begin{table}[t]
+                \caption{改善結果}
+                \label{tab:bucket_problem}
+                \begin{center}
+                    \begin{tabular}{|l|c|c|}
+                        \hline
+                        問題 & 元のアルゴリズム & 改善したアルゴリズム\\ \hline
+                        マイナスの対応 & × & ○\\ \hline
+                        同じ値データ & ○ & ○\\ \hline
+                        バケット配列の大きさ & 大きい & 小さい\\ \hline
+                    \end{tabular}
+                \end{center}
+            \end{table}
 
-% cara kerjanya yang diubah untuk store ke sebuah array dimana elements array itu artinya berapa banyak data yang bernilai elemen tersebut
+    
+    \section{挿入ソート}
+        挿入ソートは，トランプを並べ替えるのと同じような仕組みです．配列は事実上，ソートされた部分とソートされていない部分に分けられます．ソートされていない部分から値が選ばれ，ソートされた部分の正しい位置に配置される．
+    
+        \subsection{プログラム}
+            以下は挿入ソートのプログラムである．
+            \lstinputlisting[language=c]{D:/Kosen/jikkenII/sorting/insert/insert.c}
 
-\subsection{kesimpulan}
+
+
+       
 
 
 

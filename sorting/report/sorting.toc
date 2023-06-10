@@ -1,5 +1,0 @@
-\contentsline {section}{\numberline {1}概要}{2}% 
-\contentsline {section}{\numberline {2}バケットソート}{2}% 
-\contentsline {subsection}{\numberline {2.1}プログラム}{2}% 
-\contentsline {subsection}{\numberline {2.2}動作}{3}% 
-\contentsline {subsection}{\numberline {2.3}timecomplexity}{3}% 

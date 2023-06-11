@@ -1,10 +1,10 @@
 # Fdb version 4
-["dvipdf"] 1686476404 "out/sorting.dvi" "out/sorting.pdf" "out/sorting" 1686476405 0
-  "out/sorting.dvi" 1686477371 229624 3b82ddf2d7366ce8869a579c3c6469b2 "latex"
+["dvipdf"] 1686491847 "out/sorting.dvi" "out/sorting.pdf" "out/sorting" 1686491847 0
+  "out/sorting.dvi" 1686491846 296544 4ad30cfc6fb09c820bacead537049504 "latex"
   (generated)
   "out/sorting.pdf"
   (rewritten before read)
-["latex"] 1686477370 "d:/Kosen/jikkenII/sorting/report/sorting.tex" "out/sorting.dvi" "sorting" 1686477371 2
+["latex"] 1686491846 "d:/Kosen/jikkenII/sorting/report/sorting.tex" "out/sorting.dvi" "sorting" 1686491847 0
   "c:/texlive/2023/texmf-dist/fonts/tfm/jknappen/ec/tcrm1000.tfm" 1681961456 1536 e07581a4bb3136ece9eeb4c3ffab8233 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/ptex-fonts/standard/goth10.tfm" 1681961816 1196 5981e79c37b2cfd27b3612a6783cd4b6 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/ptex-fonts/standard/min10.tfm" 1681961816 1196 1be730212205a270378fba11a44765dc ""
@@ -49,15 +49,16 @@
   "c:/texlive/2023/texmf-dist/web2c/texmf.cnf" 1681961287 40967 d940221f8762fd5848760382d97d1226 ""
   "c:/texlive/2023/texmf-var/web2c/eptex/platex.fmt" 1681961971 6629889 70f158ae024333dc07ffd134950c6645 ""
   "c:/texlive/2023/texmf.cnf" 1681961945 713 614551405fc44b98efbf516466e3c909 ""
-  "d:/Kosen/jikkenII/sorting/bubble/bubble.c" 1686447588 2255 e2834e5de3ed546e3e935384341359bd ""
+  "d:/Kosen/jikkenII/sorting/bitonic/bitonic.c" 1686490147 2380 26b5532efefe68f37ba832488189fc09 ""
+  "d:/Kosen/jikkenII/sorting/bubble/bubble.c" 1686490079 2255 e2834e5de3ed546e3e935384341359bd ""
   "d:/Kosen/jikkenII/sorting/bucket/bucket.c" 1686398890 2210 d88bec97c7c399f7c30c43c0434270f7 ""
-  "d:/Kosen/jikkenII/sorting/insert/insert.c" 1686410207 1880 6734b3d3beb45023cbb842835d4547fd ""
+  "d:/Kosen/jikkenII/sorting/insert/insert.c" 1686489553 1840 9cf16ea4f05832428d2cdb97419e7988 ""
   "d:/Kosen/jikkenII/sorting/quick/quick.c" 1686471846 2402 43f001eb3cd8295c8fa9d0267d0fec1f ""
-  "d:/Kosen/jikkenII/sorting/report/sorting.tex" 1686477370 26048 3ff54a368604ebcb84640dc0ddac9273 ""
+  "d:/Kosen/jikkenII/sorting/report/sorting.tex" 1686491846 29841 18a1e70dba5bb5b6ed4fd0a6ae1e0548 ""
   "d:/Kosen/jikkenII/sorting/shacker/shacker.c" 1686469797 2379 ddb69cc15c4ef6173e5b8d7a3ab832b0 ""
-  "out/sorting.aux" 1686477371 5409 bdb63f7f405bd5927d010cafbed41ee2 "latex"
-  "out/sorting.toc" 1686477370 0 d41d8cd98f00b204e9800998ecf8427e "latex"
-  "sorting.tex" 1686477370 26048 3ff54a368604ebcb84640dc0ddac9273 ""
+  "out/sorting.aux" 1686491846 6588 132ab4c6e1b49a670f10452bc0913df5 "latex"
+  "out/sorting.toc" 1686491846 2578 8f8260369b9c1169b4d6f7eae37a6515 "latex"
+  "sorting.tex" 1686491846 29841 18a1e70dba5bb5b6ed4fd0a6ae1e0548 ""
   (generated)
   "out/sorting.aux"
   "out/sorting.dvi"

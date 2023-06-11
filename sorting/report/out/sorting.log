@@ -1,4 +1,4 @@
-This is e-pTeX, Version 3.141592653-p4.1.0-230214-2.6 (utf8.sjis) (TeX Live 2023) (preloaded format=platex 2023.4.20)  11 JUN 2023 18:56
+This is e-pTeX, Version 3.141592653-p4.1.0-230214-2.6 (utf8.sjis) (TeX Live 2023) (preloaded format=platex 2023.4.20)  11 JUN 2023 22:57
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -176,74 +176,50 @@ LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <14.4> not available
 (Font)              Font shape `JT1/gt/m/n' tried instead on input line 45.
 LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <14.4> not available
 (Font)              Font shape `JY1/gt/m/n' tried instead on input line 45.
-(out/sorting.toc)
+(out/sorting.toc
+LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <10> not available
+(Font)              Font shape `JT1/gt/m/n' tried instead on input line 1.
+LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <10> not available
+(Font)              Font shape `JY1/gt/m/n' tried instead on input line 1.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 2.
+[1])
 \tf@toc=\write4
 \openout4 = `sorting.toc'.
 
-[1]
+[2]
 LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <12> not available
 (Font)              Font shape `JT1/gt/m/n' tried instead on input line 49.
 LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <12> not available
 (Font)              Font shape `JY1/gt/m/n' tried instead on input line 49.
-LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <10> not available
-(Font)              Font shape `JT1/gt/m/n' tried instead on input line 50.
-LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <10> not available
-(Font)              Font shape `JY1/gt/m/n' tried instead on input line 50.
-
-LaTeX Warning: Citation `cite:wiki' on page 2 undefined on input line 50.
-
 LaTeX Font Info:    Kanji font shape `JY1/mc/m/it' undefined
 (Font)              No change on input line 54.
 LaTeX Font Info:    Kanji font shape `JY1/mc/m/it' undefined
 (Font)              No change on input line 54.
 LaTeX Font Info:    Kanji font shape `JY1/mc/m/it' undefined
 (Font)              No change on input line 54.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 54.
 LaTeX Font Info:    Kanji font shape `JY1/mc/m/it' undefined
 (Font)              No change on input line 54.
 LaTeX Font Info:    Kanji font shape `JY1/mc/m/it' undefined
 (Font)              No change on input line 54.
-[2
+[3
 
 ] (c:/texlive/2023/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2023/02/27 1.9 listings language file
 ) (c:/texlive/2023/texmf-dist/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2023/02/27 1.9 (Carsten Heinz)
-) (d:/Kosen/jikkenII/sorting/bucket/bucket.c [3] [4]) [5] (d:/Kosen/jikkenII/sorting/insert/insert.c [6] [7]) [8] (d:/Kosen/jikkenII/sorting/bubble/bubble.c [9] [10]) [11]
-
-LaTeX Warning: Citation `cite:boyoh' on page 12 undefined on input line 253.
-
-
-LaTeX Warning: Citation `cite:geek' on page 12 undefined on input line 260.
-
-(d:/Kosen/jikkenII/sorting/shacker/shacker.c [12] [13]) [14] (d:/Kosen/jikkenII/sorting/quick/quick.c [15] [16]) [17]
-
-LaTeX Warning: Reference `tab:result' on page 18 undefined on input line 361.
-
-
-Overfull \hbox (32.06427pt too wide) in paragraph at lines 367--379
- [] 
- []
-
+) (d:/Kosen/jikkenII/sorting/bucket/bucket.c [4] [5]) [6] (d:/Kosen/jikkenII/sorting/insert/insert.c [7] [8]) [9] (d:/Kosen/jikkenII/sorting/bubble/bubble.c [10] [11]) [12] (d:/Kosen/jikkenII/sorting/shacker/shacker.c [13] [14]) [15] (d:/Kosen/jikkenII/sorting/quick/quick.c [16] [17]) [18] [19] (d:/Kosen/jikkenII/sorting/bitonic/bitonic.c [20]) [21]
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[18]
-Runaway argument?
-{\settowidth \labelwidth {\@biblabel {
-d:/Kosen/jikkenII/sorting/report/sorting.tex:409: Paragraph ended before \list was complete.
-<to be read again> 
-                   \par 
-l.409 
-       
+[22] [23] [24] (out/sorting.aux) ) 
 Here is how much of TeX's memory you used:
- 3849 strings out of 478133
- 55551 string characters out of 5841535
+ 3877 strings out of 478133
+ 56055 string characters out of 5841535
  2259481 words of memory out of 5000000
- 24163 multiletter control sequences out of 15000+600000
+ 24184 multiletter control sequences out of 15000+600000
  521854 words of font info for 71 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
  55i,10n,62p,498b,1919s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on out/sorting.dvi (19 pages, 229624 bytes).
+Output written on out/sorting.dvi (25 pages, 296544 bytes).

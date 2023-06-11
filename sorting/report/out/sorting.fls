@@ -207,9 +207,9 @@ INPUT c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
 INPUT out/sorting.toc
 INPUT out/sorting.toc
 INPUT out/sorting.toc
+INPUT c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm
 OUTPUT out/sorting.toc
 INPUT c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
-INPUT c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm
 INPUT c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmti10.tfm
 INPUT c:/texlive/2023/texmf-dist/fonts/tfm/jknappen/ec/tcrm1000.tfm
 INPUT c:/texlive/2023/texmf-dist/tex/latex/listings/lstlang1.sty
@@ -255,3 +255,10 @@ INPUT d:/Kosen/jikkenII/sorting/quick/quick.c
 INPUT d:/Kosen/jikkenII/sorting/quick/quick.c
 INPUT d:/Kosen/jikkenII/sorting/quick/quick.c
 INPUT d:/Kosen/jikkenII/sorting/quick/quick.c
+INPUT d:/Kosen/jikkenII/sorting/bitonic/bitonic.c
+INPUT d:/Kosen/jikkenII/sorting/bitonic/bitonic.c
+INPUT d:/Kosen/jikkenII/sorting/bitonic/bitonic.c
+INPUT d:/Kosen/jikkenII/sorting/bitonic/bitonic.c
+INPUT d:/Kosen/jikkenII/sorting/bitonic/bitonic.c
+INPUT d:/Kosen/jikkenII/sorting/bitonic/bitonic.c
+INPUT out/sorting.aux

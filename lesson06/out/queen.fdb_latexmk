@@ -1,10 +1,10 @@
 # Fdb version 4
-["dvipdf"] 1684393552 "out/queen.dvi" "out/queen.pdf" "out/queen" 1684393552 0
-  "out/queen.dvi" 1684393552 16792 2427aa95e24ab53dd02b738524a769f6 "latex"
+["dvipdf"] 1686491157 "out/queen.dvi" "out/queen.pdf" "out/queen" 1686491157 0
+  "out/queen.dvi" 1686491157 16792 8be9cb604f3954b39b8e44715bcf378b "latex"
   (generated)
   "out/queen.pdf"
   (rewritten before read)
-["latex"] 1684393551 "d:/Kosen/jikkenII/lesson06/queen.tex" "out/queen.dvi" "queen" 1684393552 0
+["latex"] 1686491156 "d:/Kosen/jikkenII/lesson06/queen.tex" "out/queen.dvi" "queen" 1686491157 0
   "Bohemian.jpg" 1684254132 106201 06bb5575e9b07f18cf7ac5256f5e27bf ""
   "Brian.jpg" 1684154911 575903 a776ac1260b397d678f7e4b0ea9eaaad ""
   "Freddie.jpg" 1684154860 434449 db63826f0392f99956f02fe334ca0c1e ""
@@ -49,9 +49,9 @@
   "c:/texlive/2023/texmf-dist/web2c/texmf.cnf" 1681961287 40967 d940221f8762fd5848760382d97d1226 ""
   "c:/texlive/2023/texmf-var/web2c/eptex/platex.fmt" 1681961971 6629889 70f158ae024333dc07ffd134950c6645 ""
   "c:/texlive/2023/texmf.cnf" 1681961945 713 614551405fc44b98efbf516466e3c909 ""
-  "d:/Kosen/jikkenII/lesson06/queen.tex" 1684393551 11722 13af6bf26723940fcb079643636ec9b7 ""
-  "out/queen.aux" 1684393552 2911 5d6a276c1a4f9ff2cf39164d736d258a "latex"
-  "queen.tex" 1684393551 11722 13af6bf26723940fcb079643636ec9b7 ""
+  "d:/Kosen/jikkenII/lesson06/queen.tex" 1686491155 11728 d36616ffc14d5fc753ee5e9ed76eebcf ""
+  "out/queen.aux" 1686491157 2911 5d6a276c1a4f9ff2cf39164d736d258a "latex"
+  "queen.tex" 1686491155 11728 d36616ffc14d5fc753ee5e9ed76eebcf ""
   "queen_adam_lambert.jpg" 1684155817 41170 d2a46b0dbe13aae09e3b1401627576a2 ""
   (generated)
   "out/queen.aux"

@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <stdbool.h>
 
 int  countLines(FILE *in) {
     char c;
@@ -34,30 +35,35 @@ void swap(int *a, int *b) {
 
 void processTime(clock_t t) {
     double time = ((double)t)/CLOCKS_PER_SEC;
-    // printf("%.3lf ms\n", time*1000); //kali 1000 biar jadi ms
-    printf("%.3lf\n", time*1000); //kali 1000 biar jadi ms
+    printf("%.3lf ms\n", time*1000); 
 }
 
 void shacker(const int lines, int *p) {
     int right = lines - 1;
     int left = 0;
+    bool swapped = true;
 
-    while(left != right) {
-        // int i;
-        // int j;
+    while(left != right && swapped) {
         int last;
 
+        swapped = false;
         for(int i = left; i < right; i++) {
             if(p[i] > p[i+1]) {
                 swap(&p[i], &p[i+1]);
                 last = i;
+                swapped = true;
             }
         }
         right = last;
+
+        if(!swapped) break;
+
+        swapped = false;
         for(int j = right; j > left; j--) {
             if(p[j-1] > p[j]) {
                 swap(&p[j-1], &p[j]);
                 last = j;
+                swapped = true;
             }
         }
         left = last;
@@ -80,7 +86,7 @@ void startSorting(int n) {
         char *filename = malloc(10);
         char *outname = malloc(10);
 
-        // printf("%d  | ", i);
+        printf("%d  | ", i);
 
         setFileName(filename, i);
 
@@ -109,6 +115,7 @@ void startSorting(int n) {
         free(filename);
         free(outname);
     }
+    
     fclose(in);
     fclose(out);
 }

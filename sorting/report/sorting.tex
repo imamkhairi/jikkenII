@@ -5,6 +5,8 @@
 \usepackage{listings}
 \usepackage{xcolor}
 \usepackage{colortbl}
+\usepackage{ascmac}
+\usepackage{fancybox}
 
 \title{情報工学実験II\\ソーティングプログラム}
 \author{イマム カイリ ルビス}
@@ -45,8 +47,8 @@
 
     \section{概要}
         \subsection{ソートアルゴリズムとは}
-            ソートアルゴリズムとは，データの要素をある順序に並べるアルゴリズムである．最も頻繁に使用される順序は，数値順と辞書順で、昇順または降順のどちらかである．効率的なソートは，入力データがソートされたデータであることを必要とする他のアルゴリズム（検索やマージアルゴリズムなど）の効率を最適化するために重要である．また，人間が読みやすい出力を作成したりする際にもよく使われる．
-            %https://en.wikipedia.org/wiki/Sorting_algorithm
+            ソートアルゴリズムとは，データの要素をある順序に並べるアルゴリズムである．最も頻繁に使用される順序は，数値順と辞書順で、昇順または降順のどちらかである．効率的なソートは，入力データがソートされたデータであることを必要とする他のアルゴリズム（検索やマージアルゴリズムなど）の効率を最適化するために重要である．また，人間が読みやすい出力を作成したりする際にもよく使われる\cite{cite:wiki}．
+            
         
         \subsection{計算量}
             アルゴリズムを実行するのにかかるコンピュタの時間を\textbf{時間計算量}(\textit{time complexity})と呼ばれる．時間計算量は，一般的に\textit{big O notation}(オーダー)という書き方で記す．例えば，\textit{O}($n$)，\textit{O}($n \log n$)，\textit{O}($2^n$)，など．
@@ -56,12 +58,14 @@
 
         \subsection{実行環境}
             本実験で使用される実行環境：
-            \begin{itemize}
-                \item プロセッサ：AMD Ryzen 5 5600X
-                \item メモリー：16.0 GB
-                \item OS：Windows 11 Pro
-                \item コンパイラ：gcc
-            \end{itemize}
+            \begin{screen}
+                \begin{itemize}
+                    \item プロセッサ：AMD Ryzen 5 5600X
+                    \item メモリー：16.0 GB
+                    \item OS：Windows 11 Pro
+                    \item コンパイラ：gcc
+                \end{itemize}    
+            \end{screen}
         
         \subsection{対象データ}
             この実験では，すべてのアルゴリズムがC言語で記述されます．ショーティング対象データは、表(\ref{tab:data})に示すように，異なる特性を持っている．
@@ -96,13 +100,15 @@
             このアルゴリズムを動けるためには，$(max - min + 1)$ の大きさの配列を用意する必要がある，この理由は後述する．
             
             バケットソートのプログラムの主な流れは，以下の通りである：
-            \begin{enumerate}
-                \item バケット配列に $(max - min + 1)$ の大きさを設定する．
-                \item 出力配列に入力データの大きさを設定する．
-                \item 各入力データ$x$はバケット配列の添字 $(x - min)$ 値を $+1$ 増やす．
-                \item バケット配列から出力配列に元の値変更し、格納する．
-                \item ソート完了．
-            \end{enumerate}
+            \begin{screen}
+                \begin{enumerate}
+                    \item バケット配列に $(max - min + 1)$ の大きさを設定する．
+                    \item 出力配列に入力データの大きさを設定する．
+                    \item 各入力データ$x$はバケット配列の添字 $(x - min)$ 値を $+1$ 増やす．
+                    \item バケット配列から出力配列に元の値変更し、格納する．
+                    \item ソート完了．
+                \end{enumerate}    
+            \end{screen}
 
         \subsection{時間計算量}
             バケットソートの時間的複雑さは $O(n + k)$ であり，ここでnは要素数，kはバケット配列の大きさである．
@@ -116,10 +122,10 @@
                     \begin{tabular}{lcccc}
                         \hline
                         \textbf{データ} & data1 & data2 &data3 &data4\\ \hline
-                        \textbf{計算時間(ms)} & 7.2712 & 7.2169 & 7.1648 & 6.3128 \\\hline
+                        \textbf{計算時間(ms)} & 7.271 & 7.217 & 7.165 & 6.313 \\\hline
                         \\ \hline
                         \textbf{データ} &data5 &data6 &data7 &data8\\ \hline
-                        \textbf{計算時間(ms)} & 6.1445 & 5.9061 & 7.0154 & 8.6275\\ \hline
+                        \textbf{計算時間(ms)} & 6.145 & 5.906 & 7.015 & 8.628\\ \hline
                     \end{tabular}
                 \end{center}
             \end{table}
@@ -158,18 +164,20 @@
         \subsection{動作}
             挿入ソートは比較によりソーティングを行うアルゴリズムである．配列に格納されるデータは，１個前の要素から最初の要素までに比較し、適切の位置に置くこと．しかし，適切の位置に置くという関数がないため，以下の通りである：
             
-            \begin{enumerate}
-                \item 入力データ $x$ がn番目の要素に入力する．
-                \item $(n-1)$ 番目から０番目の要素までに比較する．
-                \item 左隣の要素が着目している要素より大きければ，着目している要素の位置に代入する．
-                \item 全部ソートされるまで繰り返す．
-                \item ソート完了．
-            \end{enumerate}
+            \begin{screen}
+                \begin{enumerate}
+                    \item 入力データ $x$ がn番目の要素に入力する．
+                    \item $(n-1)$ 番目から０番目の要素までに比較する．
+                    \item 左隣の要素が着目している要素より大きければ，着目している要素の位置に代入する．
+                    \item 全部ソートされるまで繰り返す．
+                    \item ソート完了．
+                \end{enumerate}
+            \end{screen}
+            
         
         \subsection{時間計算量}
             挿入ソートの計算量は場合によって分れる．
             \begin{itemize}
-                % \item 
                 \item 最悪の計算量：$O(N^2)$
                 \item 平均的な計算量：$O(N^2)$
                 \item 最良の計算量：$O(N)$
@@ -184,10 +192,10 @@
                     \begin{tabular}{lcccc}
                         \hline
                         \textbf{データ} & data1 & data2 &data3 &data4 \\ \hline
-                        \textbf{計算時間(ms)} & 3568.585 & 3566.8257 & 3569.5971 & 5.7314\\ \hline
+                        \textbf{計算時間(ms)} & 3568.585 & 3566.826 & 3569.597 & 5.731\\ \hline
                         \\ \hline
                         \textbf{データ} & data5 &data6 &data7 &data8\\ \hline
-                        \textbf{計算時間(ms)} &7068.0738 & 3536.4216 & 3554.4499 & 3535.3692\\ \hline
+                        \textbf{計算時間(ms)} &7068.074 & 3536.422 & 3554.450 & 3535.369\\ \hline
                     \end{tabular}
                 \end{center}
             \end{table}
@@ -209,12 +217,14 @@
 
         \subsection{動作}
             バブルソートは隣接している要素を比較するに基づく．バブルソートのプログラムの主な流れは，以下の通りである：
-            \begin{enumerate}
-                \item 末尾の要素に着目する．
-                \item ソート済の末尾まで比較する．
-                \item 全部ソートされるまで繰り返す．
-                \item ソート完了．
-            \end{enumerate}
+            \begin{screen}
+                    \begin{enumerate}
+                        \item 末尾の要素に着目する．
+                        \item ソート済の末尾まで比較する．
+                        \item 全部ソートされるまで繰り返す．
+                        \item ソート完了．
+                    \end{enumerate}    
+            \end{screen}
 
         \subsection{時間計算量}
             バブルソートの計算量は$ O(N^2) $である．
@@ -256,11 +266,153 @@
             % benerin lagi comment2 nya
         
         \subsection{動作}
-            シェーカーソートのプログラムのプログラムは，以下の通りである：
-            \begin{enumerate}
-                \item 末尾の要素に着目する．
-                \item ソート済の末尾まで比較する．
-                \item 全部ソートされるまで繰り返す．
-                \item ソート完了．
-            \end{enumerate}
+        シェーカーソートのプログラムのプログラムは，以下の通りである：
+            \begin{screen}
+                \begin{enumerate}
+                    \item 末尾の要素に着目する．
+                    \item ソート済の末尾まで比較する．
+                    \item 全部ソートされるまで繰り返す．
+                    \item ソート完了．
+                \end{enumerate}
+            \end{screen}
+        
+        \subsection{時間計算量}
+            シェーカソートの計算量は場合によって分れる．
+            \begin{itemize}
+                % \item 
+                \item 最悪の計算量：$O(N^2)$
+                \item 平均的な計算量：$O(N^2)$
+                \item 最良の計算量：$O(N)$
+            \end{itemize}
+
+            各データに対してシェーカーソートの実行時間は表（\ref{tab:shacker}）のように表す．ここで表す結果は10回の実行結果の平均値である.
+
+            \begin{table}[tbh]
+                \caption{計算時間 (シェーカーソート)}
+                \label{tab:shacker}
+                \begin{center}
+                    \begin{tabular}{lcccc}
+                        \hline
+                        \textbf{データ} & data1 & data2 &data3 &data4 \\ \hline
+                        \textbf{計算時間(ms)} & 13801.629 & 13802.429 & 13655.492 & 0.093 \\ \hline
+                        \\ \hline
+                        \textbf{データ} & data5 &data6 &data7 &data8\\ \hline
+                        \textbf{計算時間(ms)} & 16390.293 & 8998.301 & 12937.350 & 13610.085 \\ \hline
+                    \end{tabular}
+                \end{center}
+            \end{table}
+        
+        \subsection{考察}
+            表（\ref{tab:shacker}）に表す結果より，全体的にシェーカーソートはバブルソートより速かった．シェーカーソートは無駄な繰り返しをしないのは，data4の結果から見れる．
+        
+
+        \section{クイックソート}
+            クイックソートでは，ある要素をピボットとして選び，ピボットを中心に残りの配列を分割しています．今回は，ピボットはソート対象データの中心の要素とする．
+
+        \subsection{プログラム}
+            以下はクイックーソートのプログラムである．
+            \lstinputlisting[language=c]{D:/Kosen/jikkenII/sorting/quick/quick.c}
+
+        \subsection{動作}
+            クイックソートのプログラムのプログラムは，以下の通りである：
+            \begin{screen}
+                \begin{enumerate}
+                    \item ピボットを選ぶ．
+                    \item 配列をピボットを中点として，ピボットより大小関係に基づいて分れる．
+                    \item ２つ分れた配列をまたクイックソートを行う．
+                    \item 全部ソートされるまで繰り返す．
+                    \item ソート完了．
+                \end{enumerate}
+            \end{screen}
+        
+        \subsection{時間計算量}
+            クイックソートの計算量は場合によって分れる．
+            \begin{itemize}
+                % \item 
+                \item 最悪の計算量：$O(N^2)$
+                \item 平均的な計算量：$O(NlogN)$
+                \item 最良の計算量：$O(NlogN)$
+            \end{itemize}
+
+            各データに対してシェーカーソートの実行時間は表（\ref{tab:quick}）のように表す．ここで表す結果は10回の実行結果の平均値である.
+
+            \begin{table}[tbh]
+                \caption{計算時間 (シェーカーソート)}
+                \label{tab:quick}
+                \begin{center}
+                    \begin{tabular}{lcccc}
+                        \hline
+                        \textbf{データ} & data1 & data2 &data3 &data4 \\ \hline
+                        \textbf{計算時間(ms)} & 7.776 & 7.700 & 7.793 & 1.979 \\ \hline
+                        \\ \hline
+                        \textbf{データ} & data5 &data6 &data7 &data8\\ \hline
+                        \textbf{計算時間(ms)} & 2.108 & 9.141 & 7.570 & 7.930 \\ \hline
+                    \end{tabular}
+                \end{center}
+            \end{table}
+
+        
+        \subsection{考察}
+            表（\ref{tab:quick}）からみると，クイックソートは他のソートアルゴリズムに比べると，全体的に早いである．
+
+    % \vspace{80pt}
+        
+    \section{結論}
+        本研究はいくつのデータ類に対して，どのアルゴリズムが最も効率的かを調べる．以下はこれまでやったソーティングアルゴリズムの処理時間を表（\ref{tab:result}）でまとめて表す．
+
+    \begin{table}[h!]
+        \caption{実験結果}
+        \label{tab:result}
+        \begin{center}
+            \begin{tabular}{|l|r|r|r|r|r|}
+                \hline
+                データ類 & バケットソート & 挿入ソート & バブルソート & シェーカーソート & クイックソート \\ \hline
+                乱数１     & \cellcolor{green!20}7.271 & 3568.585 & 18172.166 & 13801.629 & 7.776 \\ \hline
+                乱数２     & \cellcolor{green!20}7.217 & 3566.826 & 18163.021 & 13802.429 & 7.700 \\ \hline
+                乱数３     & \cellcolor{green!20}7.165 & 3569.597 & 18152.781 & 13655.492 & 7.793 \\ \hline
+                昇順       & 6.313 & 5.731 & 0.109 &  \cellcolor{green!20}0.093 & 1.979 \\ \hline
+                降順       & 6.145 & 7068.074 & 16301.372 & 16390.293 &  \cellcolor{green!20}2.108 \\ \hline
+                バイトニック& \cellcolor{green!20}5.906 & 3536.422 & 8158.549 & 8998.301 & 9.141 \\ \hline
+                ジグザグ   &  \cellcolor{green!20}7.015 & 3554.450 & 16487.387 & 12937.350 & 7.570 \\ \hline
+                負を含む乱数& 8.628 & 3535.369 & 18105.532 & 13610.085 &  \cellcolor{green!20}7.930 \\ \hline
+            \end{tabular}
+        \end{center}
+    \end{table}
+
+    \vspace{90pt}
+    
+    各データに最適なアルゴリズムは、以下のように結論づけられる：
+    \begin{shadebox}
+        \begin{tabular}{ll}
+            乱数 &：バケットソート\\
+            負を含む乱数 &：クイックソート\\
+            昇順 &：シェーカーソート\\
+            降順 &：クイックソート\\
+            バイトニック &：バケットソート\\
+            ジグザグ &：バケットソート\\
+        \end{tabular}
+    \end{shadebox}
+    
+    
+
+    バケットソートが最も高速に乱数をソートできるアルゴリズムであることは間違いないようである．しかし，乱数に負の値が含まれる場合は，クイックソートの方が早い．これは、用意するバケット配列のサイズが大きくなるためである．
+    
+    しかし、これはこの実験が少数を含む値のない実数しか扱っていないために起こることである．小数の表現も考慮すると，バケットソートよりもクイックソートの方が高速になると思う．
+    
+    昇順の場合は，シャッカーソートが最速となります．これは、1回のループでどれだけの交換が行われるかを考慮しているためである．何も交換がなければ，そのデータはすでにソートされていることになる．そのため，シャッカーソートは昇順のデータを一度だけチェックすることだけで，ソート完了になる．
+    
+    バブルソートも同じ考えで実装しているので，同じことが起こるはず．そのため昇順のデータにおいて、バブルソートとシェーカーソートの差は非常に小さくなった．
+    
+    降順の場合は，前から推測できるように、クイック ソートが最も高速なアルゴリズムです。
+
+    \begin{thebibliography}
+        
+        \bibitem{wiki}
+        https://en.wikipedia.org/wiki/Sorting_algorithm（参照2023-06-06)
+        \bibitem{boyoh}
+        柴田望洋，C言語で学ぶアルゴリズムとでーた構造，SB Creative，2017．
+        \bibitem{geek}
+        https://www.geeksforgeeks.org/cocktail-sort/（参照2023-
+    \end{thebibliography}
+
 \end{document}

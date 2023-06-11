@@ -1,4 +1,4 @@
-This is e-pTeX, Version 3.141592653-p4.1.0-230214-2.6 (utf8.sjis) (TeX Live 2023) (preloaded format=platex 2023.4.20)  11 JUN 2023 15:13
+This is e-pTeX, Version 3.141592653-p4.1.0-230214-2.6 (utf8.sjis) (TeX Live 2023) (preloaded format=platex 2023.4.20)  11 JUN 2023 18:56
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -113,74 +113,97 @@ Package: array 2022/09/04 v2.5g Tabular extension package (FMi)
 \everycr=\toks24
 \minrowclearance=\skip52
 \rownum=\count268
-) (c:/texlive/2023/texmf-dist/tex/latex/l3backend/l3backend-dvips.def
+) (c:/texlive/2023/texmf-dist/tex/latex/ascmac/ascmac.sty
+Package: ascmac 2020/01/15 v2.1 ascmac wrapper (community edition) 
+(c:/texlive/2023/texmf-dist/tex/latex/ascmac/tascmac.sty
+Package: tascmac 2020/01/15 v2.1 ascmac package (community edition) 
+\@savetbaselineshift=\dimen168
+\@saveybaselineshift=\dimen169
+\scb@x=\box74
+\scscb@x=\box75
+\@bw=\dimen170
+\@nbox=\box76
+\@nbody=\box77
+\@scw=\dimen171
+\ascmac@hoboxa=\box78
+\ascmac@hoboxb=\box79
+\@itemh=\dimen172
+\@iboxpos=\toks25
+\@iboxstr=\box80
+\@bwsp=\box81
+\@@bwsp=\box82
+\@bcal=\count269
+\shaderule=\dimen173
+)) (c:/texlive/2023/texmf-dist/tex/latex/l3backend/l3backend-dvips.def
 File: l3backend-dvips.def 2023-03-30 L3 backend support: dvips
-\l__pdf_internal_box=\box74
-\g__pdf_backend_object_int=\count269
-\l__pdf_backend_content_box=\box75
-\l__pdf_backend_model_box=\box76
-\g__pdf_backend_annotation_int=\count270
-\g__pdf_backend_link_int=\count271
-\g__pdf_backend_link_sf_int=\count272
+\l__pdf_internal_box=\box83
+\g__pdf_backend_object_int=\count270
+\l__pdf_backend_content_box=\box84
+\l__pdf_backend_model_box=\box85
+\g__pdf_backend_annotation_int=\count271
+\g__pdf_backend_link_int=\count272
+\g__pdf_backend_link_sf_int=\count273
 ) (out/sorting.aux)
 \openout1 = `sorting.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 39.
-LaTeX Font Info:    ... okay on input line 39.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 39.
-LaTeX Font Info:    ... okay on input line 39.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 39.
-LaTeX Font Info:    ... okay on input line 39.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 39.
-LaTeX Font Info:    ... okay on input line 39.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 39.
-LaTeX Font Info:    ... okay on input line 39.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 39.
-LaTeX Font Info:    ... okay on input line 39.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 39.
-LaTeX Font Info:    ... okay on input line 39.
-LaTeX Font Info:    Checking defaults for JY1/mc/m/n on input line 39.
-LaTeX Font Info:    ... okay on input line 39.
-LaTeX Font Info:    Checking defaults for JT1/mc/m/n on input line 39.
-LaTeX Font Info:    ... okay on input line 39.
-\c@lstlisting=\count273
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for JY1/mc/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for JT1/mc/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+\c@lstlisting=\count274
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <14.4> on input line 41.
+(Font)              <14.4> on input line 43.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 41.
+(Font)              <7> on input line 43.
 [1
 
 ]
 LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <14.4> not available
-(Font)              Font shape `JT1/gt/m/n' tried instead on input line 43.
+(Font)              Font shape `JT1/gt/m/n' tried instead on input line 45.
 LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <14.4> not available
-(Font)              Font shape `JY1/gt/m/n' tried instead on input line 43.
-(out/sorting.toc
-LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <10> not available
-(Font)              Font shape `JT1/gt/m/n' tried instead on input line 1.
-LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <10> not available
-(Font)              Font shape `JY1/gt/m/n' tried instead on input line 1.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 2.
-)
+(Font)              Font shape `JY1/gt/m/n' tried instead on input line 45.
+(out/sorting.toc)
 \tf@toc=\write4
 \openout4 = `sorting.toc'.
 
 [1]
 LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <12> not available
-(Font)              Font shape `JT1/gt/m/n' tried instead on input line 47.
+(Font)              Font shape `JT1/gt/m/n' tried instead on input line 49.
 LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <12> not available
-(Font)              Font shape `JY1/gt/m/n' tried instead on input line 47.
+(Font)              Font shape `JY1/gt/m/n' tried instead on input line 49.
+LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <10> not available
+(Font)              Font shape `JT1/gt/m/n' tried instead on input line 50.
+LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <10> not available
+(Font)              Font shape `JY1/gt/m/n' tried instead on input line 50.
+
+LaTeX Warning: Citation `cite:wiki' on page 2 undefined on input line 50.
+
 LaTeX Font Info:    Kanji font shape `JY1/mc/m/it' undefined
-(Font)              No change on input line 52.
+(Font)              No change on input line 54.
 LaTeX Font Info:    Kanji font shape `JY1/mc/m/it' undefined
-(Font)              No change on input line 52.
+(Font)              No change on input line 54.
 LaTeX Font Info:    Kanji font shape `JY1/mc/m/it' undefined
-(Font)              No change on input line 52.
+(Font)              No change on input line 54.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 54.
 LaTeX Font Info:    Kanji font shape `JY1/mc/m/it' undefined
-(Font)              No change on input line 52.
+(Font)              No change on input line 54.
 LaTeX Font Info:    Kanji font shape `JY1/mc/m/it' undefined
-(Font)              No change on input line 52.
+(Font)              No change on input line 54.
 [2
 
 ] (c:/texlive/2023/texmf-dist/tex/latex/listings/lstlang1.sty
@@ -189,23 +212,38 @@ File: lstlang1.sty 2023/02/27 1.9 listings language file
 File: lstmisc.sty 2023/02/27 1.9 (Carsten Heinz)
 ) (d:/Kosen/jikkenII/sorting/bucket/bucket.c [3] [4]) [5] (d:/Kosen/jikkenII/sorting/insert/insert.c [6] [7]) [8] (d:/Kosen/jikkenII/sorting/bubble/bubble.c [9] [10]) [11]
 
-LaTeX Warning: Citation `cite:boyoh' on page 12 undefined on input line 243.
+LaTeX Warning: Citation `cite:boyoh' on page 12 undefined on input line 253.
 
 
-LaTeX Warning: Citation `cite:geek' on page 12 undefined on input line 250.
+LaTeX Warning: Citation `cite:geek' on page 12 undefined on input line 260.
 
-(d:/Kosen/jikkenII/sorting/shacker/shacker.c [12] [13]) [14] (out/sorting.aux)
+(d:/Kosen/jikkenII/sorting/shacker/shacker.c [12] [13]) [14] (d:/Kosen/jikkenII/sorting/quick/quick.c [15] [16]) [17]
 
-LaTeX Warning: There were undefined references.
+LaTeX Warning: Reference `tab:result' on page 18 undefined on input line 361.
 
- ) 
+
+Overfull \hbox (32.06427pt too wide) in paragraph at lines 367--379
+ [] 
+ []
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[18]
+Runaway argument?
+{\settowidth \labelwidth {\@biblabel {
+d:/Kosen/jikkenII/sorting/report/sorting.tex:409: Paragraph ended before \list was complete.
+<to be read again> 
+                   \par 
+l.409 
+       
 Here is how much of TeX's memory you used:
- 3713 strings out of 478133
- 53294 string characters out of 5841535
- 2258481 words of memory out of 5000000
- 24038 multiletter control sequences out of 15000+600000
- 521758 words of font info for 70 fonts, out of 8000000 for 9000
+ 3849 strings out of 478133
+ 55551 string characters out of 5841535
+ 2259481 words of memory out of 5000000
+ 24163 multiletter control sequences out of 15000+600000
+ 521854 words of font info for 71 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
  55i,10n,62p,498b,1919s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on out/sorting.dvi (15 pages, 188112 bytes).
+Output written on out/sorting.dvi (19 pages, 229624 bytes).

@@ -34,14 +34,24 @@ void swap(int *a, int *b) {
 
 void processTime(clock_t t) {
     double time = ((double)t)/CLOCKS_PER_SEC;
-    printf("%.3lf ms\n", time*1000); //kali 1000 biar jadi ms
+    printf("%.3lf ms\n", time*1000); 
+}
+
+void sortPivot(int *p) {
+    int size = 3;
+    for (int i = 0; i < size; i++) {
+        for(int j = size - 1; j > i; j--) {
+            if(p[j-1] > p[j])
+                swap(&p[j-1], &p[j]);
+        }
+    }
 }
 
 void quick(int *p, int left, int right) {
     int pl = left;
     int pr = right;
     int x = p[(pl+pr)/2];
-
+    
     do {
         while (p[pl] < x) pl++;
         while (p[pr] > x) pr--;

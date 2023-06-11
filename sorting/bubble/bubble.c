@@ -37,7 +37,7 @@ void processTime(clock_t t) {
     printf("%.3lf ms\n", time*1000); 
 }
 
-void bubble(int lines, int *p) {
+void bubbleOpt(int lines, int *p) {
     int k = 0;
     clock_t t;
     
@@ -51,25 +51,6 @@ void bubble(int lines, int *p) {
             }
         }
         k = last;
-    }
-
-    t = clock() - t;
-    processTime(t);
-}
-
-void bubble2(int lines, int  *p) {
-    clock_t t;
-    
-    t = clock();
-    for (int i = 0; i < lines; i++) {
-        int exc = 0;
-        for(int j = lines - 1; j > i; j--) {
-            if(p[j-1] > p[j]) {
-                swap(&p[j-1], &p[j]);
-                exc ++;
-            }
-        }
-        if(exc == 0) break;
     }
 
     t = clock() - t;
@@ -120,7 +101,8 @@ void startSorting(int n) {
         int *p = malloc(lines * sizeof(int));
         store_array(in, p);
 
-        bubble(lines, p);
+        bubbleOpt(lines, p);
+        // bubbleSort(lines, p);
 
         setOutFileName(outname, i);
 

@@ -34,7 +34,8 @@ void swap(int *a, int *b) {
 
 void processTime(clock_t t) {
     double time = ((double)t)/CLOCKS_PER_SEC;
-    printf("%.3lf ms\n", time*1000); //kali 1000 biar jadi ms
+    // printf("%.3lf ms\n", time*1000); //kali 1000 biar jadi ms
+    printf("%.3lf\n", time*1000); //kali 1000 biar jadi ms
 }
 
 void shacker(const int lines, int *p) {
@@ -42,11 +43,11 @@ void shacker(const int lines, int *p) {
     int left = 0;
 
     while(left != right) {
-        int i;
-        int j;
+        // int i;
+        // int j;
         int last;
 
-        for(i = left; i < right; i++) {
+        for(int i = left; i < right; i++) {
             if(p[i] > p[i+1]) {
                 swap(&p[i], &p[i+1]);
                 last = i;
@@ -61,8 +62,6 @@ void shacker(const int lines, int *p) {
         }
         left = last;
     }
-
-    
 }
 
 void setFileName(char *dst, int index) {
@@ -81,7 +80,7 @@ void startSorting(int n) {
         char *filename = malloc(10);
         char *outname = malloc(10);
 
-        printf("%d  | ", i);
+        // printf("%d  | ", i);
 
         setFileName(filename, i);
 
@@ -110,8 +109,8 @@ void startSorting(int n) {
         free(filename);
         free(outname);
     }
-    free(in);
-    free(out);
+    fclose(in);
+    fclose(out);
 }
 
 int main(int argc, char **argv) {

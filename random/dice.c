@@ -7,31 +7,27 @@ void setValue(int *dst, int value) {
     *dst = value;
 }
 
-void checkResult(int diceSide, int *diceResult, int *result) {
+int checkResult(int diceSide, int *diceResult, int *result) {
     for (int i = 1; i < diceSide; i++) {
         if(diceResult[0] == diceResult[i]) {
-            printf("kenanih \n");
-            *result += 1;
+            continue;
         } else {
-            break;
+            return 0;
         }
     }
+    return 1;
 }
 
-// void checkResult()
-
 void startSimulation(int iteration, int count, int diceSide, int *result) {
-
     for (int i = 0; i < iteration; i++) {
         int *diceResult = malloc(diceCount * sizeof(int));
         printf("%d | ", i+1);
         for (int j = 0; j < count; j++) {
-            diceResult[i] = rand() % diceSide + 1;  
-            printf("%d ", diceResult[i]);
+            diceResult[j] = rand() % diceSide + 1;  
+            printf("%d ", diceResult[j]);
         }
-        checkResult(diceSide, diceResult, result);
+        *result += checkResult(diceSide, diceResult, result);
         printf("| %d \n", *result);
-        // printf("\n");
         free(diceResult);
     }
 }
@@ -48,12 +44,10 @@ int main(int argc, char **argv) {
         setValue(&diceSide, atoi(argv[1]));
         setValue(&iteration, atoi(argv[2]));
     } else {
-        printf("Set dice sided and iteration number");
+        printf("Set dice sided and iteration number\n");
     }
 
-    // int dummy[] = {1, 1, 1, 1, 1, 1};
-    // checkResult(diceSide, dummy, &result);
-    // printf("%d", result);
-
     startSimulation(iteration, diceCount, diceSide, &result);
+
+    printf("%f\n", (double)result/iteration);
 }

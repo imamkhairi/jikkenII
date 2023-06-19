@@ -2,93 +2,68 @@
 #include <stdio.h>
 #include <time.h>
 
-// void setValue(int *dst, int value) {
-//     *dst = value;
-// }
+double getPercentage() {
+    double x = rand() % 200;
+    x -= 100;
+    return x/100;
+}
 
-int setDecimalCount(int c) {
-    int p = 1;
-    for (int i = 0; i < c; i++) {
-        p *= 10;
+void setPoint(double *point, int r) {
+    for (int i = 0; i < 2; i++) {
+        double percentage = getPercentage();
+        point[i] = percentage*r;
     }
-    return p;
 }
 
-void setPoint(int r, int c, double *x, double *y) {
-
-    double *tmp = malloc(2 * sizeof(double));
-    int p = setDecimalCount(c);
-
-    for (int i = 0; i < 2; i++ ) {
-        int test = rand() % p;
-        tmp[i] = (double)(((double)test/p) * 2*r) - r;
-        printf("%lf\n", tmp[i]);
-        if(tmp[i] > r) {
-            printf("exceed the boundary");
-            break;
-        }
-    }
-
-    *x = tmp[0];
-    *y = tmp[1];
-
-    free(tmp);
-}
-
-int function(int x, int y) {
-    return x*x + y*y;
-}
-
-int insideCircle (int x, int y, int r) {
-    if (function(x,y) <= r*r) return 1;
-    else return 0;
-}
-
-int square(int r) {
+double square(double r) {
     return r*r;
 }
 
-double circleAreaApprox(int in, int out, int r) {
-    return ((double)in/(in+out)) * square(2*r);
+double circle(double *point){
+    return point[0]*point[0] + point[1]*point[1];
 }
 
-int main(int argc, char **argv) {
+int insideCircle(double *point, int r){
+    if (circle(point) <= r*r) return 1;
+    else return 0;
+}
+
+double circleAreaApprox(int insideCount, int outsideCount, int r) {
+    return ((double)(insideCount)/(double)(insideCount + outsideCount)) * square(2*r);
+}
+
+void printResult(int insideCount, int outsideCount, int r) {
+    printf("in: %d, out: %d\n", insideCount, outsideCount);
+    printf("area : %lf\n", circleAreaApprox(insideCount, outsideCount, r));
+}
+
+void startCalculation(int *insideCount, int *outsideCount, int r, int iteration) {
+    double *point = malloc(2 * sizeof(double));
+
+    for (int i = 0; i < iteration; i++) {
+        setPoint(point, r);
+        if(insideCircle(point, r)) *insideCount = *insideCount + 1;
+        else *outsideCount = *outsideCount + 1;
+    }
+
+    free(point);
+}
+
+int main (int argc, char **argv) {
     srand(time(NULL));
 
     int r;
-    int c; //decimal count
-    int iterationCount;
+    int iteration;
+    int insideCount = 0;
+    int outsideCount = 0;
 
-    if (argc > 1) {
+    if (argc == 3) {
         r = atoi(argv[1]);
-        c = atoi(argv[2]);
-        iterationCount = atoi(argv[3]);
+        iteration = atoi(argv[2]);
     } else {
-        printf("Set r value!");
+        printf("Argument are missing");
     }
 
-    double x;
-    double y;
-
-    double countInside = 0;
-    double countOutside = 0;
-
-    for ( int i = 0; i < iterationCount; i++) {
-        setPoint(r, c, &x, &y);
-        // printf("x: %lf   y: %lf\n", x, y);
-
-        if(insideCircle(x, y, r)) {
-            // printf("dalam\n");
-            countInside ++;
-        } else {
-            // printf("luar\n");
-            countOutside ++;
-        }
-    }
-
-    printf("result \n");
-    printf("in: %.0lf  out: %.0lf\n", countInside, countOutside);
-    printf("area : %lf\n", circleAreaApprox(countInside, countOutside, r));
-
-    return 0;
+    startCalculation(&insideCount, &outsideCount, r, iteration);
+    printResult(insideCount, outsideCount, r);
 }

@@ -50,3 +50,17 @@ present 10 min
 
 
 課題提出：レッスン5で作成したゴルフの資料(pdf)は， "golf_23**.pdf" (**は自分の現在の出席番号)と名前を付けること． レッスン6で作成した資料(pdf)には， "2300**.pdf"という名前を付けること． これら２つの資料を，メール添付で "honma@kushiro-ct.ac.jp" に送ること． 締め切りは 5/19（金）17：00 厳守． 
+
+
+==== REPORT NOTE =====
+cover katanya penuhin aja 
+kalau italic ya italic aja terus
+kalau mau refer program kasih judul juga
+satuan tiap mau nulis data jangan lapa
+bibliography
+- kalau dari webpage yang %34%24%213 -> katanya ga usah tulis
+- kalau bisa kasih buku, (curang) meskipun ga dipake juga sih
+nama subsection tolol kasih penjelasan lah. バケットソートプログラムとか
+kansou jangan sampai pendek aja
+harusnya kalau bikin report itu ngikut ke outline dari daftar isi
+kalau misal mau ngasih point ke code bisa 

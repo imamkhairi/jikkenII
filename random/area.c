@@ -38,7 +38,7 @@ void printResult(int insideCount, int outsideCount, int r) {
 }
 
 void startCalculation(int *insideCount, int *outsideCount, int r, int iteration) {
-    double *point = malloc(2 * sizeof(double));
+    double *point = (double *)malloc(2 * sizeof(double));
 
     for (int i = 0; i < iteration; i++) {
         setPoint(point, r);

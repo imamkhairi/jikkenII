@@ -21,7 +21,8 @@ void setPoint(int r, int c, double *x, double *y) {
 
     for (int i = 0; i < 2; i++ ) {
         int test = rand() % p;
-        tmp[i] = (double)(((double)test/p) * r);
+        tmp[i] = (double)(((double)test/p) * 2*r) - r;
+        printf("%lf\n", tmp[i]);
         if(tmp[i] > r) {
             printf("exceed the boundary");
             break;

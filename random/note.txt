@@ -2,3 +2,14 @@ yang nyusun2 tinggi orang cowok ga ngaruh cewek aja
 1/2 3/4 5/6
 
 katanya hitung juga berapa execution time nya
+
+
+bingo 
+ビンゴカードのルール
+　・ 1列目(B)は 1～15
+　・ 2列目(I)は 16～30
+　・ 3列目(N)は 31～45
+　・ 4列目(G)は 46～60
+　・ 5列目(O)は 61～75
+　・ 中心は FREE スポット
+　・ タテ，ヨコ，ナナメのラインが１つ以上そろえば当たりである．

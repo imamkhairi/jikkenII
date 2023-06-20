@@ -36,6 +36,10 @@ void resetCoin(int *A, int *B) {
     *B = 2;
 }
 
+void printAWinPercentage(int winA, int iteration) {
+    printf("opportunity= %lf\n", (double)(winA)/(double)(iteration));
+}
+
 void startCalculation(int *A, int *B, int *winA, int *winB, int iteration) {
     for (int i = 0; i < iteration; i++) {
         resetCoin(A, B);
@@ -45,7 +49,7 @@ void startCalculation(int *A, int *B, int *winA, int *winB, int iteration) {
         printf("=====\n");
     }
     printf("winA = %d, winB = %d\n", *winA, *winB);
-
+    printAWinPercentage(*winA, iteration);
 }
 
 

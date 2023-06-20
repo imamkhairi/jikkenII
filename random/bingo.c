@@ -50,6 +50,7 @@ void makeBoard(int *board) {
         board = ++q;
         free(dummy);
     }
+
     // set FREE in middle
     board += SIZE + 2;
     *board = 0;
@@ -69,26 +70,6 @@ void printCheck(int *boardCheck) {
     printf("==============\n");
 }
 
-// int checkCol(int *boardCheck) {
-//     int *p = boardCheck;
-
-//     printf("==========+++++++\n");
-//     int count = 0;
-//     for (int i = 0; i < SIZE; i++) {
-//         for(int j = 0; j < SIZE; j++) {
-//             if (*p == 1){ 
-//                 p += SIZE;
-//                 count++;
-//             }
-//             else break;
-//         }
-//         if (count == 5) return 1;
-//         p -= SIZE * SIZE - 1;
-//     }
-
-//     return 0;
-// }
-
 int checkRow(int *boardCheck) {
     int *p = boardCheck;
     int *q = boardCheck;
@@ -98,7 +79,6 @@ int checkRow(int *boardCheck) {
         for (int j = 0; j < SIZE; j++) {
             if(*p == 1) {
                 p++;
-                // printf("kena \n");
                 count ++;
                 continue;
             } else break;
@@ -120,7 +100,6 @@ int checkCol(int *boardCheck) {
         for (int j = 0; j < SIZE; j++) {
             if(*p == 1) {
                 p += SIZE;
-                // printf("kena \n");
                 count ++;
                 continue;
             } else break;
@@ -156,6 +135,29 @@ int checkDia(int *boardCheck) {
     return 0;
 }
 
+void updateCheck(int *boardCheck, int offset) {
+    int *p = boardCheck;
+    p += offset;
+    *p = 1;
+}
+
+int searchBoard(int *boardValue, int target) {
+    int *p = boardValue;
+    int *q = boardValue;
+    int row = target / 15;
+
+    p += row;
+    for (int i = 0; i < SIZE; i++) {
+        if(*p == target) break;
+        p += SIZE;
+    }
+
+    int dif = p - q;
+    printf("dif = %d \n", dif);
+
+    return dif;
+}
+
 int main(int argc, char **argv) {
     srand(time(NULL));
 
@@ -180,7 +182,10 @@ int main(int argc, char **argv) {
     printBoard(boardValue);
 
 
-    printf("result = %d\n", checkDia(boardCheck));
+    // printf("result = %d\n", checkDia(boardCheck));
+    int dif = searchBoard(boardValue, 62);
+    updateCheck(boardCheck, dif);
+    printCheck(boardCheck);
 
 
     free(boardValue);

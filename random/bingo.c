@@ -111,18 +111,66 @@ int checkRow(int *boardCheck) {
     return 0;
 }
 
+int checkCol(int *boardCheck) {
+    int *p = boardCheck;
+    int *q = boardCheck;
+    int count = 0;
+    printf("==========+++++++\n");
+    for (int i = 0; i < SIZE; i++) {
+        for (int j = 0; j < SIZE; j++) {
+            if(*p == 1) {
+                p += SIZE;
+                // printf("kena \n");
+                count ++;
+                continue;
+            } else break;
+        }
+        if (count == 5) return 1;
+        count = 0;
+        q ++;
+        p = q;
+    }
+    return 0;
+}
+
+int checkDia(int *boardCheck) {
+    int *p = boardCheck;
+    int *q = boardCheck + 4;
+
+    int count = 0;
+    int inc = 1;
+
+    printf("==========+++++++\n");
+    for (int i = 0; i < 2; i++) {
+        for (int j = 0; j < SIZE; j++) {
+            if (*p == 1) count ++;
+            else break;
+            p += SIZE + inc;
+        }
+        if (count == 5) return 1;
+        count = 0;
+        p = q;
+        inc = -1;
+    }
+
+    return 0;
+}
+
 int main(int argc, char **argv) {
     srand(time(NULL));
 
     int *boardValue = (int *)malloc(SIZE*SIZE * sizeof(int));
     int *boardCheck = (int *)calloc(SIZE*SIZE, sizeof(int));
 
-    boardCheck[5] = 1;
-    boardCheck[6] = 1;
-    boardCheck[7] = 1;
-    boardCheck[8] = 1;
-    boardCheck[9] = 1;
-    // boardCheck[23] = 1;
+    // boardCheck[0] = 1;
+    // boardCheck[6] = 0;
+    // boardCheck[12] = 1;
+    // boardCheck[18] = 1;
+    // boardCheck[24] = 20;
+    // boardCheck[4] = 1;
+    // boardCheck[8] = 1;
+    // boardCheck[16] = 1;
+    // boardCheck[20] = 1;
     boardCheck[2*SIZE + 2] = 1;
 
     printCheck(boardCheck);
@@ -132,7 +180,7 @@ int main(int argc, char **argv) {
     printBoard(boardValue);
 
 
-    printf("result = %d\n", checkRow(boardCheck));
+    printf("result = %d\n", checkDia(boardCheck));
 
 
     free(boardValue);

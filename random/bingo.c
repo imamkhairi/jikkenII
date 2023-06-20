@@ -153,7 +153,6 @@ int searchBoard(int *boardValue, int target) {
     }
 
     int dif = p - q;
-    printf("dif = %d \n", dif);
 
     return dif;
 }
@@ -163,16 +162,6 @@ int main(int argc, char **argv) {
 
     int *boardValue = (int *)malloc(SIZE*SIZE * sizeof(int));
     int *boardCheck = (int *)calloc(SIZE*SIZE, sizeof(int));
-
-    // boardCheck[0] = 1;
-    // boardCheck[6] = 0;
-    // boardCheck[12] = 1;
-    // boardCheck[18] = 1;
-    // boardCheck[24] = 20;
-    // boardCheck[4] = 1;
-    // boardCheck[8] = 1;
-    // boardCheck[16] = 1;
-    // boardCheck[20] = 1;
     boardCheck[2*SIZE + 2] = 1;
 
     printCheck(boardCheck);
@@ -181,12 +170,11 @@ int main(int argc, char **argv) {
     makeBoard(boardValue);
     printBoard(boardValue);
 
-
-    // printf("result = %d\n", checkDia(boardCheck));
-    int dif = searchBoard(boardValue, 62);
+    int target = rand() % 75 + 1;
+    printf("target = %d\n", target);
+    int dif = searchBoard(boardValue, target);
     updateCheck(boardCheck, dif);
     printCheck(boardCheck);
-
 
     free(boardValue);
     free(boardCheck);

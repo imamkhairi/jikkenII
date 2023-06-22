@@ -33,8 +33,9 @@ void shuffle(int *dummy) {
 }
 
 void makeBoard(int *board) {
+    int *dummy = (int *)malloc(INTERVAL * sizeof(int));
+
     for (int i = 0; i < SIZE; i++) {
-        int *dummy = (int *)(malloc(INTERVAL * sizeof(int)));
         initiateDummy(dummy, i);
         shuffle(dummy);
 
@@ -48,10 +49,9 @@ void makeBoard(int *board) {
         }
 
         board = ++q;
-        free(dummy);
     }
+    free(dummy);
 
-    // set FREE in middle
     board += SIZE + 2;
     *board = 0;
 }
@@ -74,7 +74,6 @@ int checkRow(int *boardCheck) {
     int *p = boardCheck;
     int *q = boardCheck;
     int count = 0;
-    printf("==========+++++++\n");
     for (int i = 0; i < SIZE; i++) {
         for (int j = 0; j < SIZE; j++) {
             if(*p == 1) {
@@ -95,7 +94,6 @@ int checkCol(int *boardCheck) {
     int *p = boardCheck;
     int *q = boardCheck;
     int count = 0;
-    printf("==========+++++++\n");
     for (int i = 0; i < SIZE; i++) {
         for (int j = 0; j < SIZE; j++) {
             if(*p == 1) {
@@ -119,7 +117,6 @@ int checkDia(int *boardCheck) {
     int count = 0;
     int inc = 1;
 
-    printf("==========+++++++\n");
     for (int i = 0; i < 2; i++) {
         for (int j = 0; j < SIZE; j++) {
             if (*p == 1) count ++;
@@ -136,9 +133,11 @@ int checkDia(int *boardCheck) {
 }
 
 void updateCheck(int *boardCheck, int offset) {
-    int *p = boardCheck;
-    p += offset;
-    *p = 1;
+    if (offset < SIZE*SIZE){
+        int *p = boardCheck;
+        p += offset;
+        *p = 1;
+    }
 }
 
 int searchBoard(int *boardValue, int target) {
@@ -157,53 +156,55 @@ int searchBoard(int *boardValue, int target) {
     return dif;
 }
 
-int main(int argc, char **argv) {
-    srand(time(NULL));
-
-    int *boardValue = (int *)malloc(SIZE*SIZE * sizeof(int));
-    int *boardCheck = (int *)calloc(SIZE*SIZE, sizeof(int));
+void initiateBoardCheck(int *boardCheck) {
+    for (int i = 0; i < SIZE * SIZE; i++) {
+        boardCheck[i] = 0;
+    }
     boardCheck[2*SIZE + 2] = 1;
+}
 
-    printCheck(boardCheck);
-
-
+int startBingo() {
+    int *boardValue = malloc(SIZE*SIZE * sizeof(int));
     makeBoard(boardValue);
-    printBoard(boardValue);
 
-    int target = rand() % 75 + 1;
-    printf("target = %d\n", target);
-    int dif = searchBoard(boardValue, target);
-    updateCheck(boardCheck, dif);
-    printCheck(boardCheck);
+    int *boardCheck = (int *)malloc(SIZE*SIZE * sizeof(int));
+    initiateBoardCheck(boardCheck);
+
+    int count = 0;
+
+    while (!checkCol(boardCheck) && !checkRow(boardCheck) && !checkDia(boardCheck)) {
+        count ++ ;
+        int target = rand() % 75 + 1;
+
+        int dif = searchBoard(boardValue, target);
+
+        updateCheck(boardCheck, dif);
+    }
 
     free(boardValue);
     free(boardCheck);
 
-    return 0;
+    return count;
 }
 
-
-
-
-
-
-
-
-
-
-/* NOTE */
-/* 
-void printArr(int *p) {
-    for(int i = 0; i < 12; i++) {
-        printf("%d ", *p);
-        p++;
+void printResult(int *result) {
+    for (int i = 0;  i < 500; i++) {
+        if(result[i] != 0) printf("%d, %d\n", i, result[i]);
+        else continue;
     }
 }
 
-int main() {
-    int arr[4][3]={{1,2,3},{2,3,4},{3,4,5},{4,5,6}};
-    
-    printArr((int *)arr);
+int main(int argc, char **argv) {
+    srand(time(NULL));
+
+    int *result = malloc(500 * sizeof(int));
+
+    for (int i = 0; i < 5000; i++) {
+        result[startBingo()]++;
+    }
+
+    printResult(result);
+    free(result);
+
     return 0;
 }
- */

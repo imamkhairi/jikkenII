@@ -197,9 +197,18 @@ void printResult(int *result) {
 int main(int argc, char **argv) {
     srand(time(NULL));
 
+    int iteration;
+    if (argc == 2) {
+        iteration = atoi(argv[1]);
+    } else {
+        printf("Set iteration value !");
+        // iteration = 5000;
+        return -1;
+    }
+
     int *result = malloc(500 * sizeof(int));
 
-    for (int i = 0; i < 5000; i++) {
+    for (int i = 0; i < iteration; i++) {
         result[startBingo()]++;
     }
 

@@ -2,6 +2,8 @@
 #include <stdio.h>
 #include <time.h>
 
+#define DEBUG 0
+
 int rollDice() {
     return rand() % 6;
 }
@@ -22,7 +24,10 @@ void startSimulation(int *A, int *B) {
         int dice = rollDice();
         if (check(dice)) giveCoin(A, B);
         else giveCoin(B, A);
-        printf("A = %d, B = %d\n", *A, *B);
+        
+        #if DEBUG == 1
+            printf("A = %d, B = %d\n", *A, *B);
+        #endif
     }
 }
 
@@ -36,8 +41,8 @@ void resetCoin(int *A, int *B) {
     *B = 2;
 }
 
-void printAWinPercentage(int winA, int iteration) {
-    printf("opportunity= %lf\n", (double)(winA)/(double)(iteration));
+double printAWinPercentage(int winA, int iteration) {
+    return (double)(winA)/(double)(iteration);
 }
 
 void startCalculation(int *A, int *B, int *winA, int *winB, int iteration) {
@@ -46,10 +51,17 @@ void startCalculation(int *A, int *B, int *winA, int *winB, int iteration) {
         startSimulation(A, B);
         updateWinCount(*A, winA);
         updateWinCount(*B, winB);
-        printf("=====\n");
+        // printf("=====\n");
     }
-    printf("winA = %d, winB = %d\n", *winA, *winB);
-    printAWinPercentage(*winA, iteration);
+    // printf("winA = %d, winB = %d\n", *winA, *winB);
+    // printAWinPercentage(*winA, iteration);
+}
+
+void resetValue(int *coinA, int *coinB, int *winA, int *winB) {
+    *coinA = 6;
+    *coinB = 2;
+    *winA = 0;
+    *winB = 0;
 }
 
 
@@ -69,7 +81,24 @@ int main(int argc, char **argv) {
     int winA = 0;
     int winB = 0;
 
-    startCalculation(&coinA, &coinB, &winA, &winB, iteration);
+    FILE *p = fopen("coin.csv", "a");
+
+    if(p == NULL) {
+        perror("File open error\n");
+        return -1;
+    }
+
+    printf("Count, Probability\n");
+    for (int i = 0; i < 10; i++) {
+        for (int count = 1; count <= iteration; count *= 10) {
+            startCalculation(&coinA, &coinB, &winA, &winB, count);
+            fprintf(p, "%d, %.10lf\n", count, printAWinPercentage(winA, iteration));
+            // printf("%d, %.10lf\n", count, printAWinPercentage(winA, iteration));
+            resetValue(&coinA, &coinB, &winA, &winB);
+        }
+    }
+
+    fclose(p);
 
     return 0;
 }

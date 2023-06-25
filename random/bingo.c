@@ -143,7 +143,7 @@ void updateCheck(int *boardCheck, int offset) {
 int searchBoard(int *boardValue, int target) {
     int *p = boardValue;
     int *q = boardValue;
-    int row = target / 15;
+    int row = (target - 1) / 15;
 
     p += row;
     for (int i = 0; i < SIZE; i++) {
@@ -164,7 +164,7 @@ void initiateBoardCheck(int *boardCheck) {
 }
 
 int startBingo() {
-    int *boardValue = malloc(SIZE*SIZE * sizeof(int));
+    int *boardValue = (int *)malloc(SIZE*SIZE * sizeof(int));
     makeBoard(boardValue);
 
     int *boardCheck = (int *)malloc(SIZE*SIZE * sizeof(int));
@@ -173,13 +173,23 @@ int startBingo() {
     int count = 0;
 
     while (!checkCol(boardCheck) && !checkRow(boardCheck) && !checkDia(boardCheck)) {
+        // printf("muter sini ");
         count ++ ;
         int target = rand() % 75 + 1;
 
         int dif = searchBoard(boardValue, target);
 
         updateCheck(boardCheck, dif);
+
+        if(count >= 500) {
+            printf("bug, last target = %d\n", target);
+            printBoard(boardValue);
+            printCheck(boardCheck);
+            break;
+        }
     }
+    // printf("\n done \n");
+
 
     free(boardValue);
     free(boardCheck);
@@ -201,14 +211,15 @@ int main(int argc, char **argv) {
     if (argc == 2) {
         iteration = atoi(argv[1]);
     } else {
-        printf("Set iteration value !");
-        // iteration = 5000;
-        return -1;
+        printf("Iteration value set to 5000\n");
+        iteration = 5000;
+        // return -1;
     }
 
-    int *result = malloc(500 * sizeof(int));
+    int *result = (int *)malloc(10000 * sizeof(int));
 
     for (int i = 0; i < iteration; i++) {
+        // printf("%d\n", i);
         result[startBingo()]++;
     }
 

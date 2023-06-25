@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <time.h>
+#include <math.h>
 
 double getPercentage() {
     double x = rand() % 200;
@@ -37,6 +38,10 @@ void printResult(int insideCount, int outsideCount, int r) {
     printf("area : %lf\n", circleAreaApprox(insideCount, outsideCount, r));
 }
 
+double actualArea(int r) {
+    return M_PI*r*r;
+}
+
 void startCalculation(int *insideCount, int *outsideCount, int r, int iteration) {
     double *point = (double *)malloc(2 * sizeof(double));
 
@@ -61,9 +66,25 @@ int main (int argc, char **argv) {
         r = atoi(argv[1]);
         iteration = atoi(argv[2]);
     } else {
-        printf("Argument are missing");
+        printf("Argument are missing\n");
+        return 1;
     }
 
-    startCalculation(&insideCount, &outsideCount, r, iteration);
-    printResult(insideCount, outsideCount, r);
+    FILE *p = fopen("area.csv", "a");
+
+    if(p == NULL) {
+        perror("File open error\n");
+        return -1;
+    }
+
+    for (int i = 0; i < 10; i++) {
+        for (int count = 10; count <= iteration; count *= 10) {
+            startCalculation(&insideCount, &outsideCount, r, count);
+            // printf("%d, %.3lf, %.3lf\n", count, circleAreaApprox(insideCount, outsideCount, r), actualArea(r));
+            fprintf(p, "%d, %.3lf, %.3lf\n", count, circleAreaApprox(insideCount, outsideCount, r), actualArea(r));
+            insideCount = 0;
+            outsideCount = 0;
+        }
+    }
+    fclose(p);
 }

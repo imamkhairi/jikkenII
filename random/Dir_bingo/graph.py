@@ -16,16 +16,16 @@ col = list(df.columns)
 x_ticks = list(df[col[0]])
 
 # df.plot(x = col[0], y = [col[1], col[2]])
-df.plot(x = col[0], y = col[4])
+df.plot(x = col[0], y = col[3])
 plt.grid(True)
 
 plt.xlabel('Count', fontweight='bold')
-plt.xscale('log')
+# plt.xscale('log')
 plt.xticks(x_ticks)
 
 plt.ylabel('Success Probability', fontweight='bold')
 # plt.yscale('log')
-# plt.gca().yaxis.set_major_formatter(mtick.FormatStrFormatter('%.0f'))
+plt.gca().yaxis.set_major_formatter(mtick.FormatStrFormatter('%.0e'))
 
 plt.minorticks_off()
 # plt.show()

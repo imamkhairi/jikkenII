@@ -74,7 +74,7 @@ int main(int argc, char **argv) {
 
     printf("count, probability\n");
     for (int i = 0; i < 1; i++) {
-        for (int count = 1; count <= iteration; count ++) {
+        for (int count = 1; count <= iteration; count *= 10) {
             startSimulation(count, diceCount, diceSide, &result);
             printf("%d, %.6lf\n", count, (double)result/count);
             // fprintf(p, "%d,  %.3le\n", count, (double)result/count);

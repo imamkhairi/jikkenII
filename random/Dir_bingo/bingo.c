@@ -218,7 +218,6 @@ void probWhenX(int iteration, int *result, int x)
     printf("Probability when %d = %lf\n", x, (double)(result[x])/(double)(iteration));
 }
 
-
 int getMax(int *result) {
     int max = 0;
     int index = 0;
@@ -227,6 +226,12 @@ int getMax(int *result) {
         else continue;
     }
     return index;
+}
+
+void resetResult(int *result) {
+    for (int i = 0; i < ARRAYSIZE; i++) {
+        result[i] = 0;
+    }
 }
 
 int main(int argc, char **argv) {
@@ -245,27 +250,43 @@ int main(int argc, char **argv) {
 
     int *result = (int *)malloc(ARRAYSIZE * sizeof(int));
 
-    for (int i = 0; i < iteration; i++) {
-        // printf("%d\n", i);
-        int r = startBingo();
-        result[r]++;
-        if (flag == 0 && r == 4) {
-            flag = i;
+    FILE *p = fopen("bingo.csv", "a");
+    for (int i = 0; i < 9; i++) {
+        for (int j = 0; j < iteration; j++) {
+            // printf("%d\n", i);
+            int r = startBingo();
+            result[r]++;
+            if (flag == 0 && r == 4) {
+                flag = j;
+            }
         }
+    
+        fprintf(p, "%d, %.10lf, %.10lf, %d, %.10lf\n", flag, (double)result[4]/(double)iteration, 
+            (double)result[7]/(double)iteration, getMax(result), 
+            (double)result[getMax(result)]/(double)iteration);
+        
+        resetResult(result);
+        flag = 0;
+
+        // printf("%d, %.10lf, %.10lf, %d, %.10lf\n", flag, (double)result[4]/(double)iteration, 
+        //     (double)result[7]/(double)iteration, getMax(result), 
+        //     (double)result[getMax(result)]/(double)iteration);
     }
 
-    // printResult(result);
-    printf("lower to get 4, under 4 prob, under 7 prob, max, max prob\n");
-    printf("%d, %lf, %lf, %d, %lf\n", flag, (double)result[4]/(double)iteration, 
-        (double)result[7]/(double)iteration, getMax(result), 
-        (double)result[getMax(result)]/(double)iteration);
 
+    // printResult(result);
+    // printResult(result);
+    // printf("lower to get 4, under 4 prob, under 7 prob, max, max prob\n");
+    // printf("%d, %lf, %lf, %d, %.8lf\n", flag, (double)result[4]/(double)iteration, 
+    //     (double)result[7]/(double)iteration, getMax(result), 
+        // (double)result[getMax(result)]/(double)iteration);
     // printf("Lowest Iteration to get 4 = %d\n", flag);
     // probUnderX(iteration, result, 4);
     // probUnderX(iteration, result, 7);
     // probWhenX(iteration, result, getMax(result));
 
     free(result);
+    fclose(p);
 
     return 0;
 }

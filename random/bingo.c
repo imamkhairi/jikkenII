@@ -241,18 +241,29 @@ int main(int argc, char **argv) {
         // return -1;
     }
 
+    int flag = 0;
+
     int *result = (int *)malloc(ARRAYSIZE * sizeof(int));
 
     for (int i = 0; i < iteration; i++) {
         // printf("%d\n", i);
-        result[startBingo()]++;
+        int r = startBingo();
+        result[r]++;
+        if (flag == 0 && r == 4) {
+            flag = i;
+        }
     }
 
-    printResult(result);
+    // printResult(result);
+    printf("lower to get 4, under 4 prob, under 7 prob, max, max prob\n");
+    printf("%d, %lf, %lf, %d, %lf\n", flag, (double)result[4]/(double)iteration, 
+        (double)result[7]/(double)iteration, getMax(result), 
+        (double)result[getMax(result)]/(double)iteration);
 
-    probUnderX(iteration, result, 7);
-    probUnderX(iteration, result, 4);
-    probWhenX(iteration, result, getMax(result));
+    // printf("Lowest Iteration to get 4 = %d\n", flag);
+    // probUnderX(iteration, result, 4);
+    // probUnderX(iteration, result, 7);
+    // probWhenX(iteration, result, getMax(result));
 
     free(result);
 

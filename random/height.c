@@ -65,25 +65,13 @@ int check(int *dst) {
 }
 
 void startCalculation(int iteration, int *result) {
-    // int *m = (int *)malloc(SIZE * sizeof(int));
-    // int *w = (int *)malloc(SIZE * sizeof(int));
     int *combine = (int *)malloc(2*SIZE * sizeof(int));
     allocateValue(combine);
-    // printf("alocated\n");
-    // printData(combine);
-    // allocateValue(m);
-    // allocateValue(w);
-
 
     for (int i = 0; i < iteration; i++) {
-        // shuffle(m);
-        // shuffle(w);
-        // combineValue(combine, m, w);
         shuffle(combine);
         
-
         *result += check(combine);
-            // printf("\nresult =  %d\n", *result);
         #if DEBUG == 1
             // if(!check(combine)) {
             if(!check(combine)) {
@@ -95,8 +83,6 @@ void startCalculation(int iteration, int *result) {
         #endif
     }
 
-    // free(m);
-    // free(w);
     free(combine);
 }
 
@@ -111,8 +97,4 @@ int main(int argc, char **argv) {
     startCalculation(iteration, &result);
     printf("result = %d\n", result);
     printf("probability = %lf\n", (double)result/(double)iteration);
-
-    // int dummy[] = {1, 1, 2, 3, 0, 4, 4, 0, 3, 2};
-    // // int dummy[] = {2, 2, 5, 5, 3, 3, 4, 4, 1, 1};
-    // printf("hsail %d\n", check(dummy));
 }

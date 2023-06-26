@@ -7,7 +7,7 @@
 #define DEBUG 1
 
 void allocateValue(int *dst) {
-    for (int i = 0; i < SIZE; i++) {
+    for (int i = 1; i <= SIZE; i++) {
         *dst = i;
         dst++;
     }
@@ -47,20 +47,17 @@ void combineValue(int *dst, int *m, int *w) {
 }
 
 int check(int *dst) {
-    for (int i = 1; i < 2*SIZE; i += 2) { // women
-        int count = 0;
-        for (int j = 0; j < i+1; j += 2) { // men
-            printf("w: %d  | m: %d\n", i, j);
+    for (int i = 1; i < 2*SIZE; i += 2) {
+        int flag = 0;
+        for (int j = 0; j < i; j += 2) {
+            printf("w: %d | m: %d\n", i, j);
             if(dst[j] >= dst[i]) {
-                count++;
-                printf("kena | w: %d  | m: %d\n", i, j);
-            }else continue;
+                flag = 1;
+            }
+            if (flag == 1) break; // nemu sekali udh cukup
         }
-        printf("=======\n");
-        // printf("%d\n", count);
-        if (count < 1) return 0;
+        if (flag == 0) return 0;
     }
-
     return 1;
 }
 
@@ -106,8 +103,7 @@ int main(int argc, char **argv) {
     startCalculation(iteration, &result);
     printf("result = %d\n", result);
 
-    // int dummy[] = {1, 4, 2, 3, 0, 1, 4, 0, 3, 2};
-    // int dummy[] = {2, 2, 5, 5, 3, 3, 4, 4, 1, 1};
-    // int dummy[] = {4, 4, 3, 3, 2, 2, 5, 5, 1, 5};
+    // int dummy[] = {1, 1, 2, 3, 0, 4, 4, 0, 3, 2};
+    // // int dummy[] = {2, 2, 5, 5, 3, 3, 4, 4, 1, 1};
     // printf("hsail %d\n", check(dummy));
 }

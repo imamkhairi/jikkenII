@@ -4,17 +4,17 @@
 
 #define SIZE 5
 
-#define DEBUG 1
+#define DEBUG 0
 
 void allocateValue(int *dst) {
-    for (int i = 1; i <= SIZE; i++) {
+    for (int i = 1; i <= 2*SIZE; i++) {
         *dst = i;
         dst++;
     }
 }
 
 void printData(int *dst) {
-    for (int i = 0; i < SIZE; i++) {
+    for (int i = 0; i < 2 * SIZE; i++) {
         printf("%d ", *dst);
         dst++;
     }
@@ -28,7 +28,7 @@ void swapElement(int *dst, int a, int b) {
 }
 
 void shuffle(int *dst) {
-    for (int i = SIZE - 1; i >= 0; i--) {
+    for (int i = 2*SIZE - 1; i >= 0; i--) {
         int target = rand() % SIZE;
         swapElement(dst, i, target);
     }
@@ -47,38 +47,46 @@ void combineValue(int *dst, int *m, int *w) {
 }
 
 int check(int *dst) {
-    for (int i = 1; i < 2*SIZE; i += 2) {
-        int flag = 0;
-        for (int j = 0; j < i; j += 2) {
-            printf("w: %d | m: %d\n", i, j);
-            if(dst[j] >= dst[i]) {
-                flag = 1;
+    int max;
+    if (dst[0] == 10) return 1;
+    if (dst[0] % 2 == 1) return 0;
+    else {
+        max = dst[0];
+        for (int i = 1; i < 2*SIZE; i++) {
+            if (dst[i] % 2 == 1) {
+                if (max > dst[i]) continue;
+                else return 0;
+            } else {
+                if (dst[i] > max) max = dst[i];
             }
-            if (flag == 1) break; // nemu sekali udh cukup
         }
-        if (flag == 0) return 0;
     }
     return 1;
 }
 
 void startCalculation(int iteration, int *result) {
-    int *m = (int *)malloc(SIZE * sizeof(int));
-    int *w = (int *)malloc(SIZE * sizeof(int));
+    // int *m = (int *)malloc(SIZE * sizeof(int));
+    // int *w = (int *)malloc(SIZE * sizeof(int));
     int *combine = (int *)malloc(2*SIZE * sizeof(int));
-    allocateValue(m);
-    allocateValue(w);
+    allocateValue(combine);
+    // printf("alocated\n");
+    // printData(combine);
+    // allocateValue(m);
+    // allocateValue(w);
 
 
     for (int i = 0; i < iteration; i++) {
-        shuffle(m);
-        shuffle(w);
-        combineValue(combine, m, w);
+        // shuffle(m);
+        // shuffle(w);
+        // combineValue(combine, m, w);
+        shuffle(combine);
+        
 
         *result += check(combine);
             // printf("\nresult =  %d\n", *result);
         #if DEBUG == 1
             // if(!check(combine)) {
-            if(1) {
+            if(!check(combine)) {
                 for(int j = 0; j < 10; j++) {
                     printf("%d ", combine[j]);
                 }
@@ -87,8 +95,8 @@ void startCalculation(int iteration, int *result) {
         #endif
     }
 
-    free(m);
-    free(w);
+    // free(m);
+    // free(w);
     free(combine);
 }
 
@@ -102,6 +110,7 @@ int main(int argc, char **argv) {
 
     startCalculation(iteration, &result);
     printf("result = %d\n", result);
+    printf("probability = %lf\n", (double)result/(double)iteration);
 
     // int dummy[] = {1, 1, 2, 3, 0, 4, 4, 0, 3, 2};
     // // int dummy[] = {2, 2, 5, 5, 3, 3, 4, 4, 1, 1};

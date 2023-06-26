@@ -12,4 +12,14 @@ bingo
 　・ 4列目(G)は 46～60
 　・ 5列目(O)は 61～75
 　・ 中心は FREE スポット
-　・ タテ，ヨコ，ナナメのラインが１つ以上そろえば当たりである．
+　・ タテ，ヨコ，ナナメのラインが１つ以上そろえば当たりである
+
+
+font buat suushiki (equation)
+pake times
+
+katanya bingo biar bisa dapa 4 kali itu rata2 berapa kali main
+
+cuma coin yang ilang data aslinya
+
+data dice mungkin bisa ulang lagi

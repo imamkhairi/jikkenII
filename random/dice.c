@@ -73,11 +73,11 @@ int main(int argc, char **argv) {
     // printf("%d, %d, %.3le\n", iteration, result, (double)result/iteration);
 
     printf("count, probability\n");
-    for (int i = 0; i < 10; i++) {
-        for (int count = 1; count <= iteration; count *= 10) {
+    for (int i = 0; i < 1; i++) {
+        for (int count = 1; count <= iteration; count ++) {
             startSimulation(count, diceCount, diceSide, &result);
-            // printf("%d, %.6lf\n", count, (double)result/count);
-            fprintf(p, "%d,  %.3le\n", count, (double)result/count);
+            printf("%d, %.6lf\n", count, (double)result/count);
+            // fprintf(p, "%d,  %.3le\n", count, (double)result/count);
             result = 0;
         }
     }

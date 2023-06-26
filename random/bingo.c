@@ -4,6 +4,7 @@
 
 #define SIZE 5
 #define INTERVAL 15
+#define ARRAYSIZE 500
 
 void printBoard(int *board) {
     for (int i = 1; i <= SIZE * SIZE; i++) {
@@ -181,15 +182,13 @@ int startBingo() {
 
         updateCheck(boardCheck, dif);
 
-        if(count >= 500) {
-            printf("bug, last target = %d\n", target);
-            printBoard(boardValue);
-            printCheck(boardCheck);
-            break;
-        }
+        // if(count >= 500) {
+        //     printf("bug, last target = %d\n", target);
+        //     printBoard(boardValue);
+        //     printCheck(boardCheck);
+        //     break;
+        // }
     }
-    // printf("\n done \n");
-
 
     free(boardValue);
     free(boardCheck);
@@ -204,6 +203,32 @@ void printResult(int *result) {
     }
 }
 
+void probUnderX(int iteration, int *result, int x)
+{
+    int total = 0;
+    for (int i = 1; i <= x; i++) {
+        total += result[i];
+    }
+
+    printf("Probability under %d = %lf\n", x, (double)(total)/(double)(iteration));
+}
+
+void probWhenX(int iteration, int *result, int x)
+{
+    printf("Probability when %d = %lf\n", x, (double)(result[x])/(double)(iteration));
+}
+
+
+int getMax(int *result) {
+    int max = 0;
+    int index = 0;
+    for (int i = 0; i < ARRAYSIZE; i++) {
+        if (result[i] != 0) index = i;
+        else continue;
+    }
+    return index;
+}
+
 int main(int argc, char **argv) {
     srand(time(NULL));
 
@@ -216,7 +241,7 @@ int main(int argc, char **argv) {
         // return -1;
     }
 
-    int *result = (int *)malloc(10000 * sizeof(int));
+    int *result = (int *)malloc(ARRAYSIZE * sizeof(int));
 
     for (int i = 0; i < iteration; i++) {
         // printf("%d\n", i);
@@ -224,6 +249,11 @@ int main(int argc, char **argv) {
     }
 
     printResult(result);
+
+    probUnderX(iteration, result, 7);
+    probUnderX(iteration, result, 4);
+    probWhenX(iteration, result, getMax(result));
+
     free(result);
 
     return 0;

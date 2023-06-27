@@ -15,17 +15,24 @@ df = pd.read_csv(filename)
 col = list(df.columns)
 x_ticks = list(df[col[0]])
 
-# df.plot(x = col[0], y = [col[1], col[2]])
-df.plot(x = col[0], y = col[3])
+# df.plot(x = col[0], y = [col[4], col[5]])
+df.plot(x = col[0], y = [col[6], col[7]])
+# df.plot(x = col[0], y = [col[2], col[3]])
+# df.plot(x = col[0], y = col[5])
 plt.grid(True)
 
 plt.xlabel('Count', fontweight='bold')
 # plt.xscale('log')
 plt.xticks(x_ticks)
 
-plt.ylabel('Success Probability', fontweight='bold')
+# plt.ylabel('Probability', fontweight='bold')
+plt.ylabel('Games Count', fontweight='bold')
 # plt.yscale('log')
-plt.gca().yaxis.set_major_formatter(mtick.FormatStrFormatter('%.0e'))
+# plt.ylim(-8e-09, 2e-08)
+# def y_fmt(x, y):
+#     return '{:2.1e}'.format(x).replace('e', 'e')
+
+# plt.gca().yaxis.set_major_formatter(mtick.FuncFormatter(y_fmt))
 
 plt.minorticks_off()
 # plt.show()

@@ -5,7 +5,7 @@
 #define DEBUG 0
 
 int rollDice() {
-    return rand() % 6;
+    return rand() % 6 + 1;
 }
 
 int check(int dice) {
@@ -88,15 +88,19 @@ int main(int argc, char **argv) {
         return -1;
     }
 
-    printf("Count, Probability\n");
-    for (int i = 0; i < 10; i++) {
-        for (int count = 1; count <= iteration; count *= 10) {
-            startCalculation(&coinA, &coinB, &winA, &winB, count);
-            fprintf(p, "%d, %.10lf\n", count, printAWinPercentage(winA, iteration));
-            // printf("%d, %.10lf\n", count, printAWinPercentage(winA, iteration));
-            resetValue(&coinA, &coinB, &winA, &winB);
-        }
+    for (int i = 0; i < 11; i++) {
+        printf("%d ", rollDice());
     }
+
+    // printf("Count, Probability\n");
+    // for (int i = 0; i < 10; i++) {
+    //     for (int count = 1; count <= iteration; count *= 10) {
+    //         startCalculation(&coinA, &coinB, &winA, &winB, count);
+    //         fprintf(p, "%d, %.10lf\n", count, printAWinPercentage(winA, iteration));
+    //         // printf("%d, %.10lf\n", count, printAWinPercentage(winA, iteration));
+    //         resetValue(&coinA, &coinB, &winA, &winB);
+    //     }
+    // }
 
     fclose(p);
 

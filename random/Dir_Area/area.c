@@ -70,14 +70,14 @@ int main (int argc, char **argv) {
         return 1;
     }
 
-    FILE *p = fopen("area.csv", "a");
+    FILE *p = fopen("area10.csv", "a");
 
     if(p == NULL) {
         perror("File open error\n");
         return -1;
     }
 
-    for (int i = 0; i < 10; i++) {
+    for (int i = 0; i < 20; i++) {
         for (int count = 10; count <= iteration; count *= 10) {
             startCalculation(&insideCount, &outsideCount, r, count);
             // printf("%d, %.3lf, %.3lf\n", count, circleAreaApprox(insideCount, outsideCount, r), actualArea(r));

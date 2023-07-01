@@ -49,10 +49,9 @@ int main(int argc, char **argv) {
     
     int diceSide;
     int iteration;
-
     int result = 0;
 
-    FILE *p = fopen("dice8.csv", "a");
+    FILE *p = fopen("dice8_1.csv", "a");
 
     if(p == NULL) {
         perror("File open error\n");
@@ -72,12 +71,12 @@ int main(int argc, char **argv) {
     // printf("%d, %d, %.3le\n", iteration, result, (double)result/iteration);
 
     printf("count, probability\n");
-    for (int i = 0; i < 10; i++) {
+    for (int i = 0; i < 20; i++) {
         for (int count = 1; count <= iteration; count *= 10) {
             startSimulation(count, diceCount, diceSide, &result);
             // printf("%.0le, %.10lf\n", count, (double)result/count);
-            // printf("%d, %.3le\n", count, (double)result/count);
-            fprintf(p, "%d,  %.3le\n", count, (double)result/count);
+            // printf("%d, %.5le\n", count, (double)result/count);
+            fprintf(p, "%d,  %.5le\n", count, (double)result/count);
             result = 0;
         }
     }

@@ -37,12 +37,12 @@ void updateWinCount(int coin, int *winCount) {
 }
 
 void resetCoin(int *A, int *B) {
-    *A = 6;
-    *B = 2;
+    *A = 5;
+    *B = 3;
 }
 
-double printAWinPercentage(int winA, int iteration) {
-    return (double)(winA)/(double)(iteration);
+double printAWinPercentage(int winA, int count) {
+    return (double)(winA)/(double)(count);
 }
 
 void startCalculation(int *A, int *B, int *winA, int *winB, int iteration) {
@@ -51,15 +51,12 @@ void startCalculation(int *A, int *B, int *winA, int *winB, int iteration) {
         startSimulation(A, B);
         updateWinCount(*A, winA);
         updateWinCount(*B, winB);
-        // printf("=====\n");
     }
-    // printf("winA = %d, winB = %d\n", *winA, *winB);
-    // printAWinPercentage(*winA, iteration);
 }
 
 void resetValue(int *coinA, int *coinB, int *winA, int *winB) {
-    *coinA = 6;
-    *coinB = 2;
+    *coinA = 5;
+    *coinB = 3;
     *winA = 0;
     *winB = 0;
 }
@@ -75,32 +72,28 @@ int main(int argc, char **argv) {
         return 1;
     }
 
-    int coinA = 6;
-    int coinB = 2;
+    int coinA = 5;
+    int coinB = 3;
 
     int winA = 0;
     int winB = 0;
 
-    FILE *p = fopen("coin.csv", "a");
+    FILE *p = fopen("coin53.csv", "a");
 
     if(p == NULL) {
         perror("File open error\n");
         return -1;
     }
 
-    for (int i = 0; i < 11; i++) {
-        printf("%d ", rollDice());
+    printf("Count, Probability\n");
+    for (int i = 0; i < 20; i++) {
+        for (int count = 1; count <= iteration; count *= 10) {
+            startCalculation(&coinA, &coinB, &winA, &winB, count);
+            fprintf(p, "%d, %.10lf\n", count, printAWinPercentage(winA, count));
+            // printf("%d, %.10lf\n", count, printAWinPercentage(winA, count));
+            resetValue(&coinA, &coinB, &winA, &winB);
+        }
     }
-
-    // printf("Count, Probability\n");
-    // for (int i = 0; i < 10; i++) {
-    //     for (int count = 1; count <= iteration; count *= 10) {
-    //         startCalculation(&coinA, &coinB, &winA, &winB, count);
-    //         fprintf(p, "%d, %.10lf\n", count, printAWinPercentage(winA, iteration));
-    //         // printf("%d, %.10lf\n", count, printAWinPercentage(winA, iteration));
-    //         resetValue(&coinA, &coinB, &winA, &winB);
-    //     }
-    // }
 
     fclose(p);
 

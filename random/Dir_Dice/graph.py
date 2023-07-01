@@ -21,7 +21,9 @@ df.plot(x = col[0], y = [col[1], col[2]])
 # df.plot(x = col[0], y = col[5])
 plt.grid(True)
 
-plt.xlabel('Count', fontweight='bold')
+plt.title('Getting Same Dice Probability', fontweight = 'bold')
+
+plt.xlabel('Simulation Count', fontweight='bold')
 plt.xscale('log')
 plt.xticks(x_ticks)
 

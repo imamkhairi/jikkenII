@@ -97,7 +97,7 @@ int main(int argc, char **argv) {
     FILE *p = fopen("height.csv", "a");
 
     printf("count, probability\n");
-    for (int i = 0; i < 10; i++) {
+    for (int i = 0; i < 30; i++) {
         for (int count = 10; count <= iteration; count *= 10) {
             startCalculation(count, &result);
             // printf("%d, %lf\n", count, (double)result/(double)count);

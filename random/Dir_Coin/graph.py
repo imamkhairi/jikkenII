@@ -24,7 +24,7 @@ plt.grid(True)
 plt.title('A Winning Game Probability', fontweight = 'bold')
 
 
-plt.xlabel('Count', fontweight='bold')
+plt.xlabel('Simulation Count', fontweight='bold')
 plt.xscale('log')
 plt.xticks(x_ticks)
 

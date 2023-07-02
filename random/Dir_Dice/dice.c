@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <time.h>
 
-#define diceCount 7
+#define diceCount 8
 
 #define DEBUG 0
 
@@ -51,7 +51,7 @@ int main(int argc, char **argv) {
     int iteration;
     int result = 0;
 
-    FILE *p = fopen("dice8_1.csv", "a");
+    FILE *p = fopen("dice_new_1.csv", "a");
 
     if(p == NULL) {
         perror("File open error\n");

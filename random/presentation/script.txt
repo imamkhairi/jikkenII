@@ -1,0 +1,51 @@
+
+
+This is how this presentation will flow, se we're gonna start from the machine specification that I used when took all of the data in this experiment, and then we will look one by one about this problem, start from dice, circle area, narabikata, coin and the last one is bingo.
+
+My computer used windows 11 pro 22H2 version, cpu amd ryzen 5 5600x, with 16gb memory and to compile all of the code I use GCC since all of code in this experiment are written in c language.
+
+So, the first problem is ７個サイコロが同じ出目になる確率. As you can see here this is an example of desired result. And how do we check this. Of course, we start by rolling all of the 7 dice, and check it one by one by using the first dice as our condition. In other word, if all of the dice is same as the condition dice, then we get a success result and vice versa. 
+For the first one we have one as the condition, so we start check from the second dice until the seventh. And we got a success. But as you can see in the second group, we have two as our condition, it passed the first checking point but for the third dice it doesnt matcht the condition. Instead of continuing the process until the seventh dice, we stop the process and begin checking the next narabikata.
+
+How about the result? 
+For every data that used here is the average of 10 times simulation.
+The first one is 6 sided dice. As you can see it is impossible to get the expected result until we roll the dice above 10000 times.
+
+For the 4 sided dice. We got the same result as the probability value that we got is getting close to the ronrichi as we do the simulation 10000 times.
+5 sided dice also have the same result as the probability value increased until we got 10000 times simulation.
+But the result getting more interested as we move for the 7 sided dice. This time we got different result as the probability value getting closed to ronrichi when the do simulation 1000000 times.
+The same result also occur for the 8 sided dice as the value getting closed to ronrichi when the simulation performed 1000000.
+
+
+The next problem is about area of a circle with 7m or 10m radius.
+For this problem, this is how we calculate the area of circle. So we plot the points by using random number, and count how many points are in the circle and how many are not. Supposed a is how many points are plotted in the circle and b is outside the circle. By comparing the area of circle and the area of the rectangle. We can calculate the area of circle by ...
+
+We can clearly see that the result is getting closer to the actual area of the circle as the simulation count increases. In this case as the simulation count get to 100000 the area value that we got is getting closed to the actual value of the circle.
+The same result also happened in the the circle with 10m radius, as the simulation result getting closed to the ronrichi as the simulation count get to 100000 times.
+
+
+Line up 10 men and women in a row problem. But the condition is, 各女子の左に自身より背の高い男子が1人でもいる. For example, lets focused for this women, this narabi kata is correct if only in this range at least there is one men that is higher than the women. But if there is no one then the narabi kata is false. Same as the previous, we will stop the checking as soon as one person does not meet the condition.
+
+As the result, we can see that the simulation result get closed to the ronrichi when the simulation occur 100 times.
+
+
+Next problem is sbout coin game. I just came up with this name by my self, since the game goal is to get all the coin from the other player. But as starter we give A 6 coins while B only get 2 coins. The game is based on a dice, every time we roll a dice and get 1 or 2 then A will get 1 coin from B and if roll result is 3 to 6 then A give 1 coin to B.
+For example we start this game and this round we get 1, then be have to give the coin to A. And the next round as we get 6, then A will 1 coin to B. 
+The game will ended when one of the player get 8 coins.
+This time we will count how is the probability of A winning the game.
+
+The result is as you can se the amount of coin that A started with is give a big impact to the result. The more coin that A has at the start of the game, the higher the probability A will won the game.
+Overall, B has better probability to win the game then A. The higher chance for A to win the game only when A started with 7 coin, then the probability of who will win the game become 50:50.
+
+
+The last problem for today is bingo. As we know that bingo card has this rule which regulate about the number on the card for each collumn as you can see here. To win bingo you have to get either of this three condition. 
+
+Every result i will show is the result of 100000000 times simulation result.
+
+The first is about how is the probability of someone winning bingo just under 7 times. As you can see from the average value the probability is only 6.065x10^-5. 
+The second is what is the probability of being the luckiest person on bingo game, which is winning only on 4 times. The result is as expected is lower than winning under 7 times which you can see in this graph. The average is 2.997x10^-6.
+Next question is, supposed that you are the unluckiest person to play bingo, how many turn that you have to wait until you win the game. 
+And the last one is how is the probability of you being the unluckiest person in bingo.
+
+
+

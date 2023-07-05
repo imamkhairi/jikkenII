@@ -1,8 +1,9 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <time.h>
+#include <math.h>
 
-#define diceCount 8
+#define diceCount 7
 
 #define DEBUG 0
 
@@ -21,8 +22,8 @@ int checkResult(int diceSide, int *diceResult, int *result) {
     return 1;
 }
 
-void startSimulation(int iteration, int count, int diceSide, int *result) {
-    for (int i = 0; i < iteration; i++) {
+void startSimulation(int maxIteration, int count, int diceSide, int *result) {
+    for (int i = 0; i < maxIteration; i++) {
         int *diceResult = malloc(diceCount * sizeof(int));
         // printf("%d | ", i+1);
         for (int j = 0; j < count; j++) {
@@ -44,42 +45,67 @@ void startSimulation(int iteration, int count, int diceSide, int *result) {
     }
 }
 
+double actual(int diceSide) {
+    return 1/pow((double)diceSide, (double)diceCount-1);
+}
+
+double errorPercentage(double error, int diceSide) {
+    double p = (error / actual(diceSide)) * 100;
+    return p;
+}   
+
 int main(int argc, char **argv) {
     srand(time(NULL));
     
     int diceSide;
-    int iteration;
+    int maxIteration;
     int result = 0;
+    const int repetitionCount = 1;
 
-    FILE *p = fopen("dice_new_1.csv", "a");
+    if(argc != 2) {
+        setValue(&diceSide, atoi(argv[1]));
+        setValue(&maxIteration, atoi(argv[2]));
+    } else {
+        printf("Set dice sided and maxIteration number\n");
+        return -2;
+    }
 
+    char filename[20];
+    sprintf(filename, "dice%d.csv", diceSide);
+    printf("%s\n", filename);
+    
+    FILE *p = fopen(filename, "a");
     if(p == NULL) {
         perror("File open error\n");
         return -1;
     }
 
-    if(argc != 2) {
-        setValue(&diceSide, atoi(argv[1]));
-        setValue(&iteration, atoi(argv[2]));
-    } else {
-        printf("Set dice sided and iteration number\n");
-        return -2;
-    }
+    int pointCount = 100;
+    double *hasil = (double *)malloc((pointCount+1) * sizeof(double));
+    int increment = maxIteration/pointCount;
 
-    // startSimulation(iteration, diceCount, diceSide, &result);
-    // printf("count, result, probability\n");
-    // printf("%d, %d, %.3le\n", iteration, result, (double)result/iteration);
-
-    printf("count, probability\n");
-    for (int i = 0; i < 20; i++) {
-        for (int count = 1; count <= iteration; count *= 10) {
+    printf("count, probability, actual, error, errorPercentage\n");
+    for (int i = 0; i < repetitionCount; i++) {
+        for (int count = 1; count <= maxIteration + 1; count += increment) {
             startSimulation(count, diceCount, diceSide, &result);
             // printf("%.0le, %.10lf\n", count, (double)result/count);
-            // printf("%d, %.5le\n", count, (double)result/count);
-            fprintf(p, "%d,  %.5le\n", count, (double)result/count);
+            // printf("%d, %.10lf\n", count, (double)result/count);
+            hasil[count/increment] += (double)result/count;
+            // fprintf(p, "%d,  %.10lf\n", count, (double)result/count);
             result = 0;
         }
     }
 
+    for(int i = 0; i <= maxIteration/increment; i++) {
+        double error = hasil[i]/repetitionCount-actual(diceSide);
+        printf("%d, %.10lf, %.10lf, %.10lf, %.3lf%%\n",
+            (i*increment)+1 , 
+            (hasil[i]/repetitionCount)*100, 
+            actual(diceSide)*100, 
+            error, 
+            errorPercentage(error, diceSide));
+    }
+
+    free(hasil);
     fclose(p);
 }

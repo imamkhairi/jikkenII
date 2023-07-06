@@ -1,0 +1,85 @@
+\documentclass[a4j, titlepage]{jarticle}
+
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{fancybox}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{colortbl}
+\usepackage{ascmac}
+\usepackage{fancybox}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstset{style=mystyle}
+
+\begin{document}
+  \begin{center}
+  \huge 情報工学実験II\par
+  \vspace{15mm}
+  \huge テーマ02 \par
+  \huge 乱数を用いたプログラム \par
+  \vspace{15mm}
+  % \LARGE タイトル \par
+  \vspace{20mm}
+  \vspace{100mm}
+  \Large 令和５年０７月０６日 \par
+  \vspace{15mm}
+  \Large イマム　カイリ　ルビス \par
+  \vspace{10mm}
+  \Large 学籍番号：214071\par
+  \vspace{10mm}
+\end{center}
+\clearpage
+
+\tableofcontents
+\clearpage
+
+\section{概要}
+  \subsection{乱数とは}
+    乱数とは，ある数字の集合からランダムに選ばれた数字のことである．指定された分布内のすべての数値は，ランダムに選択される確率が等しくなります．
+
+  \subsection{C言語の乱数関数}
+    本実験のコードはすべてC言語で書かれている．C言語にはすでに乱数関数が用意されているので，本実験ではそれを利用する．
+
+    \texttt{rand()}の関数は\texttt{stdlib.h}ヘッダーに含まれている．しかし、実行するたびに異なる乱数値を得るためには，\texttt{srand(time(NULL))}という関数も利用する必要がある．つまり，\texttt{time.h}ヘッダーファイルもインクルードする必要がある．
+
+  \subsection{確率とは}
+  確率とはある事象の確率は，その事象が起こる可能性を示す数値である．その事象が起こる可能性が高ければ高いほど，確率値は高くなる．\cite{wiki}
+  
+  確率の基本的な計算は次の公式で計算される．
+  \begin{equation}
+    P(A) = \frac{f}{N}
+  \end{equation}
+  事象Aが発生する確率を$P(A)$，事象が発生する可能性の数を$f$，可能な結果の合計数$N$．
+
+  \subsection{実行環境}
+    本実験で使用される実行環境：
+    \begin{screen}
+        \begin{itemize}
+            \item プロセッサ：AMD Ryzen 5 5600X
+            \item メモリー：16.0 GB
+            \item OS：Windows 11 Pro
+            \item コンパイラ：gcc
+        \end{itemize}    
+    \end{screen}
+
+\section{課題１：７個のサイコロを同じ出目になる確率}
+
+\end{document}

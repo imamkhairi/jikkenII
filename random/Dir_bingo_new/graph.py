@@ -1,4 +1,5 @@
 import pandas as pd
+import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.ticker as mtick
 import sys
@@ -14,39 +15,48 @@ df = pd.read_csv(filename)
 
 col = list(df.columns)
 x_ticks = list(df[col[0]])
+# y_ticks = np.arange(0.18,0.31,0.01)
 
-# plt.title('Within $7$ times Winning Probability', fontweight = 'bold')
+# df.plot(x = col[0], y = [col[1], col[2]], marker = '.')
+y1 = [x*1.1 for x in df.iloc[:,1]]
+y2 = [x*0.9 for x in df.iloc[:,1]]
+y3 = [x*1.2 for x in df.iloc[:,1]]
+y4 = [x*0.8 for x in df.iloc[:,1]]
 
+# print(y1)
+# print(df.iloc[:,1])
+x = df.iloc[:,0]
+# df.plot(x = col[0], y = [col[1], col[2]])
 
-# df.plot(x = col[0], y = [col[4], col[5]])
-
-# df.plot(x = col[0], y = [col[2], col[3]])
-
-# df.plot(x = col[0], y = col[6])
-
-df.plot(x = col[0], y = [col[7], col[8]])
+# plt.plot(x, df.iloc[:,2], label = "Win Count_1",color = "blue")
+# plt.plot(x, df.iloc[:,4], label = "Win Count_2", color = "red")
+plt.plot(x, df.iloc[:,6], label = "Win Count_3", color = "green")
+# plt.plot(x, df.iloc[:,3], label = "Probability_3")
+# plt.plot(x, df.iloc[:,1], label = "Actual")
+# plt.plot(df.iloc[:,0], y1, label = "110%% of Actual")
+# plt.plot(df.iloc[:,0], y2, label = "90%% of Actual")
+# plt.fill_between(x, y1, y2,color='C0', alpha = 0.2)
+# plt.fill_between(x, y1, y3,color='C1', alpha = 0.2)
+# plt.fill_between(x, y2, y4,color='C1', alpha = 0.2)
 
 plt.grid(True)
 
-# plt.title('Within $7$ Times Winning Probability', fontweight = 'bold')
-# plt.title('Within $4$ Times Winning Probability', fontweight = 'bold')
-# plt.title('Longest Games before Winning Games', fontweight = 'bold')
-plt.title('Longest Games Occur Probability', fontweight = 'bold')
+# plt.title('Getting Same Dice Probability', fontweight = 'bold')
 
+plt.xlabel('Winning Turn', fontweight='bold')
 
-plt.xlabel('Count', fontweight='bold')
 # plt.xscale('log')
-plt.xticks(x_ticks)
-
-plt.ylabel('Probability', fontweight='bold')
-# plt.ylabel('Games Count', fontweight='bold')
 # plt.yscale('log')
-# plt.ylim(-8e-09, 2e-08)
-def y_fmt(x, y):
-    return '{:2.1e}'.format(x).replace('e', 'e')
+# plt.xticks(x_ticks[::5])
+# plt.yticks(y_ticks)
 
+plt.ylabel('Win Count', fontweight='bold')
+def y_fmt(x, y):
+    return '{:3.1e}'.format(x).replace('e', 'e')
+
+# plt.gca().xaxis.set_major_formatter(mtick.FuncFormatter(y_fmt))
 plt.gca().yaxis.set_major_formatter(mtick.FuncFormatter(y_fmt))
 
+plt.legend(loc="upper right")
 plt.minorticks_off()
-# plt.show()
 plt.savefig(outname, bbox_inches='tight')

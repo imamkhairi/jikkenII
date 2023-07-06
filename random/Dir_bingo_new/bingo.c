@@ -265,36 +265,59 @@ int main(int argc, char **argv) {
         // return -1;
     }
 
-    int flag = 0;
+    // int flag = 0;
 
-    int *result = (int *)malloc(MAXVALUE * sizeof(int));
+    const int repetitionCount = 3;
+    int *result = (int *)malloc(MAXVALUE * repetitionCount * sizeof(int));
+    int *flag = (int *)malloc(repetitionCount * sizeof(int));
 
-    FILE *p = fopen("bingo.csv", "a");
-    for (int i = 0; i < 10; i++) {
+    // int *res = (int *)malloc(MAXVALUE * repetitionCount * sizeof(int));
+
+    FILE *p = fopen("bingo.csv", "w");
+    for (int i = 0; i < repetitionCount; i++) {
         for (int j = 0; j < iteration; j++) {
             // printf("%d\n", i);
             int r = startBingo();
             // printf("%d\n", r);
-            result[r]++;
-            if (flag == 0 && r == 4) {
-                flag = j;
+            result[r + i*MAXVALUE]++;
+            if (flag[i] == 0 && r == 4) {
+                flag[i] = j;
             }
         }
     
-        fprintf(p, "%d, %.10lf, %.10lf, %d, %.10lf\n", 
-            flag, 
-            (double)result[4]/(double)iteration, 
-            (double)(result[4]+result[5]+result[6]+result[7])/(double)iteration, getMax(result), 
-            (double)result[getMax(result)]/(double)iteration);
+        // fprintf(p, "%d, %.10lf, %.10lf, %d, %.10lf\n", 
+        //     flag, 
+        //     (double)result[4]/(double)iteration, 
+        //     (double)(result[4]+result[5]+result[6]+result[7])/(double)iteration, getMax(result), 
+        //     (double)result[getMax(result)]/(double)iteration
+        // );
+
+       
         
-        resetResult(result);
-        flag = 0;
+        // resetResult(result);
+        // flag[0] = 0;
+        // flag[1] = 0;
 
         // printf("%d, %.10lf, %.10lf, %d, %.10lf\n", flag, (double)result[4]/(double)iteration, 
         //     (double)result[7]/(double)iteration, getMax(result), 
         //     (double)result[getMax(result)]/(double)iteration);
     }
 
+    printf("Winning Round, Win Count, Win Count,\n");
+    fprintf(p, "Winning Round, Win Count, Win Count,\n");
+    for (int i = 0; i < MAXVALUE; i++) {
+        printf("%d, ",i);
+        fprintf(p, "%d, ",i);
+        for (int j = 0; j < repetitionCount; j++) {
+            // printf("%d, ", result[i + j*MAXVALUE]);
+            printf("%d, %d, ", flag[j], result[i + j*MAXVALUE]);
+            fprintf(p, "%d, %d, ", flag[j], result[i + j*MAXVALUE]);
+        }
+        printf("\n");
+        fprintf(p, "\n");
+    }
+
+    free(flag);
     free(result);
     fclose(p);
 

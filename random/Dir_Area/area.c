@@ -91,37 +91,35 @@ int main (int argc, char **argv) {
         return -1;
     }
 
-    const int pointCount = 25;
-    const int increment = maxIteration/pointCount;
-    double *area = (double *)malloc((pointCount)* repetitionCount * sizeof(double));
+    const int increment = (int)log10(maxIteration);
+    double *area = (double *)malloc(increment * repetitionCount * sizeof(double));
     double *error = (double *)malloc(repetitionCount * sizeof(double));
 
     double *q = area;
     for (int i = 0; i < repetitionCount; i++) {
-        int count = increment;
-        for (int j = 0; j < pointCount; j ++) {
+        for (int count = 10; count <= maxIteration; count *= 10) {
             startCalculation(&insideCount, &outsideCount, r, count);
             *q = circleAreaApprox(insideCount, outsideCount, r);
             q++;
-            // fprintf(p, "%d, %.3lf, %.3lf\n", count, circleAreaApprox(insideCount, outsideCount, r), actualArea(r));
             resetValue(&insideCount, &outsideCount);
-            count += increment;
         }
     }
 
-    printf("Sample Count, Actual, Result_1, Error_1, ");
-    fprintf(p, "Sample Count, Actual, Result_1, Error_1, ");
-    printf("Result_2, Error_2, ");
-    fprintf(p, "Result_2, Error_2, ");
-    printf("Result_3, Error_3, \n");
-    fprintf(p, "Result_3, Error_3, \n");
-    for (int i = 0; i < pointCount; i++) {
-        printf("%d, %.3lf, ", (i+1)*increment, actualArea(r));
-        fprintf(p, "%d, %.3lf, ", (i+1)*increment, actualArea(r));
+    printf("Sample Count, Actual, Result_1, Error_1,  Error_1,");
+    printf("Result_2, Error_2, Error_2, ");
+    printf("Result_3, Error_3, Error_3, \n");
+
+    fprintf(p, "Sample Count, Actual, Result_1, Error_1,  Error_1,");
+    fprintf(p, "Result_2, Error_2, Error_2, ");
+    fprintf(p, "Result_3, Error_3, Error_3, \n");
+
+    for (int i = 0; i < increment; i++) {
+        printf("%d, %.3lf, ", (int)pow(10, i + 1), actualArea(r));
+        fprintf(p, "%d, %.3lf, ", (int)pow(10, i + 1), actualArea(r));
         for (int j = 0; j < repetitionCount; j++) {
-            error[j] = area[i + j*pointCount] - actualArea(r);
-            printf("%.3lf, %.3lf%%, ", area[i + j*pointCount], errorPercentage(error[j], r));
-            fprintf(p, "%.3lf, %.3lf%%, ", area[i + j*pointCount], errorPercentage(error[j], r));
+            error[j] = area[i + j*increment] - actualArea(r);
+            printf("%.3lf, %.3lf, %.3lf%%, ", area[i + j*increment], fabs(errorPercentage(error[j], r)), fabs(errorPercentage(error[j], r)));
+            fprintf(p, "%.3lf, %.3lf, %.3lf%%, ", area[i + j*increment], fabs(errorPercentage(error[j], r)), fabs(errorPercentage(error[j], r)));
         }
         printf("\n");
         fprintf(p, "\n");

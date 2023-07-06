@@ -60,7 +60,7 @@ int main(int argc, char **argv) {
     int diceSide;
     int maxIteration;
     int result = 0;
-    const int repetitionCount = 1;
+    const int repetitionCount = 3;
 
     if(argc != 2) {
         setValue(&diceSide, atoi(argv[1]));
@@ -80,32 +80,42 @@ int main(int argc, char **argv) {
         return -1;
     }
 
-    int pointCount = 100;
-    double *hasil = (double *)malloc((pointCount+1) * sizeof(double));
+    int pointCount = 25;
+    double *r = (double *)malloc((pointCount+1) * repetitionCount * sizeof(double));
     int increment = maxIteration/pointCount;
 
-    printf("count, probability, actual, error, errorPercentage\n");
+    printf("count, actual, probability1, errorPercentage1,");
+    printf(" probability2, errorPercentage2,");
+    printf(" probability3, errorPercentage3\n");
+    double *q  = r;
     for (int i = 0; i < repetitionCount; i++) {
         for (int count = 1; count <= maxIteration + 1; count += increment) {
             startSimulation(count, diceCount, diceSide, &result);
             // printf("%.0le, %.10lf\n", count, (double)result/count);
             // printf("%d, %.10lf\n", count, (double)result/count);
-            hasil[count/increment] += (double)result/count;
+            *q = *q + (double)result/count;
             // fprintf(p, "%d,  %.10lf\n", count, (double)result/count);
             result = 0;
+            q++;
         }
     }
 
     for(int i = 0; i <= maxIteration/increment; i++) {
-        double error = hasil[i]/repetitionCount-actual(diceSide);
-        printf("%d, %.10lf, %.10lf, %.10lf, %.3lf%%\n",
-            (i*increment)+1 , 
-            (hasil[i]/repetitionCount)*100, 
-            actual(diceSide)*100, 
-            error, 
-            errorPercentage(error, diceSide));
+        double error1 = r[i]-actual(diceSide);
+        double error2 = r[i + pointCount + 1]-actual(diceSide);
+        double error3 = r[i + 2*pointCount + 2]-actual(diceSide);
+        printf("%d, %.10lf, %.10lf, %.3lf%%, %.10lf, %.3lf%%, %.10lf, %.3lf%%\n",
+            (i*increment)+1,
+            actual(diceSide)*100,
+            (r[i])*100, 
+            errorPercentage(error1, diceSide),
+            (r[i + pointCount + 1])*100, 
+            errorPercentage(error2, diceSide),
+            (r[i + 2*pointCount + 2])*100, 
+            errorPercentage(error3, diceSide)
+            );
     }
 
-    free(hasil);
+    free(r);
     fclose(p);
 }

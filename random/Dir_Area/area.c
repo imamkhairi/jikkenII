@@ -91,8 +91,8 @@ int main (int argc, char **argv) {
         return -1;
     }
 
-    const int increment = (int)log10(maxIteration);
-    double *area = (double *)malloc(increment * repetitionCount * sizeof(double));
+    const int iteration = (int)log10(maxIteration);
+    double *area = (double *)malloc(iteration * repetitionCount * sizeof(double));
     double *error = (double *)malloc(repetitionCount * sizeof(double));
 
     double *q = area;
@@ -113,13 +113,13 @@ int main (int argc, char **argv) {
     fprintf(p, "Result_2, Error_2, Error_2, ");
     fprintf(p, "Result_3, Error_3, Error_3, \n");
 
-    for (int i = 0; i < increment; i++) {
+    for (int i = 0; i < iteration; i++) {
         printf("%d, %.3lf, ", (int)pow(10, i + 1), actualArea(r));
         fprintf(p, "%d, %.3lf, ", (int)pow(10, i + 1), actualArea(r));
         for (int j = 0; j < repetitionCount; j++) {
-            error[j] = area[i + j*increment] - actualArea(r);
-            printf("%.3lf, %.3lf, %.3lf%%, ", area[i + j*increment], fabs(errorPercentage(error[j], r)), fabs(errorPercentage(error[j], r)));
-            fprintf(p, "%.3lf, %.3lf, %.3lf%%, ", area[i + j*increment], fabs(errorPercentage(error[j], r)), fabs(errorPercentage(error[j], r)));
+            error[j] = area[i + j*iteration] - actualArea(r);
+            printf("%.3lf, %.3lf, %.3lf%%, ", area[i + j*iteration], fabs(errorPercentage(error[j], r)), fabs(errorPercentage(error[j], r)));
+            fprintf(p, "%.3lf, %.3lf, %.3lf%%, ", area[i + j*iteration], fabs(errorPercentage(error[j], r)), fabs(errorPercentage(error[j], r)));
         }
         printf("\n");
         fprintf(p, "\n");

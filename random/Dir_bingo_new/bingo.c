@@ -192,20 +192,9 @@ int startBingo() {
     int count = 0;
 
     while (!checkCol(boardCheck) && !checkRow(boardCheck) && !checkDia(boardCheck)) {
-        // printf("muter sini ");
         count ++ ;
-        // int target = rand() % 75 + 1;
-
         int dif = searchBoard(boardValue, checkValue[count]);
-
         updateCheck(boardCheck, dif);
-
-        // if(count >= 500) {
-        //     printf("bug, last target = %d\n", target);
-        //     printBoard(boardValue);
-        //     printCheck(boardCheck);
-        //     break;
-        // }
     }
 
     free(boardValue);
@@ -262,45 +251,23 @@ int main(int argc, char **argv) {
     } else {
         printf("Iteration value set to 5000\n");
         iteration = 5000;
-        // return -1;
     }
 
-    // int flag = 0;
 
     const int repetitionCount = 3;
     int *result = (int *)malloc(MAXVALUE * repetitionCount * sizeof(int));
     int *flag = (int *)malloc(repetitionCount * sizeof(int));
 
-    // int *res = (int *)malloc(MAXVALUE * repetitionCount * sizeof(int));
 
     FILE *p = fopen("bingo.csv", "w");
     for (int i = 0; i < repetitionCount; i++) {
         for (int j = 0; j < iteration; j++) {
-            // printf("%d\n", i);
             int r = startBingo();
-            // printf("%d\n", r);
             result[r + i*MAXVALUE]++;
             if (flag[i] == 0 && r == 4) {
                 flag[i] = j;
             }
         }
-    
-        // fprintf(p, "%d, %.10lf, %.10lf, %d, %.10lf\n", 
-        //     flag, 
-        //     (double)result[4]/(double)iteration, 
-        //     (double)(result[4]+result[5]+result[6]+result[7])/(double)iteration, getMax(result), 
-        //     (double)result[getMax(result)]/(double)iteration
-        // );
-
-       
-        
-        // resetResult(result);
-        // flag[0] = 0;
-        // flag[1] = 0;
-
-        // printf("%d, %.10lf, %.10lf, %d, %.10lf\n", flag, (double)result[4]/(double)iteration, 
-        //     (double)result[7]/(double)iteration, getMax(result), 
-        //     (double)result[getMax(result)]/(double)iteration);
     }
 
     printf("Winning Round, Win Count, Win Count,\n");
@@ -309,7 +276,6 @@ int main(int argc, char **argv) {
         printf("%d, ",i);
         fprintf(p, "%d, ",i);
         for (int j = 0; j < repetitionCount; j++) {
-            // printf("%d, ", result[i + j*MAXVALUE]);
             printf("%d, %d, ", flag[j], result[i + j*MAXVALUE]);
             fprintf(p, "%d, %d, ", flag[j], result[i + j*MAXVALUE]);
         }

@@ -58,7 +58,7 @@ plt.ylabel('Area [$m^2$]', fontweight='bold')
 # plt.gca().xaxis.set_major_formatter(mtick.FuncFormatter(y_fmt))
 # plt.gca().yaxis.set_major_formatter(mtick.FuncFormatter(y_fmt))
 
-plt.legend(loc="upper right")
+plt.legend(loc="lower right")
 plt.minorticks_off()
 # plt.show()
 plt.savefig(outname, bbox_inches='tight')

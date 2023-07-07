@@ -80,8 +80,8 @@ int main(int argc, char **argv) {
         return -1;
     }
 
-    const int increment = (int)log10(maxIteration);
-    double *r = (double *)malloc(increment * repetitionCount * sizeof(double));
+    const int iteration = (int)log10(maxIteration);
+    double *r = (double *)malloc(iteration * repetitionCount * sizeof(double));
     double *error = (double *)malloc(repetitionCount * sizeof(double));
 
     double *q  = r;
@@ -102,13 +102,13 @@ int main(int argc, char **argv) {
     fprintf(p, " probability2, errorPercentage2, errorPercentage2,");
     fprintf(p, " probability3, errorPercentage3, errorPercentage3,\n");
 
-    for (int i = 0; i < increment; i++) {
+    for (int i = 0; i < iteration; i++) {
         printf("%d, %.10lf, ", (int)pow(10, i + 1), actual(diceSide)*100);
         fprintf(p, "%d, %.10lf, ", (int)pow(10, i + 1), actual(diceSide)*100);
         for (int j = 0; j < repetitionCount; j++) {
-            error[j] = r[i + j*increment] - actual(diceSide);
-            printf("%.10lf, %.3lf, %.3lf%%, ", (r[i + j*increment])*100, fabs(errorPercentage(error[j], diceSide)), fabs(errorPercentage(error[j], diceSide)));
-            fprintf(p, "%.10lf, %.3lf, %.3lf%%, ", (r[i + j*increment])*100, fabs(errorPercentage(error[j], diceSide)), fabs(errorPercentage(error[j], diceSide)));
+            error[j] = r[i + j*iteration] - actual(diceSide);
+            printf("%.10lf, %.3lf, %.3lf%%, ", (r[i + j*iteration])*100, fabs(errorPercentage(error[j], diceSide)), fabs(errorPercentage(error[j], diceSide)));
+            fprintf(p, "%.10lf, %.3lf, %.3lf%%, ", (r[i + j*iteration])*100, fabs(errorPercentage(error[j], diceSide)), fabs(errorPercentage(error[j], diceSide)));
         }
         printf("\n");
         fprintf(p, "\n");

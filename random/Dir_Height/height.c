@@ -74,7 +74,6 @@ void startCalculation(int maxIteration, int *result) {
         
         *result += check(combine);
         #if DEBUG == 1
-            // if(!check(combine)) {
             if(!check(combine)) {
                 for(int j = 0; j < 10; j++) {
                     printf("%d ", combine[j]);
@@ -112,8 +111,8 @@ int main(int argc, char **argv) {
     FILE *p = fopen("height.csv", "w");
     
     const int repetitionCount = 3;
-    const int increment = (int)log10(maxIteration);
-    double *r = (double *)malloc(increment * repetitionCount * sizeof(double));
+    const int iteration = (int)log10(maxIteration);
+    double *r = (double *)malloc(iteration * repetitionCount * sizeof(double));
     double *error = (double *)malloc(repetitionCount * sizeof(double));
 
     double *q = r;
@@ -135,13 +134,13 @@ int main(int argc, char **argv) {
     fprintf(p, "probability_1, error_1, error_1, ");
     fprintf(p, "probability_2, error_2, error_2, ");
     fprintf(p, "probability_3, error_3, error_3,\n");
-    for (int i = 0; i < increment; i++) {
+    for (int i = 0; i < iteration; i++) {
         printf("%d, %.10lf, ", (int)pow(10, i+1), actual()*100);
         fprintf(p, "%d, %.10lf, ", (int)pow(10, i+1), actual()*100);
         for (int j = 0; j < repetitionCount; j++) {
-            error[j] = r[i + j*increment] - actual();
-            printf("%.10lf, %.3lf, %.3lf%%, ", (r[i + j*increment])*100, fabs(errorPercentage(error[j])), fabs(errorPercentage(error[j])));
-            fprintf(p, "%.10lf, %.3lf, %.3lf%%, ", (r[i + j*increment])*100, fabs(errorPercentage(error[j])), fabs(errorPercentage(error[j])));
+            error[j] = r[i + j*iteration] - actual();
+            printf("%.10lf, %.3lf, %.3lf%%, ", (r[i + j*iteration])*100, fabs(errorPercentage(error[j])), fabs(errorPercentage(error[j])));
+            fprintf(p, "%.10lf, %.3lf, %.3lf%%, ", (r[i + j*iteration])*100, fabs(errorPercentage(error[j])), fabs(errorPercentage(error[j])));
         }
         printf("\n");
         fprintf(p, "\n");

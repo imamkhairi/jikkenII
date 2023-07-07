@@ -20,7 +20,6 @@ void giveCoin(int *dst, int *src) {
 }
 
 void startSimulation(int *A, int *B) {
-    // for (int i = 0; i < 20; i++) {
     while(*A != 0 && *B != 0) {  
         int dice = rollDice();
         if (check(dice)) giveCoin(A, B);
@@ -101,9 +100,8 @@ int main(int argc, char **argv) {
     double *q = r;
     for (int i = 0; i < repetitionCount; i++) {
         for (int count = 10; count <= maxIteration; count *= 10) {
-            startCalculation(&coinA, &coinB, &winA, &winB, count, startA, startB);
-            // fprintf(p, "%d, %.10lf\n", count, printAWinPercentage(winA, count));
-            // printf("%d, %.10lf\n", count, printAWinPercentage(winA, count));
+            startCalculation(&coinA, &coinB, &winA, 
+            winB, count, startA, startB);
             *q = printAWinPercentage(winA, count);
             q++;
             resetValue(&coinA, &coinB, &winA, &winB, startA, startB);

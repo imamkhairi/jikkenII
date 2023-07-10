@@ -74,23 +74,31 @@ int countFlag (int *flag, int size) {
     return result;
 }
 
+void initStack (int *stack, int size) {
+    for (int i = 0;i < size; i++) {
+        *stack = -1;
+        stack++;
+    }
+}
+
 void stackPush (int *stack, int data) {
-    while(*stack != 0) stack++;
+    while(*stack >= 0) stack++;
     *stack = data;
 }
 
 void stackPop (int *stack) {
-    while(*stack != 0) stack++;
-    *(--stack) = 0;
+    while(*stack >= 0) stack++;
+    *(--stack) = -1;
 }
 
 int stackTop (int *stack) {
-    while(*stack != 0) stack++;
+    while(*stack >= 0) stack++;
     return *(--stack);
 }
 
 int main(int argc, char **argv) {
-    const char fname[] = "data/search_100d.dat";
+    // const char fname[] = "data/search_100d.dat";
+    const char fname[] = "data/test.dat";
 
     FILE *fp = fopen(fname, "r");
 
@@ -108,47 +116,55 @@ int main(int argc, char **argv) {
     int *stack = (int *)malloc(size * sizeof(int));
     int currentNode = 0; // current node node index
 
-    int *p = result; // pointer to accees result
+    int *r = result; // pointer to accees result
 
-    stackPush(stack, 69);
-    stackPush(stack, 10);
-    stackPush(stack, 25);
-    stackPop(stack);
-    stackPop(stack);
-    printf("Stack top: %d\n", stackTop(stack));
-    print(stack, size);
+    // Test stack
+    initStack(stack, size);
+    // stackPush(stack, 69);
+    // stackPush(stack, 10);
+    // stackPush(stack, 25);
+    // // stackPop(stack);
+    // stackPop(stack);
+    // printf("Stack top: %d\n", stackTop(stack));
+    // print(stack, size);
 
-
-    /* Dari bawah sini jadi comment, jadi balikin lagi nanti*/
 
     // // Initialize
+    // stackPush(stack, currentNode);
+    // printf("Stack top: %d\n", stackTop(stack));
     // flag[currentNode] = 1;
-    // *p = currentNode;
-    // p++;
-    // // result[0] = currentNode;
+    // *r = currentNode + 1; // +1 itu biar jadi 1 ~
+    // r++;
+    // // print(stack, size);
 
-    // // printf("lines : %d\n", size);
     // storeArray(fp, data);
-    // // printArray(data, size);
-    // // printArrayAt(data, size, 10);
 
     // // misal udah jalan sekali, cuma blm updat resultnya
-    // currentNode = searchRow(data, size, currentNode, flag); //update currentNode node
+    // currentNode = searchRow(data, size, stackTop(stack), flag); //update currentNode node
+    // stackPush(stack, currentNode);
+    // printf("Stack top: %d\n", stackTop(stack));
     // flag[currentNode] = 1;
-    // *p = currentNode;
-    // p++;
+    // *r = currentNode + 1; // +1 itu biar jadi 1 ~
+    // r++;
+    // print(stack, size);
+
+    flag[2] = 1;
+    if () // -> kalau gede dar size pop
+    printf("%d\n", searchRow(data, size, 4, flag));
+
+    
 
     // currentNode = searchRow(data, size, currentNode, flag);
     // flag[currentNode] = 1;
-    // *p = currentNode;
-    // p++;
-    // // for (int i = 0; i < size; i ++) {
-    // //     printf("first %d in :%d\n", i, searchRow(data, size, i, flag));
-    // // }
+    // *r = currentNode;
+    // r++;
+    // for (int i = 0; i < size; i ++) {
+    //     printf("first %d in :%d\n", i, searchRow(data, size, i, flag));
+    // }
 
-    // // print(flag, size);
+    // print(flag, size);
     // print(result, size);
-    // printf("Flag sum : %d\n", countFlag(flag, size));
+    printf("Flag sum : %d\n", countFlag(flag, size));
 
     free(data);
     free(flag);

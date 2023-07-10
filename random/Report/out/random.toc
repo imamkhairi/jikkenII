@@ -44,3 +44,4 @@
 \contentsline {subsubsection}{\numberline {6.3.6}最も遅いゲームの回数}{31}{}%
 \contentsline {subsubsection}{\numberline {6.3.7}最も遅いゲームが起こる確率}{32}{}%
 \contentsline {subsection}{\numberline {6.4}ビンゴのシミュレーションの考察}{32}{}%
+\contentsline {section}{\numberline {7}発表感想}{32}{}%

@@ -141,12 +141,15 @@ int main(int argc, char **argv) {
     // printf("test = %d\n", test);
 
     // for (int i = 0; i < size - 1; i++) {
+
+    printf("stack top = %d\n", stackTop(stack));
     while (!stackisEmpty(stack)) {
-        while (!stackisEmpty(stack) && searchRow(data, size, stackTop(stack), flag) >= size) {
+        while (searchRow(data, size, stackTop(stack), flag) >= size) {
+            if (stackisEmpty(stack)) break;
+            printf("pop\n");
             stackPop(stack);
-            currentNode = stackTop(stack);
         }
-        // printf("masuk\n");
+        printf("masuk\n");
         // print(result,2 *(size-1));
 
         if (stackisEmpty(stack)) break;
@@ -160,7 +163,7 @@ int main(int argc, char **argv) {
         r++;
     }
 
-    // print(stack, size);
+    print(result, 2* (size - 1));
 
     printResult(result, size);
 

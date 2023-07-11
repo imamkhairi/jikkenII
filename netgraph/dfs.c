@@ -22,7 +22,6 @@ void storeArray(FILE *in, int *dst) {
     
     while ((ch = fgetc(in)) != EOF) {
         if(isdigit(ch)) {
-            // printf("%d \n ", ch - '0');
             *dst = ch - '0';
             dst++;
         }
@@ -38,15 +37,6 @@ void printArray(int *target, int size) {
         printf("\n");
     }
 }
-
-// void printArrayAt(int *target, int size, int row) {
-//     target += size * (row - 1);
-//     for (int i = 0; i < size; i++) {
-//         printf("%d ", *target);
-//         target++;
-//     }
-//     printf("\n");
-// }
 
 int searchRow(int *target, int size, int row, int *flag) {
     target += size * row;
@@ -96,75 +86,72 @@ int stackTop (int *stack) {
     return *(--stack);
 }
 
-int main(int argc, char **argv) {
-    // const char fname[] = "data/search_100d.dat";
-    const char fname[] = "data/test.dat";
+int stackisEmpty (int *stack) {
+    if(*stack -1) return 1;
+    else return 0;
+}
 
-    FILE *fp = fopen(fname, "r");
+void printResult(int *result, int size) {
+    for (int i = 0; i < (size-1) * 2; i+=2) {
+        printf("%d -> %d \n", result[i], result[i+1]);
+    }
+}
+
+int main(int argc, char **argv) {
+    char *file;
+    if (argc == 2) {
+        file = argv[1];
+    } else {
+        printf("Set File Name!");
+    }
+
+    const char *dir = "data/";
+    char fileName[50];
+    sprintf(fileName, "%s%s", dir, file);
+
+    printf("%s\n", fileName);
+
+    FILE *fp = fopen(fileName, "r");
 
     if (!fp) {
         perror("fopen");
         return 1;
     }
 
-    printf("Opended file: %s \n", fname);
+    printf("Opened file: %s \n", fileName);
 
     int size = countLines(fp);
     int *data = (int *)malloc(size * size * sizeof(int));
     int *flag = (int *)malloc(size * sizeof(int)); // tandain udh ke sana atau belm. 1 udh. 0 blm
-    int *result = (int *)malloc(size * sizeof(int));
+    int *result = (int *)malloc(2 * (size-1) * sizeof(int));
     int *stack = (int *)malloc(size * sizeof(int));
     int currentNode = 0; // current node node index
 
     int *r = result; // pointer to accees result
 
-    // Test stack
     initStack(stack, size);
-    // stackPush(stack, 69);
-    // stackPush(stack, 10);
-    // stackPush(stack, 25);
-    // // stackPop(stack);
-    // stackPop(stack);
-    // printf("Stack top: %d\n", stackTop(stack));
-    // print(stack, size);
 
+    // Initialize
+    stackPush(stack, currentNode);
+    flag[currentNode] = 1;
 
-    // // Initialize
-    // stackPush(stack, currentNode);
-    // printf("Stack top: %d\n", stackTop(stack));
-    // flag[currentNode] = 1;
-    // *r = currentNode + 1; // +1 itu biar jadi 1 ~
-    // r++;
-    // // print(stack, size);
+    storeArray(fp, data);
 
-    // storeArray(fp, data);
+    for (int i = 0; i < size - 1; i++) {
+        while (stackTop(stack) >= 0 && searchRow(data, size, stackTop(stack), flag) >= size) {
+            stackPop(stack);
+            currentNode = stackTop(stack);
+        }
+        *r = stackTop(stack) + 1;
+        r++;
+        currentNode = searchRow(data, size, stackTop(stack), flag); 
+        stackPush(stack, currentNode);
+        flag[currentNode] = 1;
+        *r = currentNode + 1; // +1 itu biar jadi 1 ~
+        r++;
+    }
 
-    // // misal udah jalan sekali, cuma blm updat resultnya
-    // currentNode = searchRow(data, size, stackTop(stack), flag); //update currentNode node
-    // stackPush(stack, currentNode);
-    // printf("Stack top: %d\n", stackTop(stack));
-    // flag[currentNode] = 1;
-    // *r = currentNode + 1; // +1 itu biar jadi 1 ~
-    // r++;
-    // print(stack, size);
-
-    flag[2] = 1;
-    if () // -> kalau gede dar size pop
-    printf("%d\n", searchRow(data, size, 4, flag));
-
-    
-
-    // currentNode = searchRow(data, size, currentNode, flag);
-    // flag[currentNode] = 1;
-    // *r = currentNode;
-    // r++;
-    // for (int i = 0; i < size; i ++) {
-    //     printf("first %d in :%d\n", i, searchRow(data, size, i, flag));
-    // }
-
-    // print(flag, size);
-    // print(result, size);
-    printf("Flag sum : %d\n", countFlag(flag, size));
+    printResult(result, size);
 
     free(data);
     free(flag);

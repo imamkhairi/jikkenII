@@ -87,7 +87,7 @@ int stackTop (int *stack) {
 }
 
 int stackisEmpty (int *stack) {
-    if(*stack -1) return 1;
+    if(*stack == -1) return 1;
     else return 0;
 }
 
@@ -137,11 +137,15 @@ int main(int argc, char **argv) {
 
     storeArray(fp, data);
 
-    for (int i = 0; i < size - 1; i++) {
-        while (stackTop(stack) >= 0 && searchRow(data, size, stackTop(stack), flag) >= size) {
+    // for (int i = 0; i < size - 1; i++) {
+    while (!stackisEmpty(stack)) {
+        while (!stackisEmpty(stack) && searchRow(data, size, stackTop(stack), flag) >= size) {
             stackPop(stack);
             currentNode = stackTop(stack);
         }
+
+        if (stackisEmpty(stack)) break;
+        
         *r = stackTop(stack) + 1;
         r++;
         currentNode = searchRow(data, size, stackTop(stack), flag); 
@@ -150,6 +154,8 @@ int main(int argc, char **argv) {
         *r = currentNode + 1; // +1 itu biar jadi 1 ~
         r++;
     }
+
+    // print(stack, size);
 
     printResult(result, size);
 

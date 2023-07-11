@@ -137,12 +137,17 @@ int main(int argc, char **argv) {
 
     storeArray(fp, data);
 
+    // int test = searchRow(data, size, stackTop(stack), flag);
+    // printf("test = %d\n", test);
+
     // for (int i = 0; i < size - 1; i++) {
     while (!stackisEmpty(stack)) {
         while (!stackisEmpty(stack) && searchRow(data, size, stackTop(stack), flag) >= size) {
             stackPop(stack);
             currentNode = stackTop(stack);
         }
+        // printf("masuk\n");
+        // print(result,2 *(size-1));
 
         if (stackisEmpty(stack)) break;
         

@@ -18,12 +18,11 @@ int countLines(FILE *in) {
 
 void print (int *target, int size) {
     for (int i = 0; i < size; i++) {
-        printf("[%d] : %d\n", i + 1, *target);
-        target++;
+        printf("[%d] : %d\n", i + 1, target[i]);
     }
 }
 
-void stackInit(int *stack, int size) {
+void queueInit(int *stack, int size) {
     int *p = stack;
     for (int i = 0; i < size; i++) {
         *p = -1;
@@ -31,62 +30,59 @@ void stackInit(int *stack, int size) {
     }
 }
 
-int stackSearchEmpty(int *stack, int size) {
-    int *p = stack;
-    int offset = 0;
-    while (*p >= 0 && offset < size) {
-        p++;
-        offset++;
-    }
-    return offset;
+int queueIsEmpty(int *queue, int qHead, int qTail) {
+    if (qHead == (qTail - 1) && queue[qHead] == -1) {
+        return 1;
+    } else return 0;
 }
 
-void stackPush (int *stack, int size, int data) {
-    int *p = stack;
-    if(stackSearchEmpty(stack, size) < size) {
-        int offset = stackSearchEmpty(stack, size);
-        p = p + offset;
-        *p = data;
-    } else { 
-        printf("Stack Push: Stack full, data %d not stored\n", data);
-    }
+int queueIsFull(int *queue, int qHead, int qTail) {
+    if (qHead == (qTail - 1) && queue[qHead] != -1) {
+        return 1;
+    } else return 0;
 }
 
-void stackPop(int *stack, int size) {
-    int *p = stack;
-    if(stackSearchEmpty(stack, size) <= size) {
-        int offset = stackSearchEmpty(stack, size) - 1;
-        if (offset >= 0) {
-            p = p + offset;
-            *p = -1;
-        } else {
-            printf("Stack Pop: Stack Already Empty\n");
-        }
-    } else { 
-        printf("Stack Pop: Stack Full\n");
+
+void queueIndex(int *index, int size) {
+    if(*index >= size) *index = 0;
+    else if(*index == -1) *index = size - 1;
+}
+
+void queueEnqueue(int *queue, int size, int *qHead, int *qTail, int data) {
+    if(!queueIsFull(queue, *qHead, *qTail)) {
+        int index = *qTail - 1;
+        queueIndex(&index, size);
+        // printf("Index = %d\n", index);
+        queue[index] = data;
+        // printf("Tail Befor= %d\n", *qTail);
+        *qTail = *qTail + 1;
+        queueIndex(qTail, size);
+        // printf("Tail After= %d\n", *qTail);
+        // printf("\n");
+    } else {
+        printf("Enqueue: Queue is already Full, %d not stored\n", data);
     }
 }
 
-int stackTop(int *stack, int size) {
-    int *p = stack;
-    if(stackSearchEmpty(stack, size) - 1 < size) {
-        int offset = stackSearchEmpty(stack, size) - 1;
-        if (offset >= 0) {
-            p += offset;
-        } else {
-            printf("Stack Top: Stack is Empty\n");
-        }
-    } else { 
-        printf("Stack Top: Stack Full\n");
+void queueDequeue(int *queue, int size, int *qHead, int *qTail) {
+    // printf("Head Before = %d\n", *qHead);
+    if(!queueIsEmpty(queue, *qHead, *qTail)) {
+        if (queue[*qHead] != -1) {
+            queue[*qHead] = -1;
+            *qHead = *qHead + 1;
+            queueIndex(qHead, size);
+        } 
+    } else {
+        printf("Dequeue: Queue already empty\n");
     }
-    return *p;
+    // printf("Head After = %d\n", *qHead);
+    // printf("\n");
 }
 
-int stackIsEmpty(int *stack) {
-    int *p = stack;
-    if (*p == -1) return 1;
-    else return 0;
+int queueTop(int *queue, int qHead) {
+    return queue[qHead];
 }
+
 
 void storeArray(FILE *in, int *dst) {
     int ch;
@@ -141,6 +137,76 @@ void printResult(int *result, int size) {
     }
 }
 
+int searchRight(int *result, int size, int target) {
+    int last = 2*(size-1)-1;
+    int index = last;
+    while (result[index] != target && index >= 0) {
+        index -= 2;
+        // printf("index = %d\n", index);
+    }
+    return index;
+}
+
+int sameLeft(int *result, int size) {
+    int current = result[0];
+    int count = 1;
+    for (int i = 0; i < (size-1) * 2; i += 2) {
+        if (result[i] != current) {
+            count ++;
+            current = result[i];
+        }
+    }
+    return count;
+}
+
+void countHeight(int *result, int size) {
+    int last = 2*(size-1)-1;    
+    // int index = 2*(size-1)-1;
+    int height = 1;
+    for (int i = last; i >= 0; i -= 2) {
+        int index = i;
+        int dummy = 1;
+        // printf("%d\n", result[i]);
+        while(result[index - 1] != 1) {
+            index = searchRight(result, size, result[index - 1]);
+            dummy += 1;
+        }
+        if (dummy > height) height = dummy;
+    }
+    printf("Height = %d\n", height);
+}
+
+void countLeaf(int *result, int size) {
+    printf("Leaf = %d\n", size - sameLeft(result, size));
+}
+
+int getMax(int *target, int size) {
+    int max = target[0]; 
+    for (int i = 1; i < size; i++) {
+        if(max < target[i]) max = target[i];
+    }
+    return max;
+}
+
+void countChild(int *result, int size) {
+    int current = result[0];
+    int aSize = sameLeft(result, size);
+    int *child = (int *)malloc(aSize * sizeof(int));
+    int *c = child;
+    for (int i = 0; i < (size-1) * 2; i += 2) {
+        if (result[i] == current) {
+            *c = *c + 1;
+        } else {
+            current = result[i];
+            c++;
+            *c = *c + 1;
+        }
+    }
+    // print(child, aSize);
+    printf("Child = %d\n", getMax(child, aSize));
+    free(child);
+}
+
 int main(int argc, char **argv) {
     char *file;
     if (argc == 2) {
@@ -162,8 +228,10 @@ int main(int argc, char **argv) {
 
     int size = countLines(fp);
 
-    int *stack = (int *)malloc(size * sizeof(int));
-    stackInit(stack, size);
+    int *queue = (int *)malloc(size * sizeof(int));
+    int qHead = 0;
+    int qTail = 1;
+    queueInit(queue, size);
 
     int *data = (int *)malloc(size * size * sizeof(int));
     storeArray(fp, data);
@@ -175,35 +243,29 @@ int main(int argc, char **argv) {
     int *r = result;
 
     int currentNode = 1;
-    stackPush(stack, size, currentNode);
-
-    while(!stackIsEmpty(stack)) {
+    queueEnqueue(queue, size, &qHead, &qTail, currentNode);
+    
+    while (!queueIsEmpty(queue, qHead, qTail)) {
         do {
-            if (stackIsEmpty(stack))break;
-            currentNode = searchRow(data, size, stackTop(stack, size), flag);
-            if (currentNode > size) stackPop(stack, size);
-        } while(currentNode > size);
+            if (queueIsEmpty(queue, qHead, qTail)) break;
+            currentNode = searchRow(data, size, queueTop(queue, qHead), flag);
+            if (currentNode > size) queueDequeue(queue, size, &qHead, &qTail);
+        } while (currentNode > size);
 
-        if (stackIsEmpty(stack))break;
-        *r = stackTop(stack, size);
+        if (queueIsEmpty(queue, qHead, qTail)) break;
+        *r = queueTop(queue, qHead);
         r++;
         *r = currentNode;
         r++;
-        stackPush(stack, size, currentNode);
+        queueEnqueue(queue, size, &qHead, &qTail, currentNode);
     }
-
+    
     printResult(result, size);
+    countHeight(result, size);
+    countLeaf(result, size);
+    countChild(result, size);
 
-    // printf("flag -----\n");
-    // print(flag, size);
-    // printf("stack -----\n");
-    // print(stack, size);
-
-    // stackPop(stack, size);
-    // printf("stack top %d\n", stackTop(stack, size));
-
-    // print(stack, size);
-    free(stack);
+    free(queue);
     free(data);
     free(flag);
     free(result);

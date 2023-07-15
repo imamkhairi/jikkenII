@@ -141,6 +141,76 @@ void printResult(int *result, int size) {
     }
 }
 
+int searchRight(int *result, int size, int target) {
+    int last = 2*(size-1)-1;
+    int index = last;
+    while (result[index] != target && index >= 0) {
+        index -= 2;
+        // printf("index = %d\n", index);
+    }
+    return index;
+}
+
+int sameLeft(int *result, int size) {
+    int current = result[0];
+    int count = 1;
+    for (int i = 0; i < (size-1) * 2; i += 2) {
+        if (result[i] != current) {
+            count ++;
+            current = result[i];
+        }
+    }
+    return count;
+}
+
+void countHeight(int *result, int size) {
+    int last = 2*(size-1)-1;    
+    // int index = 2*(size-1)-1;
+    int height = 1;
+    for (int i = last; i >= 0; i -= 2) {
+        int index = i;
+        int dummy = 1;
+        // printf("%d\n", result[i]);
+        while(result[index - 1] != 1) {
+            index = searchRight(result, size, result[index - 1]);
+            dummy += 1;
+        }
+        if (dummy > height) height = dummy;
+    }
+    printf("Height = %d\n", height);
+}
+
+void countLeaf(int *result, int size) {
+    printf("Leaf = %d\n", size - sameLeft(result, size));
+}
+
+int getMax(int *target, int size) {
+    int max = target[0]; 
+    for (int i = 1; i < size; i++) {
+        if(max < target[i]) max = target[i];
+    }
+    return max;
+}
+
+void countChild(int *result, int size) {
+    int current = result[0];
+    int aSize = sameLeft(result, size);
+    int *child = (int *)malloc(aSize * sizeof(int));
+    int *c = child;
+    for (int i = 0; i < (size-1) * 2; i += 2) {
+        if (result[i] == current) {
+            *c = *c + 1;
+        } else {
+            current = result[i];
+            c++;
+            *c = *c + 1;
+        }
+    }
+    // print(child, aSize);
+    printf("Child = %d\n", getMax(child, aSize));
+    free(child);
+}
+
 int main(int argc, char **argv) {
     char *file;
     if (argc == 2) {
@@ -193,6 +263,9 @@ int main(int argc, char **argv) {
     }
 
     printResult(result, size);
+    countHeight(result, size);
+    countLeaf(result, size);
+    countChild(result, size);
 
     // printf("flag -----\n");
     // print(flag, size);

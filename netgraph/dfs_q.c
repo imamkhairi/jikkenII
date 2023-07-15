@@ -177,7 +177,20 @@ void countHeight(int *result, int size) {
 }
 
 void countLeaf(int *result, int size) {
-    printf("Leaf = %d\n", size - sameLeft(result, size));
+    int last = 2*(size-1)-1;
+    int *flag = (int *)malloc(size * sizeof(int));
+    
+    for (int i = 0; i <= last; i += 2) {
+        flag[result[i] - 1] = 1;
+    }
+
+    int count = 0;
+    for (int i = 0; i < size; i++) {
+        count += flag[i];
+    }
+
+    printf("Leaf = %d\n", size - count);
+    free(flag);
 }
 
 int getMax(int *target, int size) {

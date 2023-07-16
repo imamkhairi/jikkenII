@@ -18,73 +18,8 @@ int countLines(FILE *in) {
 
 void print (int *target, int size) {
     for (int i = 0; i < size; i++) {
-        printf("[%d] : %d\n", i + 1, target[i]);
-    }
-}
-
-void queueInit(int *stack, int size) {
-    int *p = stack;
-    for (int i = 0; i < size; i++) {
-        *p = -1;
-        p++;
-    }
-}
-
-int queueIsEmpty(int *queue, int qHead, int qTail) {
-    if (qHead == (qTail - 1) && queue[qHead] == -1) {
-        return 1;
-    } else return 0;
-}
-
-int queueIsFull(int *queue, int qHead, int qTail) {
-    if (qHead == (qTail - 1) && queue[qHead] != -1) {
-        return 1;
-    } else return 0;
-}
-
-
-void queueIndex(int *index, int size) {
-    if(*index >= size) *index = 0;
-    else if(*index == -1) *index = size - 1;
-}
-
-void queueEnqueue(int *queue, int size, int *qHead, int *qTail, int data) {
-    if(!queueIsFull(queue, *qHead, *qTail)) {
-        int index = *qTail - 1;
-        queueIndex(&index, size);
-        queue[index] = data;
-        *qTail = *qTail + 1;
-        queueIndex(qTail, size);
-    } else {
-        printf("Enqueue: Queue is already Full, %d not stored\n", data);
-    }
-}
-
-void queueDequeue(int *queue, int size, int *qHead, int *qTail) {
-    if(!queueIsEmpty(queue, *qHead, *qTail)) {
-        if (queue[*qHead] != -1) {
-            queue[*qHead] = -1;
-            *qHead = *qHead + 1;
-            queueIndex(qHead, size);
-        } 
-    } else {
-        printf("Dequeue: Queue already empty\n");
-    }
-}
-
-int queueTop(int *queue, int qHead) {
-    return queue[qHead];
-}
-
-void storeArray(FILE *in, int *dst) {
-    int ch;
-    int i = 0;
-    
-    while ((ch = fgetc(in)) != EOF) {
-        if(isdigit(ch)) {
-            *dst = ch - '0';
-            dst++;
-        }
+        printf("[%d] : %d\n", i + 1, *target);
+        target++;
     }
 }
 
@@ -99,6 +34,18 @@ void printArrayAt(int *data, int size, int row) {
         printf("\n");
     } else {
         printf("Print Array: Row exceeded limit\n");
+    }
+}
+
+void storeArray(FILE *in, int *dst) {
+    int ch;
+    int i = 0;
+    
+    while ((ch = fgetc(in)) != EOF) {
+        if(isdigit(ch)) {
+            *dst = ch - '0';
+            dst++;
+        }
     }
 }
 
@@ -185,6 +132,7 @@ void countLeaf(int *result, int size) {
     free(flag);
 }
 
+
 int getMax(int *target, int size) {
     int max = target[0]; 
     for (int i = 1; i < size; i++) {
@@ -223,8 +171,101 @@ int checkFlag(int *flag, int size) {
     return count;
 }
 
+// ga kepake
+void storeNeighbour(int *data, int *neighbour, int size) {
+    int *p = data;
+    int *n1 = neighbour;
+    int *n2 = neighbour;
+    for (int i = 0; i < size; i++) {
+        for(int j = 0; j < size; j++) {
+            if(p[j + i * size] == 1) {
+                // printf("%d ", j+1);
+                *n1 = j+1;
+                n1++;
+            }
+        }
+        n2 += size;
+        n1 = n2;
+        // printf("\n");
+    }
+}
+
+void initP(int *target, int size) {
+    for(int i = 1; i <= size; i++) {
+        target[i - 1] = 1; 
+    }
+}
+
+void init(int *target, int size) {
+    for (int i = 1; i <= size; i++) {
+        target[i-1] = 0;
+    }
+}
+
+void unionData(int *target, int *neighbour, int size, int row) {
+    if (row <= size) {
+        row--;
+        int *t = target;
+        int *condition = neighbour + row * size;
+
+        for (int i = 0; i < size; i++) {
+            // printf("%d \n", condition[i]);
+            if (t[i] && condition[i]) t[i] = 1;
+            else t[i] = 0;
+        }
+    } else {
+        printf("Union Data: Row exceeded limit\n");
+    }
+}
+
+void intersectionData(int *target, int *neighbour, int size, int row) {
+    if (row <= size) {
+        row--;
+        int *t = target;
+        int *condition = neighbour + row * size;
+
+        for (int i = 0; i < size; i++) {
+            // printf("%d \n", condition[i]);
+            if (t[i] || condition[i]) t[i] = 1;
+            else t[i] = 0;
+        }
+    } else {
+        printf("Union Data: Row exceeded limit\n");
+    }
+}
+
+int isEmpty(int *data, int size) {
+    for (int i = 0; i < size; i++) {
+        if(data[i] == 1) return 0;
+    }
+    return 1;
+}
+
+void BronKerbosch(int *R, int *P, int *X, int size) {
+    if(isEmpty(P, size) && isEmpty(X, size)) print(R, size);
+    for (int i = 0; i < 1; i++) {
+        if (P[i] == 1) {
+            int *v = (int *)malloc(size * sizeof(int));
+            int *arg1 = (int *)malloc(size * sizeof(int));
+            int *arg2 = (int *)malloc(size * sizeof(int));
+            int *arg3 = (int *)malloc(size * sizeof(int));
+            // int v[size];
+            // int r[size];
+            // int p[size];
+            // int x[size];
+            init(v, size);
+            v[i] = 1;
+            print(v, size);
+
+
+            // printf("%d\n", i + 1);
+        }
+    }
+}
+
 int main(int argc, char **argv) {
     char *file;
+
     if (argc == 2) {
         file = argv[1];
     } else {
@@ -244,62 +285,34 @@ int main(int argc, char **argv) {
 
     int size = countLines(fp);
 
-    int *queue = (int *)malloc(size * sizeof(int));
-    int qHead = 0;
-    int qTail = 1;
-    queueInit(queue, size);
-
     int *data = (int *)malloc(size * size * sizeof(int));
     storeArray(fp, data);
 
-    int *flag = (int *)malloc(size * sizeof(int)); // 1 visited, 0 not yet
-    flag[0] = 1;
+    int *R = (int *)malloc(size * sizeof(int));
+    init(R, size);
 
-    int *result = (int *)malloc(2 * size * sizeof(int));
-    int *r = result;
+    int *P = (int *)malloc(size * sizeof(int));
+    initP(P, size);
 
-    int currentNode = 1;
-    queueEnqueue(queue, size, &qHead, &qTail, currentNode);
+    int *X = (int *)malloc(size * sizeof(int));
+    init(X, size);   
 
-    int count = 1;
+    // BronKerbosch(R, P, X, size);
+
+    int * dummy = (int *)malloc(size * sizeof(int));
+
+    print(R, size);
+    intersectionData(R, data, size, 1);
+    // unionData(R, data, size, 1);
+    print(R, size);
+
+    // for (int i = 1; i <= size; i++) {
+    //     printArrayAt(neighbour, size, i);
+    // }
     
-    while (!queueIsEmpty(queue, qHead, qTail)) {
-        do {
-            if (queueIsEmpty(queue, qHead, qTail)) {
-                if (checkFlag(flag, size) != size) {
-                    currentNode = checkFlag(flag, size) + 1;
-                    flag[currentNode - 1] = 1;
-                    queueEnqueue(queue, size, &qHead, &qTail, currentNode);
-                    count++;
-                } else {
-                    break;
-                }
-            }
-            currentNode = searchRow(data, size, queueTop(queue, qHead), flag);
-            if (currentNode > size) queueDequeue(queue, size, &qHead, &qTail);
-        } while (currentNode > size);
-
-        if (queueIsEmpty(queue, qHead, qTail)) break;
-        *r = queueTop(queue, qHead);
-        r++;
-        *r = currentNode;
-        r++;
-        queueEnqueue(queue, size, &qHead, &qTail, currentNode);
-    }
-    
-    printResult(result, size);
-    // countHeight(result, size);
-    // countLeaf(result, size);
-    // countChild(result, size);
-
-    printf("flag -----\n");
-    // print(flag, size);
-    printf("count = %d\n", count);
-
-    free(queue);
+    free(R);
+    free(P);
+    free(X);
     free(data);
-    free(flag);
-    free(result);
     fclose(fp);
 }
-

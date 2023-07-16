@@ -225,6 +225,17 @@ void countChild(int *result, int size) {
     free(child);
 }
 
+int checkFlag(int *flag, int size) {
+    // int *p = flag;
+    int count = 0;
+    for (int i = 0; i < size; i++) {
+        if (flag[i] == 0) break;
+        // p++;
+        count++;
+    }
+    return count;
+}
+
 int main(int argc, char **argv) {
     char *file;
     if (argc == 2) {
@@ -261,9 +272,20 @@ int main(int argc, char **argv) {
     int currentNode = 1;
     stackPush(stack, size, currentNode);
 
+    int count = 1;
+
     while(!stackIsEmpty(stack)) {
         do {
-            if (stackIsEmpty(stack))break;
+            if (stackIsEmpty(stack)) {
+                if(checkFlag(flag, size) != size) {
+                    currentNode = checkFlag(flag, size) + 1;
+                    flag[currentNode - 1] = 1;
+                    stackPush(stack, size, currentNode);
+                    count++;
+                } else {
+                    break;
+                }
+            }
             currentNode = searchRow(data, size, stackTop(stack, size), flag);
             if (currentNode > size) stackPop(stack, size);
         } while(currentNode > size);
@@ -277,12 +299,13 @@ int main(int argc, char **argv) {
     }
 
     printResult(result, size);
-    countHeight(result, size);
-    countLeaf(result, size);
-    countChild(result, size);
+    // countHeight(result, size);
+    // countLeaf(result, size);
+    // countChild(result, size);
 
-    // printf("flag -----\n");
+    printf("flag -----\n");
     // print(flag, size);
+    printf("count = %d\n", count);
     // printf("stack -----\n");
     // print(stack, size);
 

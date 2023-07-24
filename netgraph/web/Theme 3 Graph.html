@@ -1,0 +1,79 @@
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>Theme 3 Graph</title>
+</head>
+
+<body vlink="#000000" text="#ffffff" link="#000000" background="Theme%203%20Graph_files/blrenga.gif">
+
+<center>
+<hr>
+<h2> テーマ 3. グラフ・ネットワークプログラム </h2>
+<hr>
+</center>
+<br>
+<center><table width="700" cellpadding="15" border="0"><tbody><tr><td>
+
+<font color="ff00ff">深さ優先探索</font><br>
+<br>
+　深さ優先探索アルゴリズムの概要を示す．詳細は講義で解説する．<br>
+<br>
+　　・ 始点を出発し，番号の若い順に進む位置を調べ，いけるところまで進む．<br>
+　　・ 行き場所が無い時，行き場所のある地点まで戻り，再びいけるところまで進む．<br>
+　　・ 行き場所が全てなくなったら終了．<br>
+<br>
+<font color="00ff00">課題1</font><br>
+　深さ優先探索を用いてグラフ探索を行うプログラム"dfs.c"を作成せよ．ただし，再帰手法を用いることは禁止する．対象とするグラフの隣接行列を <a href="https://www.kushiro-ct.ac.jp/jjackpot/jikken/warm/03/search_100d.dat"><font color="ffff00">search_100d.dat</font></a>，<a href="https://www.kushiro-ct.ac.jp/jjackpot/jikken/warm/03/search_100s.dat"><font color="ffff00">search_100s.dat</font></a>，<a href="https://www.kushiro-ct.ac.jp/jjackpot/jikken/warm/03/search_500d.dat"><font color="ffff00">search_500d.dat</font></a>，<a href="https://www.kushiro-ct.ac.jp/jjackpot/jikken/warm/03/search_500s.dat"><font color="ffff00">search_500s.dat</font></a>，<a href="https://www.kushiro-ct.ac.jp/jjackpot/jikken/warm/03/search_1000d.dat"><font color="ffff00">search_1000d.dat</font></a>，<a href="https://www.kushiro-ct.ac.jp/jjackpot/jikken/warm/03/search_1000s.dat"><font color="ffff00">search_1000s.dat</font></a> に与える．<br>
+<br>
+<br>
+
+<font color="ff00ff">幅優先探索</font><br>
+<br>
+　幅優先探索アルゴリズムの概要を示す．詳細は講義で解説する．<br>
+<br>
+　　・ 始点に隣接する未探索の節点を全て訪問する．<br>
+　　・ １段下の探索済みの節点に移動し，隣接する未探索の全節点を訪問する．<br>
+　　・ 同レベルの全節点に対し，同様の処理を行い，更に１段下の節点に移動する．<br>
+　　・ 最下位レベルの全節点に対して同様の処理が終了したら終了．<br>
+<br>
+<font color="00ff00">課題2</font><br>
+　幅優先探索を用いてグラフ探索を行うプログラム"bfs.c"を作成せよ．データ構造としてキューを利用せよ．対象とするグラフは深さ優先探索のものと同じとする．<br>
+<br>
+　上記の２種類の探索アルゴリズムで生成された各全域木に対して，その高さ，葉の数，分岐（子）の最大数などを算出し，全域木の特徴（形状）を調べてみよう．<br>
+<br>
+
+<font color="00ff00">課題3</font><br>
+　2000個の節点からなるグラフを <a href="https://www.kushiro-ct.ac.jp/jjackpot/jikken/warm/03/search_2000.dat"><font color="ffff00">search_2000.dat</font></a> に与える．上記の探索アルゴリズムを応用してこのグラフの連結成分数を求めよ．
+<br>
+<br>
+
+
+<font color="ff00ff">最大クリーク問題</font><br>
+<br>
+
+<font color="00ff00">課題4</font><br>
+　グラフに含まれる最大のクリーク（完全グラフ）を求める最大クリーク問題を解くプログラム"clique.c"を実現せよ．この問題はNP完全問題である．<br>
+　対象とするグラフの隣接行列を <a href="https://www.kushiro-ct.ac.jp/jjackpot/jikken/warm/03/clique_30.dat"><font color="ffff00">clique_30.dat</font></a>, <a href="https://www.kushiro-ct.ac.jp/jjackpot/jikken/warm/03/clique_50.dat"><font color="ffff00">clique_50.dat</font></a>, <a href="https://www.kushiro-ct.ac.jp/jjackpot/jikken/warm/03/clique_70.dat"><font color="ffff00">clique_70.dat</font>, </a><a href="https://www.kushiro-ct.ac.jp/jjackpot/jikken/warm/03/clique_100.dat"><font color="ffff00">clique_100.dat</font></a> に与える．<br>
+<br>
+
+
+
+<p>
+<font color="#ffcc00">実験レポート提出：</font>テーマ３の実験レポートを "2303**.pdf" (**は自分の現在の出席番号)という名前で保存し，メール添付で送ること．(締め切りは 8/14（月）17：00です．)<br>
+送り先：honma@kushiro-ct.ac.jp
+</p>
+
+
+<center>
+<hr>
+<a href="https://www.kushiro-ct.ac.jp/jjackpot/jikken/warm/r2-02.htm"><img src="Theme%203%20Graph_files/left.gif"></a>
+<a href="https://www.kushiro-ct.ac.jp/jjackpot/jikken/warm/warm.htm"><img src="Theme%203%20Graph_files/return.gif"></a><br>
+<hr><br>
+Copyright (C) 2000 J.LEE Co.,LTD All rights reserved.<br>
+<p></p>
+</center></td></tr></tbody></table>
+
+
+
+
+
+</center></body></html>

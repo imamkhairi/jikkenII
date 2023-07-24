@@ -208,7 +208,7 @@ void countChild(int *result, int size) {
         }
     }
     // print(child, aSize);
-    printf("Child = %d\n", getMax(child, aSize));
+    printf("Max Child = %d\n", getMax(child, aSize));
     free(child);
 }
 
@@ -288,13 +288,11 @@ int main(int argc, char **argv) {
     }
     
     printResult(result, size);
-    // countHeight(result, size);
-    // countLeaf(result, size);
-    // countChild(result, size);
+    countHeight(result, size);
+    countLeaf(result, size);
+    countChild(result, size);
 
-    printf("flag -----\n");
-    // print(flag, size);
-    printf("count = %d\n", count);
+    printf("Connected Component = %d\n", count);
 
     free(queue);
     free(data);

@@ -3,7 +3,7 @@
 \usepackage[table,xcdraw]{xcolor}
 \usepackage[dvipdfmx]{graphicx}
 \usepackage{caption}
-% \usepackage{subcaption}
+\usepackage{subcaption}
 \usepackage{listings}
 \usepackage{fancybox}
 \usepackage{ascmac}
@@ -63,24 +63,33 @@
 
 \section{概要}
     \subsection{グラフ理論とは}
-    数学においてグラフ理論とは、グラフを研究する学問であり、グラフはオブジェクト間の対関係をモデル化するために用いられる数学的構造である。グラフを構成するためには、点（節点またはノードとも呼ばれる）と辺（枝またはエッジとも呼ばれる）が必要である。 \ref{bib:wikigraph}
-    % In mathematics, graph theory is the study of graphs, which are mathematical structures used to model pairwise relations between objects. A graph in this context is made up of vertices (also called nodes or points) which are connected by edges (also called links or lines). \ref{bib:wikigraph}
-    
-    \subsubsection{有向グラフと無向グラフ}
-    有向グラフは、辺の方向が決まっている一方向性のグラフである。一方、無向グラフとは、辺が特定の方向を持たず、双方向性を持つグラフである。
-    本実験では、使用したグラフはすべて無向グラフである。更に、
+        数学においてグラフ理論とは、グラフを研究する学問であり、グラフはオブジェクト間の対関係をモデル化するために用いられる数学的構造である。グラフを構成するためには、点（節点またはノードとも呼ばれる）と辺（枝またはエッジとも呼ばれる）が必要である\cite{bib:wikigraph}。 
+        % In mathematics, graph theory is the study of graphs, which are mathematical structures used to model pairwise relations between objects. A graph in this context is made up of vertices (also called nodes or points) which are connected by edges (also called links or lines). \ref{bib:wikigraph}
+        グラフ理論には、辺が方向を持っているかどうかによって分れている
+        \begin{description}
+            \item[有向グラフ]：辺の方向が決まっている一方向性のグラフである。
+            \item[無向グラフ]：辺が特定の方向を持たず、双方向性を持つグラフである。
+        \end{description}
+        本実験では、使用したグラフはすべて無向グラフである。更に、
 
-    \subsection{スタック} % ini sepertinya mending ambil buku data structure aja
-    In computer science, a stack is an abstract data type that serves as a collection of elements, with two main operations:
-    Push, which adds an element to the collection, and
-    Pop, which removes the most recently added element that was not yet removed.
-    The order in which an element added to or removed from a stack is described as last in, first out, referred to by the acronym LIFO.
-    But, in this experiment all stack data structure is made using an array with size of number of nodes, to mimic an actual stack function.
+    \subsection{スタックとは} 
+        スタックは、データを一時的にた蓄えるためのデータ構造の一つ。データの出し入れは\textbf{後入れ先出し}（\textit{LIFO / Last In First Out}）で行われる。すなわち、最後に入れられたデータが最初に取り出される\cite{bib:boyoh}。
 
-    \subsection{キュー}
-    In computer science, a queue is a collection of entities that are maintained in a sequence and can be modified by the addition of entities at one end of the sequence and the removal of entities from the other end of the sequence. 
-    ini nanti terusin sampai bikin yang ring itu 
-    But, in this experiment queue data structure is made using an array with size of number of nodes, to mimic an actual stack function.
+        なお、スタックにデータを入れる操作を\textbf{プッシュ}（\textit{push}）と呼び、スタックからデータを取り出す操作を\textbf{ポップ}（\textit{pop}）と呼びます\cite{bib:boyoh}。% ini jadikan ga ada sitasi aja kali
+
+        しかし本実験では、実際のスタック機能を模倣するため、ノード数分の大きさを持つ配列を使ってスタックデータ構造を作った。
+
+    \subsection{キューとは}
+        キューは、データを一時的に蓄えるための基本的なデータ構造の一つである。最初に入れられたデータが最初に取り出されるという\textbf{先入れ先出し}（\textit{FIFO / First In First Out}）の機構である。\cite{bib:boyoh}
+        
+        なお、キューにデータを追加する操作を\textbf{エンキュー}（\textit{enqueue}）と呼び、データを取り出す操作を\textbf{デキュー}（\textit{dequeue}）と呼ぶ。また、データが取り出される側を\textbf{先頭}（\textit{front}）と呼び、データが押し込まれる側を\textbf{末尾}（\textit{rear}）と呼ぶ\cite{bib:boyoh}。
+
+        しかし本実験では、実際のキュー機能を模倣するため、ノード数分の大きさを持つ配列を使ってスタックデータ構造を作った。
+
+        \subsubsection{リングバッファによるキュー}
+            リングバッファとは、配列の末尾が先頭につながっているとみなすデータ構造である\cite{bib:boyoh}。エンキューとデキューを行うと\textit{front}と\textit{rear}の値は変化する。
+            % kasih gambar ring buffer
+
 
     
     \subsection{実行環境}
@@ -94,22 +103,37 @@
         \end{itemize}    
     \end{screen}
 
-\section{問題１：深さ優先検索(DFS)を用いて検索}
-    深さ優先探索は、木やグラフのデータ構造を探索するアルゴリズムである。このアルゴリズムは、根（始点）から開始し、バックトラックする前に各エッジに沿って可能な限り探索する。
+\section{深さ優先検索と幅優先検索を用いて検索}
+    \subsection{深さ優先検索}
+        深さ優先探索は、木やグラフのデータ構造を探索するアルゴリズムである。このアルゴリズムは、根（始点）から開始し、バックトラックする前に各辺に沿って可能な限り探索する。
 
-    指定したエッジに沿ってこれまでに発見されたノードを追跡し、グラフのバックトラックに役立てるために、スタックが必要となる。
+        指定した辺に沿ってこれまでに発見されたノードを追跡し、グラフのバックトラックに役立てるために、スタックが必要となる。
 
-    \subsection{深さ優先検索のプログラム}
-    % Depth-first search is worked base on below algorithm:
-    深さ優先探索は、以下のアルゴリズムに基づいて行われる：
-    add start point to start
-    \begin{screen}
-        \begin{enumerate}
-            \item 始点を出発し，番号の若い順に進む位置を調べ，いけるところまで進む．
-            \item 行き場所が無い時，行き場所のある地点まで戻り，再びいけるところまで進む．
-            \item 行き場所が全てなくなったら終了．
-        \end{enumerate}
-    \end{screen}
+        \subsubsection{深さ優先検索のプログラム}
+            以下は深さ優先検索のプログラムである．
+            \lstinputlisting[language=c]{D:/Kosen/jikkenII/netgraph/dfs_connect.c} 
+        
+        \subsubsection{深さ優先検索のプログラムの動作}
+            訪問したすべての点はスタックにプッシュされ、その点から先に行けない場合はスタックトップがポップされる。
+            深さ優先検索のプログラムの主な流れは，以下の通りである：
+            \begin{screen}
+                \begin{enumerate}
+                    \item 根をスタックにプッシュする。
+                    \item スタックトップのデータを現在点になるようにピークする。
+                    \item 現在の点に接続している最も低い点に進む。
+                    \item 全ての点を訪れるまで繰り返す。
+                \end{enumerate}
+            \end{screen}
+        
+    \subsection{幅優先検索}
+        幅優先探索は、木やグラフのデータ構造を探索するアルゴリズムである。このアルゴリズムは、根（始点）から開始し、各点に隣接している点を訪問する。
+
+        キューは、訪問されたがまだ探索されていない子ノードを追跡するために必要である。
+
+        \subsubsection{幅優先検索のプログラム}
+            以下は深さ優先検索のプログラムである．
+            \lstinputlisting[language=c]{D:/Kosen/jikkenII/netgraph/bfs_connect.c} 
+            
 
 
 \end{document}

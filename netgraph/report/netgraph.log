@@ -1,0 +1,384 @@
+This is e-pTeX, Version 3.14159265-p3.8.2-190131-2.6 (utf8.euc) (TeX Live 2019) (preloaded format=platex 2023.1.11)  25 JUL 2023 10:08
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**netgraph.tex
+(./netgraph.tex
+pLaTeX2e <2019-04-06> (based on LaTeX2e <2018-12-01>)
+(/usr/local/texlive/2019/texmf-dist/tex/platex/base/jarticle.cls
+Document Class: jarticle 2019/04/02 v1.8b Standard pLaTeX class
+\c@@paper=\count83
+(/usr/local/texlive/2019/texmf-dist/tex/platex/base/jsize10.clo
+File: jsize10.clo 2019/04/02 v1.8b Standard pLaTeX file (size option)
+)
+\c@part=\count84
+\c@section=\count85
+\c@subsection=\count86
+\c@subsubsection=\count87
+\c@paragraph=\count88
+\c@subparagraph=\count89
+\c@figure=\count90
+\c@table=\count91
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\symmincho=\mathgroup4
+LaTeX Font Info:    Overwriting symbol font `mincho' in version `bold'
+(Font)                  JY1/mc/m/n --> JY1/gt/m/n on input line 614.
+\toclineskip=\dimen118
+\@lnumwidth=\dimen119
+\bibindent=\dimen120
+\heisei=\count92
+)
+(/usr/local/texlive/2019/texmf-dist/tex/latex/xcolor/xcolor.sty
+Package: xcolor 2016/05/11 v2.12 LaTeX color extensions (UK)
+
+(/usr/local/texlive/2019/texmf-dist/tex/latex/graphics-cfg/color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package xcolor Info: Driver file: dvips.def on input line 225.
+
+(/usr/local/texlive/2019/texmf-dist/tex/latex/graphics-def/dvips.def
+File: dvips.def 2017/06/20 v3.1d Graphics/color driver for dvips
+)
+(/usr/local/texlive/2019/texmf-dist/tex/latex/colortbl/colortbl.sty
+Package: colortbl 2018/12/12 v1.0d Color table columns (DPC)
+
+(/usr/local/texlive/2019/texmf-dist/tex/latex/tools/array.sty
+Package: array 2018/12/30 v2.4k Tabular extension package (FMi)
+\col@sep=\dimen121
+\ar@mcellbox=\box43
+\extrarowheight=\dimen122
+\NC@list=\toks15
+\extratabsurround=\skip43
+\backup@length=\skip44
+\ar@cellbox=\box44
+)
+\everycr=\toks16
+\minrowclearance=\skip45
+)
+\rownum=\count93
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1348.
+Package xcolor Info: Model `RGB' extended on input line 1364.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1366.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1367.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1368.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1369.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1370.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1371.
+)
+(/usr/local/texlive/2019/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2017/06/01 v1.1a Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/local/texlive/2019/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks17
+)
+(/usr/local/texlive/2019/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2017/06/25 v1.2c Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/local/texlive/2019/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
+)
+(/usr/local/texlive/2019/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: dvipdfmx.def on input line 99.
+
+(/usr/local/texlive/2019/texmf-dist/tex/latex/graphics-def/dvipdfmx.def
+File: dvipdfmx.def 2017/06/24 v5.0g Graphics/color driver for dvipdfmx
+))
+\Gin@req@height=\dimen123
+\Gin@req@width=\dimen124
+)
+(/usr/local/texlive/2019/texmf-dist/tex/latex/caption/caption.sty
+Package: caption 2018/10/06 v3.3-154 Customizing captions (AR)
+
+(/usr/local/texlive/2019/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2018/09/12 v1.8c caption3 kernel (AR)
+Package caption3 Info: TeX engine: e-TeX on input line 64.
+\captionmargin=\dimen125
+\captionmargin@=\dimen126
+\captionwidth=\dimen127
+\caption@tempdima=\dimen128
+\caption@indent=\dimen129
+\caption@parindent=\dimen130
+\caption@hangindent=\dimen131
+Package caption Info: Unknown document class (or package),
+(caption)             standard defaults will be used.
+)
+
+Package caption Warning: Unsupported document class (or package) detected,
+(caption)                usage of the caption package is not recommended.
+See the caption package documentation for explanation.
+
+Package caption Info: \@makecaption = \long macro:#1#2->\vskip \abovecaptionski
+p \iftdir \sbox \@tempboxa {#1\hskip 1zw#2}\else \sbox \@tempboxa {#1: #2}\fi \
+ifdim \wd \@tempboxa >\hsize \iftdir #1\hskip 1zw#2\relax \par \else #1: #2\rel
+ax \par \fi \else \global \@minipagefalse \hb@xt@ \hsize {\hfil \box \@tempboxa
+ \hfil }\fi \vskip \belowcaptionskip .
+\c@caption@flags=\count94
+\c@ContinuedFloat=\count95
+) (/usr/local/texlive/2019/texmf-dist/tex/latex/listings/listings.sty
+\lst@mode=\count96
+\lst@gtempboxa=\box45
+\lst@token=\toks18
+\lst@length=\count97
+\lst@currlwidth=\dimen132
+\lst@column=\count98
+\lst@pos=\count99
+\lst@lostspace=\dimen133
+\lst@width=\dimen134
+\lst@newlines=\count100
+\lst@lineno=\count101
+\lst@maxwidth=\dimen135
+
+(/usr/local/texlive/2019/texmf-dist/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2019/02/27 1.8b (Carsten Heinz)
+\c@lstnumber=\count102
+\lst@skipnumbers=\count103
+\lst@framebox=\box46
+)
+(/usr/local/texlive/2019/texmf-dist/tex/latex/listings/listings.cfg
+File: listings.cfg 2019/02/27 1.8b listings configuration
+))
+Package: listings 2019/02/27 1.8b (Carsten Heinz)
+
+(/usr/local/texlive/2019/texmf-dist/tex/latex/fancybox/fancybox.sty
+Package: fancybox 2010/05/15 1.4
+
+Style option: `fancybox' v1.4 <2010/05/15> (tvz)
+\@fancybox=\box47
+\shadowsize=\dimen136
+\@Sbox=\box48
+\do@VerbBox=\toks19
+\the@fancyput=\toks20
+\this@fancyput=\toks21
+\EndVerbatimTokens=\toks22
+\Verbatim@Outfile=\write3
+\Verbatim@Infile=\read1
+) (/usr/local/texlive/2019/texmf-dist/tex/latex/ascmac/ascmac.sty
+Package: ascmac 2018/03/09 v2.0h ascmac wrapper (community edition) 
+
+(/usr/local/texlive/2019/texmf-dist/tex/latex/ascmac/tascmac.sty
+Package: tascmac 2018/03/09 v2.0h ascmac package (community edition) 
+\@savetbaselineshift=\dimen137
+\@saveybaselineshift=\dimen138
+\scb@x=\box49
+\scscb@x=\box50
+\@bw=\dimen139
+\@nbox=\box51
+\@nbody=\box52
+\@scw=\dimen140
+\ascmac@hoboxa=\box53
+\ascmac@hoboxb=\box54
+\@itemh=\dimen141
+\@iboxpos=\toks23
+\@iboxstr=\box55
+\@bwsp=\box56
+\@@bwsp=\box57
+\@bcal=\count104
+\shaderule=\dimen142
+))
+(/usr/local/texlive/2019/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2018/12/01 v2.17b AMS math features
+\@mathmargin=\skip46
+
+For additional information on amsmath, use the `?' option.
+(/usr/local/texlive/2019/texmf-dist/tex/latex/amsmath/amstext.sty
+Package: amstext 2000/06/29 v2.01 AMS text
+
+(/usr/local/texlive/2019/texmf-dist/tex/latex/amsmath/amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks24
+\ex@=\dimen143
+))
+(/usr/local/texlive/2019/texmf-dist/tex/latex/amsmath/amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen144
+)
+(/usr/local/texlive/2019/texmf-dist/tex/latex/amsmath/amsopn.sty
+Package: amsopn 2016/03/08 v2.02 operator names
+)
+\inf@bad=\count105
+LaTeX Info: Redefining \frac on input line 223.
+\uproot@=\count106
+\leftroot@=\count107
+LaTeX Info: Redefining \overline on input line 385.
+\classnum@=\count108
+\DOTSCASE@=\count109
+LaTeX Info: Redefining \ldots on input line 482.
+LaTeX Info: Redefining \dots on input line 485.
+LaTeX Info: Redefining \cdots on input line 606.
+\Mathstrutbox@=\box58
+\strutbox@=\box59
+\big@size=\dimen145
+LaTeX Font Info:    Redeclaring font encoding OML on input line 729.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 730.
+\macc@depth=\count110
+\c@MaxMatrixCols=\count111
+\dotsspace@=\muskip10
+\c@parentequation=\count112
+\dspbrk@lvl=\count113
+\tag@help=\toks25
+\row@=\count114
+\column@=\count115
+\maxfields@=\count116
+\andhelp@=\toks26
+\eqnshift@=\dimen146
+\alignsep@=\dimen147
+\tagshift@=\dimen148
+\tagwidth@=\dimen149
+\totwidth@=\dimen150
+\lineht@=\dimen151
+\@envbody=\toks27
+\multlinegap=\skip47
+\multlinetaggap=\skip48
+\mathdisplay@stack=\toks28
+LaTeX Info: Redefining \[ on input line 2844.
+LaTeX Info: Redefining \] on input line 2845.
+)
+(/usr/local/texlive/2019/texmf-dist/tex/latex/tools/longtable.sty
+Package: longtable 2014/10/28 v4.11 Multi-page Table package (DPC)+ FMi change
+\LTleft=\skip49
+\LTright=\skip50
+\LTpre=\skip51
+\LTpost=\skip52
+\LTchunksize=\count117
+\LTcapwidth=\dimen152
+\LT@head=\box60
+\LT@firsthead=\box61
+\LT@foot=\box62
+\LT@lastfoot=\box63
+\LT@cols=\count118
+\LT@rows=\count119
+\c@LT@tables=\count120
+\c@LT@chunks=\count121
+\LT@p@ftn=\toks29
+)
+(/usr/local/texlive/2019/texmf-dist/tex/latex/subfig/subfig.sty
+Package: subfig 2005/06/28 ver: 1.3 subfig package
+\c@KVtest=\count122
+\sf@farskip=\skip53
+\sf@captopadj=\dimen153
+\sf@capskip=\skip54
+\sf@nearskip=\skip55
+\c@subfigure=\count123
+\c@subfigure@save=\count124
+\c@lofdepth=\count125
+\c@subtable=\count126
+\c@subtable@save=\count127
+\c@lotdepth=\count128
+\sf@top=\skip56
+\sf@bottom=\skip57
+)
+(./netgraph.aux)
+\openout1 = `netgraph.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 42.
+LaTeX Font Info:    ... okay on input line 42.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 42.
+LaTeX Font Info:    ... okay on input line 42.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 42.
+LaTeX Font Info:    ... okay on input line 42.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 42.
+LaTeX Font Info:    ... okay on input line 42.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 42.
+LaTeX Font Info:    ... okay on input line 42.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 42.
+LaTeX Font Info:    ... okay on input line 42.
+LaTeX Font Info:    Checking defaults for JY1/mc/m/n on input line 42.
+LaTeX Font Info:    ... okay on input line 42.
+LaTeX Font Info:    Checking defaults for JT1/mc/m/n on input line 42.
+LaTeX Font Info:    ... okay on input line 42.
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: subfig package v1.3 is loaded.
+Package caption Info: listings package is loaded.
+Package caption Info: longtable package is loaded.
+
+(/usr/local/texlive/2019/texmf-dist/tex/latex/caption/ltcaption.sty
+Package: ltcaption 2018/08/26 v1.4-95 longtable captions (AR)
+)
+Package caption Info: End \AtBeginDocument code.
+\c@lstlisting=\count129
+ [1
+
+]
+LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <14.4> not available
+(Font)              Font shape `JT1/gt/m/n' tried instead on input line 61.
+LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <14.4> not available
+(Font)              Font shape `JY1/gt/m/n' tried instead on input line 61.
+
+(./netgraph.toc
+LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <10> not available
+(Font)              Font shape `JT1/gt/m/n' tried instead on input line 1.
+LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <10> not available
+(Font)              Font shape `JY1/gt/m/n' tried instead on input line 1.
+)
+\tf@toc=\write4
+\openout4 = `netgraph.toc'.
+
+ [2
+
+]
+LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <12> not available
+(Font)              Font shape `JT1/gt/m/n' tried instead on input line 65.
+LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <12> not available
+(Font)              Font shape `JY1/gt/m/n' tried instead on input line 65.
+
+
+LaTeX Warning: Citation `bib:wikigraph' on page 3 undefined on input line 66.
+
+
+LaTeX Font Warning: Font shape `JT1/mc/m/it' undefined
+(Font)              using `JT1/mc/m/n' instead on input line 76.
+
+
+LaTeX Font Warning: Font shape `JY1/mc/m/it' undefined
+(Font)              using `JY1/mc/m/n' instead on input line 76.
+
+
+LaTeX Warning: Citation `bib:boyoh' on page 3 undefined on input line 76.
+
+
+LaTeX Warning: Citation `bib:boyoh' on page 3 undefined on input line 78.
+
+
+LaTeX Warning: Citation `bib:boyoh' on page 3 undefined on input line 83.
+
+
+LaTeX Warning: Citation `bib:boyoh' on page 3 undefined on input line 85.
+
+
+LaTeX Warning: Citation `bib:boyoh' on page 3 undefined on input line 90.
+
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 99.
+(/usr/local/texlive/2019/texmf-dist/tex/latex/base/omscmr.fd
+File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 99.
+ [3
+
+] [4] [5]
+[6]
+
+LaTeX Warning: Citation `bib:cazals' on page 7 undefined on input line 212.
+
+[7] (./netgraph.aux)
+
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+
+
+LaTeX Warning: There were undefined references.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 4821 strings out of 493230
+ 68201 string characters out of 6144486
+ 154863 words of memory out of 5000000
+ 8788 multiletter control sequences out of 15000+600000
+ 11613 words of font info for 47 fonts, out of 8000000 for 9000
+ 929 hyphenation exceptions out of 8191
+ 36i,6n,38p,444b,311s stack positions out of 5000i,500n,10000p,200000b,80000s
+
+Output written on netgraph.dvi (7 pages, 23388 bytes).

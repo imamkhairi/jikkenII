@@ -18,9 +18,10 @@ int countLines(FILE *in) {
 
 void print (int *target, int size) {
     for (int i = 0; i < size; i++) {
-        if(*target != 0) printf("[%d] : %d\n", i + 1, *target);
+        if(*target != 0) printf("%d ", i + 1);
         target++;
     }
+    printf("\n");
 }
 
 // row disini mulai dari 1
@@ -69,7 +70,6 @@ void unionData(int *target, int *condition, int *data, int size, int row) {
         int *c_2 = data + row * size;
 
         for (int i = 0; i < size; i++) {
-            // printf("%d \n", condition[i]);
             if (c_1[i] || c_2[i]) t[i] = 1;
             else t[i] = 0;
         }
@@ -86,7 +86,6 @@ void intersectionData(int *target, int *condition, int *data, int size, int row)
         int *c_2 = data + row * size;
 
         for (int i = 0; i < size; i++) {
-            // printf("%d \n", condition[i]);
             if (c_1[i] && c_2[i]) t[i] = 1;
             else t[i] = 0;
         }
@@ -114,7 +113,6 @@ void BronKerbosch(int *R, int *P, int *X, int *data, int size) {
         printf("\n");
     } else {
         for (int i = 0; i < size; i++) {
-        // for (int i = 0; i < 1; i++) {
             if (P[i] == 1) {
                 int *v = (int *)malloc(size * sizeof(int));
                 int *arg1 = (int *)malloc(size * sizeof(int));

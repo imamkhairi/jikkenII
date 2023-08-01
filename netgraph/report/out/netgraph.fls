@@ -338,6 +338,10 @@ OUTPUT out/netgraph.toc
 INPUT c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmr12.tfm
 INPUT c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
 INPUT c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmti10.tfm
+INPUT ../image/ringbuffer1.png
+INPUT ../image/ringbuffer1.png
+INPUT ../image/ringbuffer1.png
+INPUT extractbb -B cropbox -O ../image/ringbuffer1.png
 INPUT c:/texlive/2023/texmf-dist/fonts/tfm/jknappen/ec/tcrm1000.tfm
 INPUT c:/texlive/2023/texmf-dist/tex/latex/listings/lstlang1.sty
 INPUT c:/texlive/2023/texmf-dist/tex/latex/listings/lstlang1.sty
@@ -364,4 +368,22 @@ INPUT d:/Kosen/jikkenII/netgraph/bfs_connect.c
 INPUT d:/Kosen/jikkenII/netgraph/bfs_connect.c
 INPUT d:/Kosen/jikkenII/netgraph/bfs_connect.c
 INPUT d:/Kosen/jikkenII/netgraph/bfs_connect.c
+INPUT d:/Kosen/jikkenII/netgraph/dfs_no3.c
+INPUT d:/Kosen/jikkenII/netgraph/dfs_no3.c
+INPUT d:/Kosen/jikkenII/netgraph/dfs_no3.c
+INPUT d:/Kosen/jikkenII/netgraph/dfs_no3.c
+INPUT d:/Kosen/jikkenII/netgraph/dfs_no3.c
+INPUT d:/Kosen/jikkenII/netgraph/dfs_no3.c
+INPUT d:/Kosen/jikkenII/netgraph/bfs_no3.c
+INPUT d:/Kosen/jikkenII/netgraph/bfs_no3.c
+INPUT d:/Kosen/jikkenII/netgraph/bfs_no3.c
+INPUT d:/Kosen/jikkenII/netgraph/bfs_no3.c
+INPUT d:/Kosen/jikkenII/netgraph/bfs_no3.c
+INPUT d:/Kosen/jikkenII/netgraph/bfs_no3.c
+INPUT d:/Kosen/jikkenII/netgraph/clique.c
+INPUT d:/Kosen/jikkenII/netgraph/clique.c
+INPUT d:/Kosen/jikkenII/netgraph/clique.c
+INPUT d:/Kosen/jikkenII/netgraph/clique.c
+INPUT d:/Kosen/jikkenII/netgraph/clique.c
+INPUT d:/Kosen/jikkenII/netgraph/clique.c
 INPUT out/netgraph.aux

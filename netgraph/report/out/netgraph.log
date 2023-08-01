@@ -1,4 +1,4 @@
-This is e-pTeX, Version 3.141592653-p4.1.0-230214-2.6 (utf8.sjis) (TeX Live 2023) (preloaded format=platex 2023.4.20)  24 JUL 2023 23:15
+This is e-pTeX, Version 3.141592653-p4.1.0-230214-2.6 (utf8.sjis) (TeX Live 2023) (preloaded format=platex 2023.4.20)  1 AUG 2023 22:36
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -265,24 +265,24 @@ File: l3backend-dvips.def 2023-03-30 L3 backend support: dvips
 ) (out/netgraph.aux)
 \openout1 = `netgraph.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for JY1/mc/m/n on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for JT1/mc/m/n on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for JY1/mc/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for JT1/mc/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: subfig package v1.3 is loaded.
 Package caption Info: listings package is loaded.
@@ -296,9 +296,9 @@ Package caption Info: End \AtBeginDocument code.
 
 ]
 LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <14.4> not available
-(Font)              Font shape `JT1/gt/m/n' tried instead on input line 61.
+(Font)              Font shape `JT1/gt/m/n' tried instead on input line 62.
 LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <14.4> not available
-(Font)              Font shape `JY1/gt/m/n' tried instead on input line 61.
+(Font)              Font shape `JY1/gt/m/n' tried instead on input line 62.
 (out/netgraph.toc
 LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <10> not available
 (Font)              Font shape `JT1/gt/m/n' tried instead on input line 1.
@@ -312,65 +312,55 @@ LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <10> not available
 
 ]
 LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <12> not available
-(Font)              Font shape `JT1/gt/m/n' tried instead on input line 65.
+(Font)              Font shape `JT1/gt/m/n' tried instead on input line 66.
 LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <12> not available
-(Font)              Font shape `JY1/gt/m/n' tried instead on input line 65.
-
-LaTeX Warning: Citation `bib:wikigraph' on page 3 undefined on input line 66.
-
+(Font)              Font shape `JY1/gt/m/n' tried instead on input line 66.
 LaTeX Font Info:    Kanji font shape `JY1/mc/m/it' undefined
-(Font)              No change on input line 76.
-
-LaTeX Warning: Citation `bib:boyoh' on page 3 undefined on input line 76.
-
+(Font)              No change on input line 77.
 LaTeX Font Info:    Kanji font shape `JY1/mc/m/it' undefined
-(Font)              No change on input line 78.
+(Font)              No change on input line 79.
 LaTeX Font Info:    Kanji font shape `JY1/mc/m/it' undefined
-(Font)              No change on input line 78.
-
-LaTeX Warning: Citation `bib:boyoh' on page 3 undefined on input line 78.
-
+(Font)              No change on input line 79.
 LaTeX Font Info:    Kanji font shape `JY1/mc/m/it' undefined
-(Font)              No change on input line 83.
-
-LaTeX Warning: Citation `bib:boyoh' on page 3 undefined on input line 83.
-
+(Font)              No change on input line 84.
 LaTeX Font Info:    Kanji font shape `JY1/mc/m/it' undefined
-(Font)              No change on input line 85.
+(Font)              No change on input line 86.
 LaTeX Font Info:    Kanji font shape `JY1/mc/m/it' undefined
-(Font)              No change on input line 85.
+(Font)              No change on input line 86.
 LaTeX Font Info:    Kanji font shape `JY1/mc/m/it' undefined
-(Font)              No change on input line 85.
+(Font)              No change on input line 86.
 LaTeX Font Info:    Kanji font shape `JY1/mc/m/it' undefined
-(Font)              No change on input line 85.
-
-LaTeX Warning: Citation `bib:boyoh' on page 3 undefined on input line 85.
-
-
-LaTeX Warning: Citation `bib:boyoh' on page 3 undefined on input line 90.
-
-LaTeX Font Info:    Kanji font shape `JY1/mc/m/it' undefined
-(Font)              No change on input line 90.
-LaTeX Font Info:    Kanji font shape `JY1/mc/m/it' undefined
-(Font)              No change on input line 90.
+(Font)              No change on input line 86.
 [3
 
-] (c:/texlive/2023/texmf-dist/tex/latex/listings/lstlang1.sty
+]
+LaTeX Font Info:    Kanji font shape `JY1/mc/m/it' undefined
+(Font)              No change on input line 91.
+LaTeX Font Info:    Kanji font shape `JY1/mc/m/it' undefined
+(Font)              No change on input line 91.
+File: ../image/ringbuffer1.png Graphic file (type bmp)
+<../image/ringbuffer1.png>
+(c:/texlive/2023/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2023/02/27 1.9 listings language file
 ) (c:/texlive/2023/texmf-dist/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2023/02/27 1.9 (Carsten Heinz)
-) (d:/Kosen/jikkenII/netgraph/dfs_connect.c [4] [5] [6] [7] [8]) (d:/Kosen/jikkenII/netgraph/bfs_connect.c [9] [10] [11] [12] [13]) [14] (out/netgraph.aux)
+) (d:/Kosen/jikkenII/netgraph/dfs_connect.c [4
 
-LaTeX Warning: There were undefined references.
-
- ) 
+] [5] [6] [7] [8]) [9] (d:/Kosen/jikkenII/netgraph/bfs_connect.c [10] [11] [12] [13])
+LaTeX Font Info:    Kanji font shape `JY1/mc/m/it' undefined
+(Font)              No change on input line 147.
+LaTeX Font Info:    Kanji font shape `JY1/mc/m/it' undefined
+(Font)              No change on input line 147.
+LaTeX Font Info:    Kanji font shape `JY1/mc/m/it' undefined
+(Font)              No change on input line 152.
+[14] [15] (d:/Kosen/jikkenII/netgraph/dfs_no3.c) (d:/Kosen/jikkenII/netgraph/bfs_no3.c) [16] (d:/Kosen/jikkenII/netgraph/clique.c [17] [18] [19]) [20] [21] (out/netgraph.aux) ) 
 Here is how much of TeX's memory you used:
- 6264 strings out of 478133
- 97345 string characters out of 5841535
- 2521481 words of memory out of 5000000
- 26558 multiletter control sequences out of 15000+600000
+ 6347 strings out of 478133
+ 98683 string characters out of 5841535
+ 2659481 words of memory out of 5000000
+ 26627 multiletter control sequences out of 15000+600000
  521693 words of font info for 71 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
- 55i,6n,63p,499b,1938s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 55i,10n,63p,495b,1938s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on out/netgraph.dvi (14 pages, 367780 bytes).
+Output written on out/netgraph.dvi (21 pages, 459468 bytes).

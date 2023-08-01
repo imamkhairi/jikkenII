@@ -100,7 +100,6 @@ void storeArray(FILE *in, int *dst) {
     }
 }
 
-// row disini mulai dari 1
 void printArrayAt(int *data, int size, int row) {
     if (row <= size) {
         row--;
@@ -114,7 +113,6 @@ void printArrayAt(int *data, int size, int row) {
     }
 }
 
-// return first index of 1, row disini mulai dari 1
 int searchRow(int *data, int size, int row, int *flag) {
     int offset = 0;
     if (row <= size) {
@@ -122,7 +120,7 @@ int searchRow(int *data, int size, int row, int *flag) {
         int *p = data + row*size;
         for (int i = 0; i < size; i++) {
             if(*p == 1 && flag[offset] == 0) {
-                flag[offset] = 1; //update flag
+                flag[offset] = 1; 
                 break;
             }
             else offset++;
@@ -146,7 +144,6 @@ int searchRight(int *result, int size, int target) {
     int index = last;
     while (result[index] != target && index >= 0) {
         index -= 2;
-        // printf("index = %d\n", index);
     }
     return index;
 }
@@ -165,12 +162,10 @@ int sameLeft(int *result, int size) {
 
 void countHeight(int *result, int size) {
     int last = 2*(size-1)-1;    
-    // int index = 2*(size-1)-1;
     int height = 1;
     for (int i = last; i >= 0; i -= 2) {
         int index = i;
         int dummy = 1;
-        // printf("%d\n", result[i]);
         while(result[index - 1] != 1) {
             index = searchRight(result, size, result[index - 1]);
             dummy += 1;
@@ -220,17 +215,14 @@ void countChild(int *result, int size) {
             *c = *c + 1;
         }
     }
-    // print(child, aSize);
     printf("Max Child = %d\n", getMax(child, aSize));
     free(child);
 }
 
 int checkFlag(int *flag, int size) {
-    // int *p = flag;
     int count = 0;
     for (int i = 0; i < size; i++) {
         if (flag[i] == 0) break;
-        // p++;
         count++;
     }
     return count;
@@ -263,7 +255,7 @@ int main(int argc, char **argv) {
     int *data = (int *)malloc(size * size * sizeof(int));
     storeArray(fp, data);
 
-    int *flag = (int *)malloc(size * sizeof(int)); // 1 visited, 0 not yet
+    int *flag = (int *)malloc(size * sizeof(int)); 
     flag[0] = 1;
 
     int *result = (int *)malloc(2 * size * sizeof(int));
@@ -310,5 +302,7 @@ int main(int argc, char **argv) {
     free(flag);
     free(result);
     fclose(fp);
+
+    return 0;
 }
 

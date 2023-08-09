@@ -1,4 +1,4 @@
-This is e-pTeX, Version 3.141592653-p4.1.0-230214-2.6 (utf8.sjis) (TeX Live 2023) (preloaded format=platex 2023.4.20)  1 AUG 2023 22:36
+This is e-pTeX, Version 3.141592653-p4.1.0-230214-2.6 (utf8.sjis) (TeX Live 2023) (preloaded format=platex 2023.4.20)  9 AUG 2023 20:09
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -355,12 +355,12 @@ LaTeX Font Info:    Kanji font shape `JY1/mc/m/it' undefined
 (Font)              No change on input line 152.
 [14] [15] (d:/Kosen/jikkenII/netgraph/dfs_no3.c) (d:/Kosen/jikkenII/netgraph/bfs_no3.c) [16] (d:/Kosen/jikkenII/netgraph/clique.c [17] [18] [19]) [20] [21] (out/netgraph.aux) ) 
 Here is how much of TeX's memory you used:
- 6347 strings out of 478133
- 98683 string characters out of 5841535
- 2659481 words of memory out of 5000000
- 26627 multiletter control sequences out of 15000+600000
+ 6351 strings out of 478133
+ 98743 string characters out of 5841535
+ 2673481 words of memory out of 5000000
+ 26631 multiletter control sequences out of 15000+600000
  521693 words of font info for 71 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
  55i,10n,63p,495b,1938s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on out/netgraph.dvi (21 pages, 459468 bytes).
+Output written on out/netgraph.dvi (21 pages, 460032 bytes).

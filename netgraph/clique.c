@@ -16,15 +16,15 @@ int countLines(FILE *in) {
     return count;
 }
 
-void print (int *target, int size) {
+void countClique (int *target, int size, int *count) {
     for (int i = 0; i < size; i++) {
-        if(*target != 0) printf("%d ", i + 1);
+        if(*target != 0) {
+            (*count)++;
+        }
         target++;
     }
-    printf("\n");
 }
 
-// row disini mulai dari 1
 void printArrayAt(int *data, int size, int row) {
     if (row <= size) {
         row--;
@@ -101,16 +101,16 @@ int isEmpty(int *data, int size) {
     return 1;
 }
 
-void BronKerbosch(int *R, int *P, int *X, int *data, int size) {
+void BronKerbosch(int *R, int *P, int *X, int *data, int size, int *maxClique) {
     int *r = R;
     int *p = P;
     int *x = X;
     int *d = data;
 
     if(isEmpty(p, size) && isEmpty(x, size)) {
-        printf("Result\n");
-        print(r, size);
-        printf("\n");
+        int count = 0;
+        countClique(r, size, &count);
+        if (count > *maxClique) *maxClique = count;
     } else {
         for (int i = 0; i < size; i++) {
             if (P[i] == 1) {
@@ -128,7 +128,7 @@ void BronKerbosch(int *R, int *P, int *X, int *data, int size) {
                 intersectionData(arg2, p, d, size, i+1);
                 intersectionData(arg3, x, d, size, i+1);
 
-                BronKerbosch(arg1, arg2, arg3, d, size);
+                BronKerbosch(arg1, arg2, arg3, d, size, maxClique);
 
                 P[i] = 0;
                 unionData(x, x, v, size, 1);
@@ -174,7 +174,9 @@ int main(int argc, char **argv) {
     initP(P, size);
     init(X, size);
 
-    BronKerbosch(R, P, X, data, size);
+    int maxClique = 0;
+    BronKerbosch(R, P, X, data, size, &maxClique);
+    printf("maxClique = %d\n", maxClique);
 
     free(R);
     free(P);

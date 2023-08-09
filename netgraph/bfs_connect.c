@@ -279,10 +279,10 @@ int main(int argc, char **argv) {
         queueEnqueue(queue, size, &qHead, &qTail, currentNode);
     }
     
-    // printResult(result, size);
-    // countHeight(result, size);
-    // countLeaf(result, size);
-    // countChild(result, size);
+    printResult(result, size);
+    countHeight(result, size);
+    countLeaf(result, size);
+    countChild(result, size);
 
     printf("Connected Component = %d\n", count);
 

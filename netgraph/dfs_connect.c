@@ -290,10 +290,10 @@ int main(int argc, char **argv) {
         stackPush(stack, size, currentNode);
     }
 
-    // printResult(result, size);
-    // countHeight(result, size);
-    // countLeaf(result, size);
-    // countChild(result, size);
+    printResult(result, size);
+    countHeight(result, size);
+    countLeaf(result, size);
+    countChild(result, size);
 
     printf("Connected Component = %d\n", count);
 
